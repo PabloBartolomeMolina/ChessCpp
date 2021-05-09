@@ -43,17 +43,18 @@ void placePieces(bool initial)
 /// </summary>
 void Board::showBoard()
 {
+    cout << "      a     b     c     d     e     f     g     h   " << endl;
     for (int r = 0; r < 8; r++)
     {
         if (r != 7)
         {
             cout << "    _____ _____ _____ _____ _____ _____ _____ _____ " << endl << endl;
-            cout << r + 1 << "  |     |     |     |     |     |     |     |     |" << endl;
+            cout << 8 - r << "  |     |     |     |     |     |     |     |     |" << endl;
         }
         else 
         {
             cout << "    _____ _____ _____ _____ _____ _____ _____ _____ " << endl << endl;
-            cout << r + 1 << "  |     |     |     |     |     |     |     |     |" << endl;
+            cout << 8 - r << "  |     |     |     |     |     |     |     |     |" << endl;
             cout << "    _____ _____ _____ _____ _____ _____ _____ _____ " << endl << endl;
         }
 
