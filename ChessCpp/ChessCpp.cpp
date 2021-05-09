@@ -6,5 +6,6 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Board board = Board();
+    board.showBoard();
 }

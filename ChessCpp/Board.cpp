@@ -8,11 +8,6 @@
 /// </summary>
 Board::Board()
 {
-    /* Two pieces of each type, following the next code:
-    * b = black piece   //   w = white piece
-    * p = pawn   //   R = Rook   //  N = Knight
-    * B = Bishop   //   Q = Queen   //  K = King */
-    string pieces[12] = { "pw", "pb", "Rw", "Rb", "Nw", "Nb", "Bw", "Bb", "Qw", "Qb", "Kw", "Kb" };
     cout << "Board object has been created." << endl;
 }
 
@@ -48,5 +43,24 @@ void placePieces(bool initial)
 /// </summary>
 void Board::showBoard()
 {
+    for (int r = 0; r < 8; r++)
+    {
+        if (r != 7)
+        {
+            cout << "    _____ _____ _____ _____ _____ _____ _____ _____ " << endl << endl;
+            cout << r + 1 << "  |     |     |     |     |     |     |     |     |" << endl;
+        }
+        else 
+        {
+            cout << "    _____ _____ _____ _____ _____ _____ _____ _____ " << endl << endl;
+            cout << r + 1 << "  |     |     |     |     |     |     |     |     |" << endl;
+            cout << "    _____ _____ _____ _____ _____ _____ _____ _____ " << endl << endl;
+        }
 
+
+        for (int c = 0; c < 8; c++)
+        {
+
+        }
+    }
 }
