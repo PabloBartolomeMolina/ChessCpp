@@ -20,6 +20,11 @@ private:
     * p = pawn   //   R = Rook   //  N = Knight
     * B = Bishop   //   Q = Queen   //  K = King */
     string pieces[12] = { "pw", "pb", "Rw", "Rb", "Nw", "Nb", "Bw", "Bb", "Qw", "Qb", "Kw", "Kb" };
+
+    /* Columns names from the POV of each player with the adequate formating to be printed on console. */
+    string colsWhite = "      a     b     c     d     e     f     g     h   ";
+    string colsBlack = "      h     g     f     e     d     c     b     a   ";
+
     void placePieces(bool initial);
 
 public:
