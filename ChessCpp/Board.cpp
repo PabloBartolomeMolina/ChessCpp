@@ -43,9 +43,9 @@ void placePieces(bool initial)
 /// </summary>
 void Board::showBoard()
 {
-    string horizontal = "    _____ _____ _____ _____ _____ _____ _____ _____ ";
-    string dSpace = "  |  ";
+    // Set the columns letter.
     cout << endl << colsWhite << endl;
+    // Print out the board.
     for (int r = 0; r < 8; r++)
     {
         cout << horizontal << endl << endl;
