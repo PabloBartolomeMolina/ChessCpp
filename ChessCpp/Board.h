@@ -24,6 +24,8 @@ private:
     /* Columns names from the POV of each player with the adequate formating to be printed on console. */
     string colsWhite = "      a     b     c     d     e     f     g     h   ";
     string colsBlack = "      h     g     f     e     d     c     b     a   ";
+    string row = "|     |     |     |     |     |     |     |     |";
+
 
     void placePieces(bool initial);
 
