@@ -36,7 +36,7 @@ private:
     string row7 = "";
     string row8 = "";
 
-    void placePieces(bool initial);
+    void placePieces();
     void initPlace();
 
 public:

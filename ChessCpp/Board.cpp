@@ -54,20 +54,10 @@ void Board::initPlace()
 
 /// <summary>
 /// Method to place all the pieces on the board before showing it, with the current informations.
-/// INPUT Paramenters:
-///     * bool initial - When set to TRUE, it indicates if the initial position should be set up. Else, we need to check other informations.
 /// </summary>
-void Board::placePieces(bool initial)
+void Board::placePieces()
 {
-    if (initial)
-    {
-        /* Initial position. */
-        initPlace();
-    }
-    else
-    {
-        /* Position after a movement. */
-    }
+
 }
 
 /// <summary>
