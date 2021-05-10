@@ -28,6 +28,7 @@ private:
     /* Horizontal separator for board and empty rows. */
     string horizontal = "    ______ ______ ______ ______ ______ ______ ______ ______ ";
     string rowEmpty = "|      |      |      |      |      |      |      |      |";
+    string dSpace = "  |";
     /* Rows with initial position. */
     string row1 = "";
     string row2 = "";
@@ -38,7 +39,7 @@ private:
     string row7 = "";
     string row8 = "";
 
-    void initialPieces(bool initial);
+    void placePieces(bool initial);
     void initPlace();
 
 public:

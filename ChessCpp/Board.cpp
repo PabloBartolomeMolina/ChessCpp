@@ -8,6 +8,7 @@
 /// </summary>
 Board::Board()
 {
+    initPlace();
     cout << "Board object has been created." << endl;
 }
 
@@ -24,9 +25,25 @@ Board::~Board()
 /// <summary>
 /// Method to places the initial position of the pieces on the board.
 /// </summary>
-void initPlace()
+void Board::initPlace()
 {
+    // Pawn rows.
+    row2 = "2" + dSpace;
+    row7 = "7" + dSpace;
+    for (int i = 0; i < 8; i++)
+    {
+        row2 += "  pw" + dSpace;
+        row7 += "  pb" + dSpace;
+    }
 
+    // Pieces rows.
+    row1 = "1  " + rowEmpty;
+    row8 = "8  " + rowEmpty;
+    // Empty rows.
+    row3 = "3  " + rowEmpty;
+    row4 = "4  " + rowEmpty;
+    row5 = "5  " + rowEmpty;
+    row6 = "6  " + rowEmpty;
 }
 
 /// <summary>
@@ -34,11 +51,12 @@ void initPlace()
 /// INPUT Paramenters:
 ///     * bool initial - When set to TRUE, it indicates if the initial position should be set up. Else, we need to check other informations.
 /// </summary>
-void placePieces(bool initial)
+void Board::placePieces(bool initial)
 {
     if (initial)
     {
         /* Initial position. */
+        initPlace();
     }
     else
     {
@@ -53,15 +71,23 @@ void Board::showBoard()
 {
     // Set the columns letter.
     cout << endl << colsWhite << endl;
-    // Print out the board.
-    for (int r = 0; r < 8; r++)
-    {
-        cout << horizontal << endl << endl;
-        cout << 8 - r << "  " << rowEmpty << endl;
 
-        if (r == 7)
-        {
-            cout << horizontal << endl;
-        }
-    }
+    // Print out the board.
+    cout << horizontal << endl << endl;
+    cout << row8 << endl;
+    cout << horizontal << endl << endl;
+    cout << row7 << endl; 
+    cout << horizontal << endl << endl;
+    cout << row6 << endl; 
+    cout << horizontal << endl << endl;
+    cout << row5 << endl; 
+    cout << horizontal << endl << endl;
+    cout << row4 << endl; 
+    cout << horizontal << endl << endl;
+    cout << row3 << endl; 
+    cout << horizontal << endl << endl;
+    cout << row2 << endl; 
+    cout << horizontal << endl << endl;
+    cout << row1 << endl; 
+    cout << horizontal << endl << endl;
 }
