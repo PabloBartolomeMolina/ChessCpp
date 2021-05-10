@@ -26,11 +26,20 @@ private:
     string colsBlack = "      h     g     f     e     d     c     b     a   ";
 
     /* Horizontal separator for board and empty rows. */
-    string horizontal = "    _____ _____ _____ _____ _____ _____ _____ _____ ";
-    string row = "|     |     |     |     |     |     |     |     |";
+    string horizontal = "    ______ ______ ______ ______ ______ ______ ______ ______ ";
+    string rowEmpty = "|      |      |      |      |      |      |      |      |";
+    /* Rows with initial position. */
+    string row1 = "";
+    string row2 = "";
+    string row3 = "";
+    string row4 = "";
+    string row5 = "";
+    string row6 = "";
+    string row7 = "";
+    string row8 = "";
 
-
-    void placePieces(bool initial);
+    void initialPieces(bool initial);
+    void initPlace();
 
 public:
     Board();

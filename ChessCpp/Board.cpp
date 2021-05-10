@@ -22,6 +22,14 @@ Board::~Board()
 /* PRIVATE methods of the class Board. */
 
 /// <summary>
+/// Method to places the initial position of the pieces on the board.
+/// </summary>
+void initPlace()
+{
+
+}
+
+/// <summary>
 /// Method to place all the pieces on the board before showing it, with the current informations.
 /// INPUT Paramenters:
 ///     * bool initial - When set to TRUE, it indicates if the initial position should be set up. Else, we need to check other informations.
@@ -49,7 +57,7 @@ void Board::showBoard()
     for (int r = 0; r < 8; r++)
     {
         cout << horizontal << endl << endl;
-        cout << 8 - r << "  " << row << endl;
+        cout << 8 - r << "  " << rowEmpty << endl;
 
         if (r == 7)
         {
