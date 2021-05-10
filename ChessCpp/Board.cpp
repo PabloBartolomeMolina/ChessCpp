@@ -37,8 +37,14 @@ void Board::initPlace()
     }
 
     // Pieces rows.
-    row1 = "1  " + rowEmpty;
-    row8 = "8  " + rowEmpty;
+    row1 = "1" + dSpace;
+    row8 = "8" + dSpace;
+    for (int i = 0; i < 8; i++)
+    {
+        row1 += "  " + whitePieces[i] + dSpace;
+        row8 += "  " + blackPieces[i] + dSpace;
+    }
+
     // Empty rows.
     row3 = "3  " + rowEmpty;
     row4 = "4  " + rowEmpty;
