@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Board
+class CBoard
 {
 private:
     /* Two pieces of each type, following the next code:
@@ -38,7 +38,7 @@ private:
     void initPlace();
 
 public:
-    Board();
-    ~Board();
+    CBoard();
+    ~CBoard();
     void showBoard();
 };

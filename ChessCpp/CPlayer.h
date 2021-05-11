@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Player
+class CPlayer
 {
 private:
 	// 0 for black color and 1 for white color.
@@ -18,8 +18,8 @@ private:
 	string pieces[8] = { "Rb", "Nb", "Bb", "Qb", "Kb", "Bb", "Nb", "Rb" };
 
 public:
-	Player(bool input = false);
-	~Player();
+	CPlayer(bool input = false);
+	~CPlayer();
 	void Move();
 };
 

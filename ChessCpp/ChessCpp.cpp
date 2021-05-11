@@ -2,15 +2,15 @@
 //
 
 #include <iostream>
-#include "Board.h"
-#include "Player.h"
+#include "CBoard.h"
+#include "CPlayer.h"
 
 int main()
 {
     // Creation of board and both players.
-    Board board = Board();
-    Player whitePlayer = Player(true);
-    Player blackPlayer = Player(false);
+    CBoard board = CBoard();
+    CPlayer whitePlayer = CPlayer(true);
+    CPlayer blackPlayer = CPlayer(false);
 
     // Show board.
     board.showBoard();

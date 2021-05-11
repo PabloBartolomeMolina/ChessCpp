@@ -1,4 +1,4 @@
-#include "Board.h"
+#include "CBoard.h"
 
 
 /* Basic methods, like constructor and destructor. */
@@ -6,7 +6,7 @@
 /// <summary>
 /// Public constructor to set up basic elements of the Board objects.
 /// </summary>
-Board::Board()
+CBoard::CBoard()
 {
     initPlace();
     cout << "Board object has been created." << endl;
@@ -15,7 +15,7 @@ Board::Board()
 /// <summary>
 /// Public destructor.
 /// </summary>
-Board::~Board()
+CBoard::~CBoard()
 {
     cout << "Board object has been desctructed." << endl;
 }
@@ -25,7 +25,7 @@ Board::~Board()
 /// <summary>
 /// Method to places the initial position of the pieces on the board.
 /// </summary>
-void Board::initPlace()
+void CBoard::initPlace()
 {
     // Pawn rows.
     row2 = "2" + dSpace;
@@ -55,7 +55,7 @@ void Board::initPlace()
 /// <summary>
 /// Method to place all the pieces on the board before showing it, with the current informations.
 /// </summary>
-void Board::placePieces()
+void CBoard::placePieces()
 {
 
 }
@@ -63,7 +63,7 @@ void Board::placePieces()
 /// <summary>
 /// Method to show the board with the current informations.
 /// </summary>
-void Board::showBoard()
+void CBoard::showBoard()
 {
     // Set the columns letter.
     cout << endl << colsWhite << endl;
