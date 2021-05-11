@@ -20,5 +20,6 @@ private:
 public:
 	Player(bool input = false);
 	~Player();
+	void Move();
 };
 
