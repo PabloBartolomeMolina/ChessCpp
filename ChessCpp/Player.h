@@ -18,7 +18,7 @@ private:
 	string pieces[8] = { "Rb", "Nb", "Bb", "Qb", "Kb", "Bb", "Nb", "Rb" };
 
 public:
-	Player();
+	Player(bool input = false);
 	~Player();
 };
 

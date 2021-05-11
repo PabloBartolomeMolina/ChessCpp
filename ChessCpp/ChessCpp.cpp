@@ -7,6 +7,11 @@
 
 int main()
 {
+    // Creation of board and both players.
     Board board = Board();
+    Player whitePlayer = Player(true);
+    Player blackPlayer = Player(false);
+
+    // Show board.
     board.showBoard();
 }

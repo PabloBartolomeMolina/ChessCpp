@@ -5,9 +5,14 @@
 /// <summary>
 /// Public constructor to set up basic elements of the Board objects.
 /// </summary>
-Player::Player()
+Player::Player(bool input)
 {
-    cout << "Board object has been created." << endl;
+    color = input;
+    // Set color of instance.
+    if (color)
+        cout << "Player white has been created." << endl;
+    else
+        cout << "Player black has been created." << endl;
 }
 
 /// <summary>
@@ -15,5 +20,8 @@ Player::Player()
 /// </summary>
 Player::~Player()
 {
-    cout << "Board object has been desctructed." << endl;
+    if (color)
+        cout << "Player white has been created." << endl;
+    else
+        cout << "Player black has been created." << endl;
 }
