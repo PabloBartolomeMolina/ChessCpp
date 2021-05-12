@@ -37,6 +37,6 @@ CPlayer::~CPlayer()
 void CPlayer::Move()
 {
     string move = " ";
-    cout << "Introduce your move :  ";
+    cout << movement;
     cin >> move;
 }

@@ -1,9 +1,9 @@
 // ChessCpp.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 
-#include <iostream>
 #include "CBoard.h"
 #include "CPlayer.h"
+
 
 /// <summary>
 /// Function to manage the basic logic of the program.
@@ -26,5 +26,6 @@ void basicLogic()
 /// <returns></returns>
 int main()
 {
+    cout << initialMessage << endl << endl;
     basicLogic();
 }
