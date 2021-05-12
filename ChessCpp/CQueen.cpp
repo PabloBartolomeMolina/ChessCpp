@@ -7,7 +7,7 @@
 /// </summary>
 CQueen::CQueen()
 {
-
+	cout << "Queen object has been created." << endl;
 }
 
 /// <summary>
@@ -15,5 +15,5 @@ CQueen::CQueen()
 /// </summary>
 CQueen::~CQueen()
 {
-
+	cout << "Queen object has been destroyed." << endl;
 }

@@ -7,7 +7,7 @@
 /// </summary>
 CKnight::CKnight()
 {
-
+	cout << "Knight object has been created." << endl;
 }
 
 /// <summary>
@@ -15,5 +15,5 @@ CKnight::CKnight()
 /// </summary>
 CKnight::~CKnight()
 {
-
+	cout << "Knight object has been destroyed." << endl;
 }

@@ -7,7 +7,7 @@
 /// </summary>
 CRook::CRook()
 {
-
+	cout << "Rook object has been created." << endl;
 }
 
 /// <summary>
@@ -15,5 +15,5 @@ CRook::CRook()
 /// </summary>
 CRook::~CRook()
 {
-
+	cout << "Rook object has been destroyed." << endl;
 }

@@ -40,3 +40,14 @@ void CPlayer::Move()
     cout << movement;
     cin >> move;
 }
+
+/* PRIVATE methods of the class Player. */
+
+/// <summary>
+/// Method to create the proper pieces when player instance is created.
+/// </summary>
+/// <param name="color"></param>
+void CPlayer::createPieces(bool color)
+{
+
+}

@@ -7,7 +7,7 @@
 /// </summary>
 CKing::CKing()
 {
-
+	cout << "King object has been created." << endl;
 }
 
 /// <summary>
@@ -15,5 +15,5 @@ CKing::CKing()
 /// </summary>
 CKing::~CKing()
 {
-
+	cout << "King object has been destroyed." << endl;
 }

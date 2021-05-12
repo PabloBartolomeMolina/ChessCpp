@@ -7,7 +7,7 @@
 /// </summary>
 CBishop::CBishop()
 {
-
+	cout << "Bishop object has been created." << endl;
 }
 
 /// <summary>
@@ -15,5 +15,5 @@ CBishop::CBishop()
 /// </summary>
 CBishop::~CBishop()
 {
-
+	cout << "Bishop object has been destroyed." << endl;
 }

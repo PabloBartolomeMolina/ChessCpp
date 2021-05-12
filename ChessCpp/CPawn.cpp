@@ -7,7 +7,7 @@
 /// </summary>
 CPawn::CPawn()
 {
-
+	cout << "Pawn object has been created." << endl;
 }
 
 /// <summary>
@@ -15,5 +15,5 @@ CPawn::CPawn()
 /// </summary>
 CPawn::~CPawn()
 {
-
+	cout << "Pawn object has been destroyed." << endl;
 }
