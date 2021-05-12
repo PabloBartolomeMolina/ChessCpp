@@ -5,7 +5,8 @@
 #include "CBoard.h"
 #include "CPlayer.h"
 
-int main()
+
+void basicLogic()
 {
     // Creation of board and both players.
     CBoard board = CBoard();
@@ -14,4 +15,13 @@ int main()
 
     // Show board.
     board.showBoard();
+}
+
+/// <summary>
+/// Main function, the entry point of the program.
+/// </summary>
+/// <returns></returns>
+int main()
+{
+    basicLogic();
 }
