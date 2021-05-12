@@ -9,7 +9,7 @@ using namespace std;
 class CPiece
 {
 private:
-	map<string, string> piece = { "NaN", "Nan" };
+	map<string, string> piece = { {"NaN", "Nan" } };
 public:
 	
 	CPiece();
