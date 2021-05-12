@@ -3,6 +3,12 @@
 #include <iostream>
 #include <map>
 #include "Defines.h"
+#include "CPawn.h"
+#include "CRook.h"
+#include "CKnight.h"
+#include "CBishop.h"
+#include "CQueen.h"
+#include "CKing.h"
 
 using namespace std;
 

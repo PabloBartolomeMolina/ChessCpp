@@ -49,5 +49,20 @@ void CPlayer::Move()
 /// <param name="color"></param>
 void CPlayer::createPieces(bool color)
 {
+    if (color)      // White player pieces.
+    {
+        // Create eight pawns.
+        for (int i = 0; i < 8; i++)
+        {
 
+        }
+    }
+    else            // Black player pieces.
+    {
+        // Create eight pawns.
+        for (int i = 0; i < 8; i++)
+        {
+
+        }
+    }
 }
