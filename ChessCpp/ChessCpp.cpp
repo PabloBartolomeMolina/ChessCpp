@@ -5,7 +5,9 @@
 #include "CBoard.h"
 #include "CPlayer.h"
 
-
+/// <summary>
+/// Function to manage the basic logic of the program.
+/// </summary>
 void basicLogic()
 {
     // Creation of board and both players.
@@ -14,7 +16,8 @@ void basicLogic()
     CPlayer blackPlayer = CPlayer(false);
 
     // Show board.
-    board.showBoard();
+    board.showBoard(1);     // Board view for white player.
+    board.showBoard(0);     // Board view for black player.
 }
 
 /// <summary>

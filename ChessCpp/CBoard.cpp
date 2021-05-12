@@ -63,27 +63,55 @@ void CBoard::placePieces()
 /// <summary>
 /// Method to show the board with the current informations.
 /// </summary>
-void CBoard::showBoard()
+void CBoard::showBoard(bool player)
 {
-    // Set the columns letter.
-    cout << endl << colsWhite << endl;
+    if (player)     // White player.
+    {
+        // Set the columns letter.
+        cout << endl << colsWhite << endl;
 
-    // Print out the board.
-    cout << horizontal << endl << endl;
-    cout << row8 << endl;
-    cout << horizontal << endl << endl;
-    cout << row7 << endl; 
-    cout << horizontal << endl << endl;
-    cout << row6 << endl; 
-    cout << horizontal << endl << endl;
-    cout << row5 << endl; 
-    cout << horizontal << endl << endl;
-    cout << row4 << endl; 
-    cout << horizontal << endl << endl;
-    cout << row3 << endl; 
-    cout << horizontal << endl << endl;
-    cout << row2 << endl; 
-    cout << horizontal << endl << endl;
-    cout << row1 << endl; 
-    cout << horizontal << endl << endl;
+        // Print out the board.
+        cout << horizontal << endl << endl;
+        cout << row8 << endl;
+        cout << horizontal << endl << endl;
+        cout << row7 << endl;
+        cout << horizontal << endl << endl;
+        cout << row6 << endl;
+        cout << horizontal << endl << endl;
+        cout << row5 << endl;
+        cout << horizontal << endl << endl;
+        cout << row4 << endl;
+        cout << horizontal << endl << endl;
+        cout << row3 << endl;
+        cout << horizontal << endl << endl;
+        cout << row2 << endl;
+        cout << horizontal << endl << endl;
+        cout << row1 << endl;
+        cout << horizontal << endl << endl;
+    }
+    else            // Black player.
+    {
+        // Set the columns letter.
+        cout << endl << colsBlack << endl;
+
+        // Print out the board.
+        cout << horizontal << endl << endl;
+        cout << row1 << endl;
+        cout << horizontal << endl << endl;
+        cout << row2 << endl;
+        cout << horizontal << endl << endl;
+        cout << row3 << endl;
+        cout << horizontal << endl << endl;
+        cout << row4 << endl;
+        cout << horizontal << endl << endl;
+        cout << row5 << endl;
+        cout << horizontal << endl << endl;
+        cout << row6 << endl;
+        cout << horizontal << endl << endl;
+        cout << row7 << endl;
+        cout << horizontal << endl << endl;
+        cout << row8 << endl;
+        cout << horizontal << endl << endl;
+    }
+    
 }

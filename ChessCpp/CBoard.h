@@ -40,5 +40,5 @@ private:
 public:
     CBoard();
     ~CBoard();
-    void showBoard();
+    void showBoard(bool player = 1);
 };
