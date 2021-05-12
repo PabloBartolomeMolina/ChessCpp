@@ -17,7 +17,7 @@ CBoard::CBoard()
 /// </summary>
 CBoard::~CBoard()
 {
-    cout << "Board object has been desctructed." << endl;
+    cout << "Board object has been destroyed." << endl;
 }
 
 /* PRIVATE methods of the class Board. */

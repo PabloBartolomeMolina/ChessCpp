@@ -7,7 +7,7 @@
 /// </summary>
 CPiece::CPiece()
 {
-
+	cout << "Piece object has been created." << endl;
 }
 
 /// <summary>
@@ -15,5 +15,5 @@ CPiece::CPiece()
 /// </summary>
 CPiece::~CPiece()
 {
-
+	cout << "Piece object has been destroyed." << endl;
 }
