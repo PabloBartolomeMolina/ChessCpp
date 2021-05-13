@@ -1,12 +1,27 @@
+#include <iostream>
+#include <sstream>
 #include "CPawn.h"
+
+using namespace std;
 
 /* Basic methods, like constructor and destructor. */
 
 /// <summary>
 /// Public constructor to set up basic elements of the Board objects.
 /// </summary>
-CPawn::CPawn()
+CPawn::CPawn(bool color, string pos, int num)
 {
+	string named = "Nan";
+	string idd = "Nan";
+	if (color)
+	{
+		named = "pw";
+		idd = named + to_string(num);
+	}
+	this->id = idd;
+	this->name = named;
+	this->position = pos; 
+	this->type = "pawn";
 	cout << "Pawn object has been created." << endl;
 }
 
@@ -16,4 +31,9 @@ CPawn::CPawn()
 CPawn::~CPawn()
 {
 	cout << "Pawn object has been destroyed." << endl;
+}
+
+void CPawn::move()
+{
+	cout << "I am a PAWN" << endl;
 }

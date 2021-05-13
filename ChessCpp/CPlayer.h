@@ -2,7 +2,9 @@
 
 #include <iostream>
 #include <map>
+#include <vector>
 #include "Defines.h"
+#include "CPiece.h"
 #include "CPawn.h"
 #include "CRook.h"
 #include "CKnight.h"
@@ -22,10 +24,18 @@ private:
 	// By default it is for black pieces, to be changed if needed at creation of object.
 	string pieces[8] = { "Rb", "Nb", "Bb", "Qb", "Kb", "Bb", "Nb", "Rb" };
 
+	vector<CPawn> pawns;
+	vector<CRook> rooks;
+	vector<CKnight> knights;
+	vector<CBishop> bishops;
+	vector<CQueen> queen;
+	vector<CKing> king;
+
 	// Creation of pieces.
 	void createPieces(bool color = 0);
 
 public:
+
 	CPlayer(bool input = false);
 	~CPlayer();
 	void Move();

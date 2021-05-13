@@ -8,11 +8,14 @@ using namespace std;
 
 class CPiece
 {
-private:
-	map<string, string> piece = { {"NaN", "Nan" } };
 public:
-	
+	string id = "Nan";
+	string name = "Nan";
+	string position = "Nan";
+	string type = "Nan";
+
 	CPiece();
 	~CPiece();
+	void move();
 };
 

@@ -12,11 +12,13 @@ CPlayer::CPlayer(bool input)
     if (color)
     {
         cout << "Player white has been created." << endl;
+        createPieces(1);
         turn = 1;   // First move is for white player.
     } 
     else
     {
         cout << "Player black has been created." << endl;
+        createPieces(0);
     }
 }
 
@@ -25,10 +27,12 @@ CPlayer::CPlayer(bool input)
 /// </summary>
 CPlayer::~CPlayer()
 {
-    if (color)
-        cout << "Player white has been destroyed." << endl;
-    else
-        cout << "Player black has been destroyed." << endl;
+    
+    
+    cout << "Player white has been destroyed." << endl;
+    
+    
+    cout << "Player black has been destroyed." << endl;
 }
 
 /// <summary>
@@ -52,17 +56,30 @@ void CPlayer::createPieces(bool color)
     if (color)      // White player pieces.
     {
         // Create eight pawns.
-        for (int i = 0; i < 8; i++)
-        {
+        CPawn pawn1(color, "a2", 1);
+        pawns.push_back(pawn1);
+        CPawn pawn2(color, "b2", 2);
+        pawns.push_back(pawn2);
+        CPawn pawn3(color, "c2", 3);
+        pawns.push_back(pawn3);
+        CPawn pawn4(color, "d2", 4);
+        pawns.push_back(pawn4);
+        CPawn pawn5(color, "e2", 5);
+        pawns.push_back(pawn5);
+        CPawn pawn6(color, "f2", 6);
+        pawns.push_back(pawn6);
+        CPawn pawn7(color, "g2", 7);
+        pawns.push_back(pawn7);
+        CPawn pawn8(color, "h2", 8);
+        pawns.push_back(pawn8);
 
-        }
+        cout << pawns[5].position << endl;
+        cout << pawn6.position << endl;
+
     }
     else            // Black player pieces.
     {
         // Create eight pawns.
-        for (int i = 0; i < 8; i++)
-        {
-
-        }
+        
     }
 }

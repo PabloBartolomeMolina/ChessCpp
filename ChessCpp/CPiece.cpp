@@ -17,3 +17,8 @@ CPiece::~CPiece()
 {
 	cout << "Piece object has been destroyed." << endl;
 }
+
+void CPiece::move()
+{
+	cout << "I am generic" << endl;
+}
