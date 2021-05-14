@@ -7,7 +7,7 @@ using namespace std;
 class CBishop : public CPiece
 {
 public:
-	CBishop();
+	CBishop(bool color = 0, string pos = "a2", int num = 0);
 	~CBishop();
 	void move();
 };
