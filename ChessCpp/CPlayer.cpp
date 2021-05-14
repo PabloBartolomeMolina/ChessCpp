@@ -53,33 +53,25 @@ void CPlayer::Move()
 /// <param name="color"></param>
 void CPlayer::createPieces(bool color)
 {
+    this->color = color;
     if (color)      // White player pieces.
     {
+        this->turn = 1;     // White player starts playing.
         // Create eight pawns.
-        CPawn pawn1(color, "a2", 1);
-        pawns.push_back(pawn1);
-        CPawn pawn2(color, "b2", 2);
-        pawns.push_back(pawn2);
-        CPawn pawn3(color, "c2", 3);
-        pawns.push_back(pawn3);
-        CPawn pawn4(color, "d2", 4);
-        pawns.push_back(pawn4);
-        CPawn pawn5(color, "e2", 5);
-        pawns.push_back(pawn5);
-        CPawn pawn6(color, "f2", 6);
-        pawns.push_back(pawn6);
-        CPawn pawn7(color, "g2", 7);
-        pawns.push_back(pawn7);
-        CPawn pawn8(color, "h2", 8);
-        pawns.push_back(pawn8);
-
-        cout << pawns[5].position << endl;
-        cout << pawn6.position << endl;
-
+        for (int i = 0; i < 8; i++)
+        {
+            CPawn pawn1(color, whiteInitialPawns[i], 1);
+            pawns.push_back(pawn1);
+        }
     }
     else            // Black player pieces.
     {
+        this->turn = 0;     // White player starts playing.
         // Create eight pawns.
-        
+        for (int i = 0; i < 8; i++)
+        {
+            CPawn pawn1(color, blackInitialPawns[i], 1);
+            pawns.push_back(pawn1);
+        }
     }
 }

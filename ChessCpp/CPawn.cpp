@@ -14,10 +14,10 @@ CPawn::CPawn(bool color, string pos, int num)
 	string named = "Nan";
 	string idd = "Nan";
 	if (color)
-	{
 		named = "pw";
-		idd = named + to_string(num);
-	}
+	else
+		named = "pb";
+	idd = named + to_string(num); 
 	this->id = idd;
 	this->name = named;
 	this->position = pos; 
