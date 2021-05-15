@@ -60,9 +60,17 @@ void CPlayer::createPieces(bool color)
         // Create eight pawns.
         for (int i = 0; i < 8; i++)
         {
-            CPawn pawn1(color, whiteInitialPawns[i], 1);
-            pawns.push_back(pawn1);
+            CPawn pawn(color, whiteInitialPawns[i], 1);
+            pawns.push_back(pawn);
         }
+        CRook rook(color, whiteInitialPieces[0], 1);
+        CKnight knight(color, whiteInitialPieces[1], 1);
+        CBishop bishop(color, whiteInitialPieces[2], 1);
+        CQueen queen(color, whiteInitialPieces[3], 1);
+        CKing king(color, whiteInitialPieces[4], 1);
+        CRook rook(color, whiteInitialPieces[5], 1);
+        CKnight knight(color, whiteInitialPieces[6], 1);
+        CBishop bishop(color, whiteInitialPieces[7], 1);
     }
     else            // Black player pieces.
     {
@@ -70,8 +78,16 @@ void CPlayer::createPieces(bool color)
         // Create eight pawns.
         for (int i = 0; i < 8; i++)
         {
-            CPawn pawn1(color, blackInitialPawns[i], 1);
-            pawns.push_back(pawn1);
+            CPawn pawn(color, blackInitialPawns[i], 1);
+            pawns.push_back(pawn);
         }
+        CRook rook(color, blackInitialPieces[0], 1);
+        CKnight knight(color, blackInitialPieces[1], 1);
+        CBishop bishop(color, blackInitialPieces[2], 1);
+        CQueen queen(color, blackInitialPieces[3], 1);
+        CKing king(color, blackInitialPieces[4], 1);
+        CRook rook(color, blackInitialPieces[5], 1);
+        CKnight knight(color, blackInitialPieces[6], 1);
+        CBishop bishop(color, blackInitialPieces[7], 1);
     }
 }
