@@ -5,8 +5,19 @@
 /// <summary>
 /// Public constructor to set up basic elements of the Board objects.
 /// </summary>
-CKing::CKing()
+CKing::CKing(bool color, string pos, int num)
 {
+	string named = "Nan";
+	string idd = "Nan";
+	if (color)
+		named = "Kw";
+	else
+		named = "Kb";
+	idd = named + to_string(num);
+	this->id = idd;
+	this->name = named;
+	this->position = pos;
+	this->type = "King";
 	cout << "King object has been created." << endl;
 }
 

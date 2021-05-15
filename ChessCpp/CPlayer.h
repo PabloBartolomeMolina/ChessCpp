@@ -31,8 +31,8 @@ private:
 	vector<CRook> rooks;
 	vector<CKnight> knights;
 	vector<CBishop> bishops;
-	vector<CQueen> queen;
-	vector<CKing> king;
+	vector<CQueen> queens;
+	vector<CKing> kings;
 
 	// Creation of pieces.
 	void createPieces(bool color = 0);

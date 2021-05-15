@@ -5,8 +5,19 @@
 /// <summary>
 /// Public constructor to set up basic elements of the Board objects.
 /// </summary>
-CRook::CRook()
+CRook::CRook(bool color, string pos=, int num)
 {
+	string named = "Nan";
+	string idd = "Nan";
+	if (color)
+		named = "Rw";
+	else
+		named = "Rb";
+	idd = named + to_string(num);
+	this->id = idd;
+	this->name = named;
+	this->position = pos;
+	this->type = "Rook";
 	cout << "Rook object has been created." << endl;
 }
 

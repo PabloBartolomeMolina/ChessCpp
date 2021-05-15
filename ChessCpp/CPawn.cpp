@@ -1,5 +1,3 @@
-#include <iostream>
-#include <sstream>
 #include "CPawn.h"
 
 using namespace std;

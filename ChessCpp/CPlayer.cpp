@@ -63,14 +63,22 @@ void CPlayer::createPieces(bool color)
             CPawn pawn(color, whiteInitialPawns[i], 1);
             pawns.push_back(pawn);
         }
-        CRook rook(color, whiteInitialPieces[0], 1);
-        CKnight knight(color, whiteInitialPieces[1], 1);
-        CBishop bishop(color, whiteInitialPieces[2], 1);
+        CRook rook1(color, whiteInitialPieces[0], 1);
+        rooks.push_back(rook1);
+        CKnight knight1(color, whiteInitialPieces[1], 1);
+        knights.push_back(knight1);
+        CBishop bishop1(color, whiteInitialPieces[2], 1);
+        bishops.push_back(bishop1);
         CQueen queen(color, whiteInitialPieces[3], 1);
+        queens.push_back(queen);
         CKing king(color, whiteInitialPieces[4], 1);
-        CRook rook(color, whiteInitialPieces[5], 1);
-        CKnight knight(color, whiteInitialPieces[6], 1);
-        CBishop bishop(color, whiteInitialPieces[7], 1);
+        kings.push_back(king);
+        CRook rook2(color, whiteInitialPieces[5], 1);
+        rooks.push_back(rook1);
+        CKnight knight2(color, whiteInitialPieces[6], 1);
+        knights.push_back(knight1);
+        CBishop bishop2(color, whiteInitialPieces[7], 1);
+        bishops.push_back(bishop1);
     }
     else            // Black player pieces.
     {
