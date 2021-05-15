@@ -60,7 +60,7 @@ void CPlayer::createPieces(bool color)
         // Create eight pawns.
         for (int i = 0; i < 8; i++)
         {
-            CPawn pawn(color, whiteInitialPawns[i], 1);
+            CPawn pawn(color, whiteInitialPawns[i], i);
             pawns.push_back(pawn);
         }
         CRook rook1(color, whiteInitialPieces[0], 1);
@@ -73,11 +73,11 @@ void CPlayer::createPieces(bool color)
         queens.push_back(queen);
         CKing king(color, whiteInitialPieces[4], 1);
         kings.push_back(king);
-        CRook rook2(color, whiteInitialPieces[5], 1);
+        CRook rook2(color, whiteInitialPieces[5], 2);
         rooks.push_back(rook1);
-        CKnight knight2(color, whiteInitialPieces[6], 1);
+        CKnight knight2(color, whiteInitialPieces[6], 2);
         knights.push_back(knight1);
-        CBishop bishop2(color, whiteInitialPieces[7], 1);
+        CBishop bishop2(color, whiteInitialPieces[7], 2);
         bishops.push_back(bishop1);
     }
     else            // Black player pieces.
@@ -86,16 +86,24 @@ void CPlayer::createPieces(bool color)
         // Create eight pawns.
         for (int i = 0; i < 8; i++)
         {
-            CPawn pawn(color, blackInitialPawns[i], 1);
+            CPawn pawn(color, blackInitialPawns[i], i);
             pawns.push_back(pawn);
         }
-        CRook rook(color, blackInitialPieces[0], 1);
-        CKnight knight(color, blackInitialPieces[1], 1);
-        CBishop bishop(color, blackInitialPieces[2], 1);
+        CRook rook1(color, blackInitialPieces[0], 1);
+        rooks.push_back(rook1);
+        CKnight knight1(color, blackInitialPieces[1], 1);
+        knights.push_back(knight1);
+        CBishop bishop1(color, blackInitialPieces[2], 1);
+        bishops.push_back(bishop1);
         CQueen queen(color, blackInitialPieces[3], 1);
+        queens.push_back(queen);
         CKing king(color, blackInitialPieces[4], 1);
-        CRook rook(color, blackInitialPieces[5], 1);
-        CKnight knight(color, blackInitialPieces[6], 1);
-        CBishop bishop(color, blackInitialPieces[7], 1);
+        kings.push_back(king);
+        CRook rook2(color, blackInitialPieces[5], 2);
+        rooks.push_back(rook1);
+        CKnight knight2(color, blackInitialPieces[6], 2);
+        knights.push_back(knight1);
+        CBishop bishop2(color, blackInitialPieces[7], 2);
+        bishops.push_back(bishop1);
     }
 }

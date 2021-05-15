@@ -5,7 +5,7 @@
 /// <summary>
 /// Public constructor to set up basic elements of the Board objects.
 /// </summary>
-CRook::CRook(bool color, string pos=, int num)
+CRook::CRook(bool color, string pos, int num)
 {
 	string named = "Nan";
 	string idd = "Nan";
