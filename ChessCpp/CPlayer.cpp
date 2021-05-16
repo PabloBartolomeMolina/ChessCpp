@@ -36,13 +36,61 @@ CPlayer::~CPlayer()
 }
 
 /// <summary>
+/// Helper for move method.
+/// </summary>
+bool CPlayer::CheckMove(string movement)
+{
+    bool result = false;
+    // Check if player is moving a tower.
+    if (movement[0] == 'T' || movement[0] == 't')
+    {
+        result = true;
+        string move = movement.substr(1, 2);  // Get the displacement.
+
+        // Check if movement is possible for this piece.
+        for (int i = 0; i < 2; i++)
+        {
+            // Movement on the same column.
+            if (rooks[0].position[0] == move[0] || rooks[1].position[0] == move[0])
+            {
+                result = true;      // Movement is possible, need to check if the way to this final position is clear or not.
+            }
+            else
+                result = false;
+            // Movement on the same row.
+            if (rooks[0].position[1] == move[1] || rooks[1].position[1] == move[1])
+            {
+                result = true;      // Movement is possible, need to check if the way to this final position is clear or not.
+            }
+            else
+                result = false;
+        }
+    }
+    else
+        result = false;
+
+    return result;
+}
+
+/// <summary>
 /// Method to perform a move.
 /// </summary>
-void CPlayer::Move()
+string CPlayer::Move()
 {
     string move = " ";
-    cout << movement;
-    cin >> move;
+    while (1)
+    {
+        cout << movement;
+        cin >> move;
+        bool ok = CheckMove(move);
+        if (ok)
+        {
+            move = "Check for intermediate way.";
+            break;
+        }
+    }
+
+    return move;
 }
 
 /* PRIVATE methods of the class Player. */

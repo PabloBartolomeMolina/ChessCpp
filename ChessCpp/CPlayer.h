@@ -36,11 +36,13 @@ private:
 
 	// Creation of pieces.
 	void createPieces(bool color = 0);
+	// Check movement.
+	bool CheckMove(string movement);
 
 public:
 	vector<CPawn> pawns;
 	CPlayer(bool input = false);
 	~CPlayer();
-	void Move();
+	string Move();
 };
 

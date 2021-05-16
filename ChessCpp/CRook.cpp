@@ -29,7 +29,8 @@ CRook::~CRook()
 	cout << "Rook object has been destroyed." << endl;
 }
 
-void CRook::move()
+bool CRook::move(string movement)
 {
 	cout << "I am a ROOK" << endl;
+	return true;
 }

@@ -19,6 +19,8 @@ void basicLogic()
     // Show board.
     board.showBoard(1);     // Board view for white player.
     board.showBoard(0);     // Board view for black player.
+
+    string movement = whitePlayer.Move();
 }
 
 /// <summary>
