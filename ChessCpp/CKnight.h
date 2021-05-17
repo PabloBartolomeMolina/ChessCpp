@@ -9,6 +9,6 @@ class CKnight : public CPiece
 public:
 	CKnight(bool color = 0, string pos = "b1", int num = 0);
 	~CKnight();
-	bool move(string movement);
+	bool move(string origin, string movement);
 };
 

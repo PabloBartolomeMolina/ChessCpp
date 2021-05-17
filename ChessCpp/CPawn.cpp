@@ -38,7 +38,16 @@ CPawn::~CPawn()
 /// <param name="movement"> Movement to do in string format. Already validated but need to check if the way is clear.</param>
 /// <param name="moveType">1 to advance 1 position, 2 to advance 2 positions and 3 to eat a piece.</param>
 /// <returns></returns>
-bool CPawn::move(string movement, int moveType)
+bool CPawn::move(string origin, string movement, int moveType)
 {
 	cout << "I am a PAWN" << endl;
+
+	bool ret = false;
+
+	char colOri = origin[0];
+	char rowOri = origin[1];
+	char colDes = movement[0];
+	char rowDes = movement[1];
+
+	return ret;
 }

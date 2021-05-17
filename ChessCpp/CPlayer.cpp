@@ -73,7 +73,7 @@ bool CPlayer::CheckMove(string movement)
     }
     else if (movement[0] == 'K' || movement[0] == 'k')
     {
-
+        kings[0].move(kings[0].position, move);
     }
     else if (movement[0] == 'P' || movement[0] == 'p')
     {

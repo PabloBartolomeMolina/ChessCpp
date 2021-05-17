@@ -9,6 +9,6 @@ class CRook : public CPiece
 public:
 	CRook(bool color = 0, string pos = "a1", int num = 0);
 	~CRook();
-	bool move(string movement);
+	bool move(string origin, string movement);
 };
 

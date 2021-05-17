@@ -29,11 +29,16 @@ CRook::~CRook()
 	cout << "Rook object has been destroyed." << endl;
 }
 
-bool CRook::move(string movement)
+bool CRook::move(string origin, string movement)
 {
 	cout << "I am a ROOK" << endl;
 
+	bool ret = false;
 
+	char colOri = origin[0];
+	char rowOri = origin[1];
+	char colDes = movement[0];
+	char rowDes = movement[1];
 
-	return true;
+	return ret;
 }

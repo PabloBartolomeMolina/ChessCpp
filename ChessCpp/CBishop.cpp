@@ -30,7 +30,16 @@ CBishop::~CBishop()
 }
 
 
-bool CBishop::move(string movement)
+bool CBishop::move(string origin, string movement)
 {
 	cout << "I am a BISHOP" << endl;
+
+	bool ret = false;
+
+	char colOri = origin[0];
+	char rowOri = origin[1];
+	char colDes = movement[0];
+	char rowDes = movement[1];
+
+	return ret;
 }

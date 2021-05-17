@@ -29,7 +29,16 @@ CKnight::~CKnight()
 	cout << "Knight object has been destroyed." << endl;
 }
 
-bool CKnight::move(string movement)
+bool CKnight::move(string origin, string movement)
 {
 	cout << "I am a PAWN" << endl;
+
+	bool ret = false;
+
+	char colOri = origin[0];
+	char rowOri = origin[1];
+	char colDes = movement[0];
+	char rowDes = movement[1];
+
+	return ret;
 }
