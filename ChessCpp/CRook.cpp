@@ -32,5 +32,8 @@ CRook::~CRook()
 bool CRook::move(string movement)
 {
 	cout << "I am a ROOK" << endl;
+
+
+
 	return true;
 }

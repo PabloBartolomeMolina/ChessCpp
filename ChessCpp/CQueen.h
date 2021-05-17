@@ -9,6 +9,6 @@ class CQueen : public CPiece
 public:
 	CQueen(bool color = 0, string pos = "d1", int num = 0);
 	~CQueen();
-	void move();
+	bool move(string movement);
 };
 

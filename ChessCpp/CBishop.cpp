@@ -28,3 +28,9 @@ CBishop::~CBishop()
 {
 	cout << "Bishop object has been destroyed." << endl;
 }
+
+
+bool CBishop::move(string movement)
+{
+	cout << "I am a BISHOP" << endl;
+}

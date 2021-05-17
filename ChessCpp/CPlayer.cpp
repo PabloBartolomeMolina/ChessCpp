@@ -41,33 +41,74 @@ CPlayer::~CPlayer()
 bool CPlayer::CheckMove(string movement)
 {
     bool result = false;
+    string move = movement.substr(1, 2);  // Get the displacement.
+
     // Check if player is moving a tower.
     if (movement[0] == 'T' || movement[0] == 't')
     {
-        result = true;
-        string move = movement.substr(1, 2);  // Get the displacement.
-
         // Check if movement is possible for this piece.
-        for (int i = 0; i < 2; i++)
+        if (rooks[0].position[0] == move[0] || rooks[0].position[1] == move[1])         // Same row or same columns for the first ROOK.
+            result = rooks[0].move(movement);
+        else if (rooks[1].position[0] == move[0] || rooks[1].position[1] == move[1])    // Same row or same columns for the second ROOK.
+            result = rooks[0].move(movement);
+        else     // Movement is nos possible.
+            result = false;
+    }
+    else if (movement[0] == 'N' || movement[0] == 'n')
+    {
+
+    }
+    else if (movement[0] == 'B' || movement[0] == 'b')
+    {
+
+    }
+    else if (movement[0] == 'Q' || movement[0] == 'q')
+    {
+        if (queens[0].position[0] == move[0] || queens[0].position[1] == move[1])       // Same row or same columns.
+            result = queens[0].move(movement);
+        /*else if (queens[1].position[0] == move[0] || queens[1].position[1] == move[1])    // Diagonal.
+            result = queens[0].move(movement);*/
+        else     // Movement is nos possible.
+            result = false;
+    }
+    else if (movement[0] == 'K' || movement[0] == 'k')
+    {
+
+    }
+    else if (movement[0] == 'P' || movement[0] == 'p')
+    {
+        for (int i = 0; i < 8; i++)
         {
-            // Movement on the same column.
-            if (rooks[0].position[0] == move[0] || rooks[1].position[0] == move[0])
+            // Fisrt move may be simple or double (white pawn).
+            if (((pawns[i].position[1] == (move[1] - 1)) || ((pawns[i].position[1] == (move[1] - 2)) && pawns[i].position[1] == '2')) && (this->color == 1))
             {
-                result = true;      // Movement is possible, need to check if the way to this final position is clear or not.
+                if ((pawns[i].position[1] == (move[1] - 2)))
+                    result = pawns[i].move(movement, 2);
+                else
+                    result = pawns[i].move(movement, 1);
             }
-            else
-                result = false;
-            // Movement on the same row.
-            if (rooks[0].position[1] == move[1] || rooks[1].position[1] == move[1])
+            // Fisrt move may be simple or double (black pawn).
+            else if (((pawns[i].position[1] == (move[1] + 1)) || ((pawns[i].position[1] == (move[1] + 2)) && pawns[i].position[1] == '7')) && (this->color == 0))
             {
-                result = true;      // Movement is possible, need to check if the way to this final position is clear or not.
+                if ((pawns[i].position[1] == (move[1] + 2)))
+                    result = pawns[i].move(movement, 2);
+                else
+                    result = pawns[i].move(movement, 1);
+            }  
+            // Eat piece (white pawn).
+            else if (((pawns[i].position[1] == (move[1] - 1)) && (this->color == 1) && ((pawns[i].position[0] == (move[0] - 1)) || pawns[i].position[0] == (move[0] - 1))))
+            {
+                result = pawns[i].move(movement, 3);
             }
-            else
+            // Eat piece (black pawn).
+            else if (((pawns[i].position[1] == (move[1] + 1)) && (this->color == 1) && ((pawns[i].position[0] == (move[0] + 1)) || pawns[i].position[0] == (move[0] - 1))))
+            {
+                result = pawns[i].move(movement, 3);
+            }
+            else     // Movement is nos possible.
                 result = false;
         }
     }
-    else
-        result = false;
 
     return result;
 }

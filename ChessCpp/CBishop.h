@@ -9,6 +9,6 @@ class CBishop : public CPiece
 public:
 	CBishop(bool color = 0, string pos = "c1", int num = 0);
 	~CBishop();
-	void move();
+	bool move(string movement);
 };
 

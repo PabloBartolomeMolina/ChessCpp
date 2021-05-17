@@ -9,6 +9,6 @@ class CKing : public CPiece
 public:
 	CKing(bool color = 0, string pos = "e1", int num = 0);
 	~CKing();
-	void move();
+	void move(string movement);
 };
 

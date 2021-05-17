@@ -28,3 +28,8 @@ CKnight::~CKnight()
 {
 	cout << "Knight object has been destroyed." << endl;
 }
+
+bool CKnight::move(string movement)
+{
+	cout << "I am a PAWN" << endl;
+}

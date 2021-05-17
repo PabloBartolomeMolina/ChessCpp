@@ -28,3 +28,8 @@ CQueen::~CQueen()
 {
 	cout << "Queen object has been destroyed." << endl;
 }
+
+bool CQueen::move(string movement)
+{
+	cout << "I am the QUEEN" << endl;
+}

@@ -28,3 +28,8 @@ CKing::~CKing()
 {
 	cout << "King object has been destroyed." << endl;
 }
+
+bool CKing::move(string movement)
+{
+	cout << "I am the KING" << endl;
+}

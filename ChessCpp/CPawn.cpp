@@ -31,7 +31,14 @@ CPawn::~CPawn()
 	cout << "Pawn object has been destroyed." << endl;
 }
 
-void CPawn::move()
+
+/// <summary>
+/// 
+/// </summary>
+/// <param name="movement"> Movement to do in string format. Already validated but need to check if the way is clear.</param>
+/// <param name="moveType">1 to advance 1 position, 2 to advance 2 positions and 3 to eat a piece.</param>
+/// <returns></returns>
+bool CPawn::move(string movement, int moveType)
 {
 	cout << "I am a PAWN" << endl;
 }
