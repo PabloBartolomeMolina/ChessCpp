@@ -35,10 +35,46 @@ bool CKing::move(string origin, string movement)
 
 	bool ret = false;
 
-	char colOri = origin[0];
-	char rowOri = origin[1];
-	char colDes = movement[0];
-	char rowDes = movement[1];
+	char colOri = tolower(origin[0]);
+	int rowOri = origin[1] - '0';
+	char colDes = tolower(movement[0]);
+	int rowDes = movement[1] - '0';
+
+	switch (colOri)
+	{
+	case 'a':
+		if (colDes == 'a' && (rowDes == (rowOri + 1) || rowDes == (rowOri - 1)))
+			ret = true;
+		else if (colDes == 'b' && (rowDes == (rowOri + 1) || rowDes == (rowOri - 1) || rowDes == rowOri))
+			ret = true;
+		else
+			ret = false;
+		break;
+	case 'b':
+	case 'c':
+	case 'd':
+	case 'e':
+	case 'f':
+	case 'g':
+		if (((int)colDes == (int)colOri) && (rowDes == (rowOri + 1) || rowDes == (rowOri - 1)))
+			ret = true;
+		else if (((int)colDes == ((int)colOri - 1) || (int)colDes == ((int)colOri + 1)) && (rowDes == (rowOri + 1) || rowDes == (rowOri - 1) || rowDes == rowOri))
+			ret = true;
+		else
+			ret = false;
+		break;
+		break;
+	case 'h':
+		if (colDes == 'h' && (rowDes == (rowOri + 1) || rowDes == (rowOri - 1)))
+			ret = true;
+		else if (colDes == 'g' && (rowDes == (rowOri + 1) || rowDes == (rowOri - 1) || rowDes == rowOri))
+			ret = true;
+		else
+			ret = false;
+		break;
+	default:
+		break;
+	}
 
 	/* Check the columns validity. */
 	if (colOri == columns[0] && (movement[0] == columns[0] || movement[0] == columns[1]))		// Column a.
