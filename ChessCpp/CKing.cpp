@@ -29,6 +29,12 @@ CKing::~CKing()
 	cout << "King object has been destroyed." << endl;
 }
 
+/// <summary>
+/// Validity of movements of king.
+/// </summary>
+/// <param name="origin">Original position.</param>
+/// <param name="movement">Destination.</param>
+/// <returns></returns>
 bool CKing::move(string origin, string movement)
 {
 	cout << "I am the KING" << endl;
@@ -42,7 +48,7 @@ bool CKing::move(string origin, string movement)
 
 	switch (colOri)
 	{
-	case 'a':
+	case 'a':	// Check movement's validity from columns a, any row.
 		if (colDes == 'a' && (rowDes == (rowOri + 1) || rowDes == (rowOri - 1)))
 			ret = true;
 		else if (colDes == 'b' && (rowDes == (rowOri + 1) || rowDes == (rowOri - 1) || rowDes == rowOri))
@@ -50,12 +56,12 @@ bool CKing::move(string origin, string movement)
 		else
 			ret = false;
 		break;
-	case 'b':
-	case 'c':
-	case 'd':
-	case 'e':
-	case 'f':
-	case 'g':
+	case 'b':	// Check movement's validity from columns b, any row.
+	case 'c':	// Check movement's validity from columns c, any row.
+	case 'd':	// Check movement's validity from columns d, any row.
+	case 'e':	// Check movement's validity from columns e, any row.
+	case 'f':	// Check movement's validity from columns f, any row.
+	case 'g':	// Check movement's validity from columns g, any row.
 		if (((int)colDes == (int)colOri) && (rowDes == (rowOri + 1) || rowDes == (rowOri - 1)))
 			ret = true;
 		else if (((int)colDes == ((int)colOri - 1) || (int)colDes == ((int)colOri + 1)) && (rowDes == (rowOri + 1) || rowDes == (rowOri - 1) || rowDes == rowOri))
@@ -64,7 +70,7 @@ bool CKing::move(string origin, string movement)
 			ret = false;
 		break;
 		break;
-	case 'h':
+	case 'h':	// Check movement's validity from columns h, any row.
 		if (colDes == 'h' && (rowDes == (rowOri + 1) || rowDes == (rowOri - 1)))
 			ret = true;
 		else if (colDes == 'g' && (rowDes == (rowOri + 1) || rowDes == (rowOri - 1) || rowDes == rowOri))
@@ -75,24 +81,6 @@ bool CKing::move(string origin, string movement)
 	default:
 		break;
 	}
-
-	/* Check the columns validity. */
-	if (colOri == columns[0] && (movement[0] == columns[0] || movement[0] == columns[1]))		// Column a.
-		ret = true;
-	else if (colOri == columns[1] && (movement[0] == columns[0] || movement[1] == columns[1] || movement[1] == columns[2]))	// Column b.
-		ret = true;
-	else if (colOri == columns[2] && (movement[0] == columns[1] || movement[1] == columns[2] || movement[1] == columns[3]))	// Column c.
-		ret = true;
-	else if (colOri == columns[3] && (movement[0] == columns[2] || movement[1] == columns[3] || movement[1] == columns[4]))	// Column d.
-		ret = true;
-	else if (colOri == columns[4] && (movement[0] == columns[3] || movement[1] == columns[4] || movement[1] == columns[5]))	// Column e.
-		ret = true;
-	else if (colOri == columns[5] && (movement[0] == columns[4] || movement[1] == columns[5] || movement[1] == columns[6]))	// Column f.
-		ret = true;
-	else if (colOri == columns[6] && (movement[0] == columns[5] || movement[1] == columns[6] || movement[1] == columns[7]))	// Column g.
-		ret = true;
-	else if (colOri == columns[7] && (movement[0] == columns[6] || movement[0] == columns[7]))	// Column h.
-		ret = true;
 
 	return ret;
 }
