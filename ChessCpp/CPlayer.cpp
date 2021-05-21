@@ -73,7 +73,29 @@ bool CPlayer::CheckMove(string movement)
     }
     else if (movement[0] == 'K' || movement[0] == 'k')
     {
-        kings[0].move(kings[0].position, move);
+        // Pastial check for castling.
+        if (kings[0].firstMove)
+        {
+            if (rooks[0].firstMove && ((move[0] == 'b' && rooks[0].position[0] == 'a') || (move[0] == 'g' && rooks[0].position[0] == 'h')))
+            {
+                kings[0].move(kings[0].position, move);
+            }
+            else if (rooks[1].firstMove && ((move[0] == 'b' && rooks[1].position[0] == 'a') || (move[0] == 'g' && rooks[1].position[0] == 'h')))
+            {
+                kings[0].move(kings[0].position, move);
+            }
+            else
+            {
+                // If not possible to proceed with castling, do not proceed with the move.
+                cout << "Castling not possible and movement not possible for the king.";
+            }
+        }
+        else
+        {
+            // If not clasting intended, check for validity is done in the method.
+            kings[0].move(kings[0].position, move);
+        }
+        
     }
     else if (movement[0] == 'P' || movement[0] == 'p')
     {
