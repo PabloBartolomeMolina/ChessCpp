@@ -34,8 +34,9 @@ CKing::~CKing()
 /// </summary>
 /// <param name="origin">Original position.</param>
 /// <param name="movement">Destination.</param>
+/// <param name="firstMove">First move is already done or not.</param>
 /// <returns></returns>
-bool CKing::move(string origin, string movement)
+bool CKing::move(string origin, string movement, bool firstMove)
 {
 	cout << "I am the KING" << endl;
 
@@ -68,7 +69,12 @@ bool CKing::move(string origin, string movement)
 			ret = true;
 		else
 			ret = false;
-		break;
+
+		// Castling case.
+		if (firstMove && colOri == 'e' && (colDes == 'b' || colDes == 'g'))
+			ret = true;
+		else
+			ret = false;
 		break;
 	case 'h':	// Check movement's validity from columns h, any row.
 		if (colDes == 'h' && (rowDes == (rowOri + 1) || rowDes == (rowOri - 1)))
@@ -81,6 +87,8 @@ bool CKing::move(string origin, string movement)
 	default:
 		break;
 	}
+
+
 
 	return ret;
 }
