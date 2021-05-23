@@ -38,6 +38,7 @@ private:
 	void createPieces(bool color = 0);
 	// Check movement.
 	bool CheckMove(string movement);
+	// Check destination before moving.
 
 public:
 	vector<CPawn> pawns;

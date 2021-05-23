@@ -36,6 +36,52 @@ CPlayer::~CPlayer()
 }
 
 /// <summary>
+/// Check if destination is occupied by a piece of the same player.
+/// </summary>
+/// <param name="movement">Destination case.</param>
+/// <returns></returns>
+bool CPlayer::CheckMove(string movement)
+{
+    bool occupied = false;
+    
+    // Check if queen or king are in that position.
+    if (kings[0].position == movement || queens[0].position == movement)
+    {
+        occupied = true;
+    }
+
+    // Check if a rook, a knight or a bishop are in that position.
+    for (int i = 0; i < 2; i++)
+    {
+        // If already one piece is in the objective case, it is not needed to keep checking.
+        if (occupied)
+            break;
+
+        if (rooks[i].position == movement || knights[i].position == movement || bishops[i].position == movement)
+        {
+            occupied = true;
+            break;
+        }
+    }
+
+    // Check if a pawn is in that position.
+    for (int i = 0; i < 8; i++)
+    {
+        // If already one piece is in the objective case, it is not needed to keep checking.
+        if (occupied)
+            break;
+        if (pawns[i].position == movement)
+        {
+            occupied = true;
+            break;
+        }
+
+    }
+
+    return occupied;
+}
+
+/// <summary>
 /// Helper for move method.
 /// </summary>
 bool CPlayer::CheckMove(string movement)
@@ -43,56 +89,66 @@ bool CPlayer::CheckMove(string movement)
     bool result = false;
     string move = movement.substr(1, 2);  // Get the displacement.
 
+
     if ((move[0] >= 'a' && move[0] <= 'h') && (move[1] >= '1' && move[8] <= '8'))
     {
         // Move is in the expected ranges for columns and rows, so continue wuth the checkings.
         result = true;
+        // First, check if the destination is already occupied by a piece of the same player.
+        bool occupied = CheckMove(move);
 
-        // Check if movement can be done according to the type of piece to be moved.
-        switch (movement[0])
+        if (!occupied)
         {
-        case 'P':
-            for (int i = 0; i < 8; i++)
+            // Check if movement can be done according to the type of piece to be moved.
+            switch (movement[0])
             {
-                result = pawns[i].move(pawns[i].position, move);
-                if (result)
-                    break;
+            case 'P':
+                for (int i = 0; i < 8; i++)
+                {
+                    result = pawns[i].move(pawns[i].position, move);
+                    if (result)
+                        break;
+                }
+                break;
+            case 'R':
+                for (int i = 0; i < 2; i++)
+                {
+                    result = rooks[i].move(rooks[i].position, move);
+                    if (result)
+                        break;
+                }
+                break;
+            case 'N':
+                for (int i = 0; i < 2; i++)
+                {
+                    result = knights[i].move(knights[i].position, move);
+                    if (result)
+                        break;
+                }
+                break;
+            case 'B':
+                for (int i = 0; i < 2; i++)
+                {
+                    result = bishops[i].move(bishops[i].position, move);
+                    if (result)
+                        break;
+                }
+                break;
+            case 'Q':
+                queens[0].move(queens[0].position, move);
+                break;
+            case 'K':
+                kings[0].move(kings[0].position, move);
+                break;
+            default:
+                // Piece is not valid.
+                result = false;
+                break;
             }
-            break;
-        case 'R':
-            for (int i = 0; i < 2; i++)
-            {
-                result = rooks[i].move(rooks[i].position, move);
-                if (result)
-                    break;
-            }
-            break;
-        case 'N':
-            for (int i = 0; i < 2; i++)
-            {
-                result = knights[i].move(knights[i].position, move);
-                if (result)
-                    break;
-            }
-            break;
-        case 'B':
-            for (int i = 0; i < 2; i++)
-            {
-                result = bishops[i].move(bishops[i].position, move);
-                if (result)
-                    break;
-            }
-            break;
-        case 'Q':
-            queens[0].move(queens[0].position, move);
-            break;
-        case 'K':
-            kings[0].move(kings[0].position, move);
-            break;
-        default:
-            // Piece is not valid.
+        }
+        else
+        {
             result = false;
-            break;
         }
     }
     else

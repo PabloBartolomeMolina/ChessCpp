@@ -16,6 +16,8 @@ void basicLogic()
     CPlayer blackPlayer = CPlayer(false);
     cout << whitePlayer.pawns[0].position << endl;
 
+    if ()
+
     // Show board.
     board.showBoard(1);     // Board view for white player.
     board.showBoard(0);     // Board view for black player.
