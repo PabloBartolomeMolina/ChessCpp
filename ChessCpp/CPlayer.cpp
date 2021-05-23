@@ -28,11 +28,10 @@ CPlayer::CPlayer(bool input)
 CPlayer::~CPlayer()
 {
     
-    
-    cout << "Player white has been destroyed." << endl;
-    
-    
-    cout << "Player black has been destroyed." << endl;
+    if (color)
+        cout << "Player white has been destroyed." << endl;
+    else
+        cout << "Player black has been destroyed." << endl;
 }
 
 /// <summary>
