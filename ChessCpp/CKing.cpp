@@ -36,7 +36,7 @@ CKing::~CKing()
 /// <param name="movement">Destination.</param>
 /// <param name="firstMove">First move is already done or not.</param>
 /// <returns></returns>
-bool CKing::move(string origin, string movement, bool firstMove)
+bool CKing::move(string origin, string movement)
 {
 	cout << "I am the KING" << endl;
 
@@ -85,6 +85,8 @@ bool CKing::move(string origin, string movement, bool firstMove)
 			ret = false;
 		break;
 	default:
+		/* If not in range, it is managed before. Just return a false flag in this case to add safety step. */
+		ret = false;
 		break;
 	}
 

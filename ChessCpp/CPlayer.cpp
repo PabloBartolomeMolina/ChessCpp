@@ -43,93 +43,37 @@ bool CPlayer::CheckMove(string movement)
     bool result = false;
     string move = movement.substr(1, 2);  // Get the displacement.
 
-    // Check if player is moving a tower.
-    if (movement[0] == 'T' || movement[0] == 't')
+    if ((move[0] >= 'a' && move[0] <= 'h') && (move[1] >= '1' && move[8] <= '8'))
     {
-        // Check if movement is possible for this piece.
-        if (rooks[0].position[0] == move[0] || rooks[0].position[1] == move[1])         // Same row or same columns for the first ROOK.
-            result = rooks[0].move(movement);
-        else if (rooks[1].position[0] == move[0] || rooks[1].position[1] == move[1])    // Same row or same columns for the second ROOK.
-            result = rooks[0].move(movement);
-        else     // Movement is nos possible.
-            result = false;
-    }
-    else if (movement[0] == 'N' || movement[0] == 'n')
-    {
+        // Move is in the expected ranges for columns and rows, so continue wuth the checkings.
+        result = true;
 
-    }
-    else if (movement[0] == 'B' || movement[0] == 'b')
-    {
-
-    }
-    else if (movement[0] == 'Q' || movement[0] == 'q')
-    {
-        if (queens[0].position[0] == move[0] || queens[0].position[1] == move[1])       // Same row or same columns.
-            result = queens[0].move(movement);
-        /*else if (queens[1].position[0] == move[0] || queens[1].position[1] == move[1])    // Diagonal.
-            result = queens[0].move(movement);*/
-        else     // Movement is nos possible.
-            result = false;
-    }
-    else if (movement[0] == 'K' || movement[0] == 'k')
-    {
-        // Pastial check for castling.
-        if (kings[0].firstMove)
+        // Check if movement can be done according to the type of piece to be moved.
+        switch (movement[0])
         {
-            if (rooks[0].firstMove && ((move[0] == 'b' && rooks[0].position[0] == 'a') || (move[0] == 'g' && rooks[0].position[0] == 'h')))
-            {
-                kings[0].move(kings[0].position, move);
-            }
-            else if (rooks[1].firstMove && ((move[0] == 'b' && rooks[1].position[0] == 'a') || (move[0] == 'g' && rooks[1].position[0] == 'h')))
-            {
-                kings[0].move(kings[0].position, move);
-            }
-            else
-            {
-                // If not possible to proceed with castling, do not proceed with the move.
-                cout << "Castling not possible and movement not possible for the king.";
-            }
-        }
-        else
-        {
-            // If not clasting intended, check for validity is done in the method.
+        case 'P':
+            break;
+        case 'R':
+            break;
+        case 'N':
+            break;
+        case 'B':
+            break;
+        case 'Q':
+            break;
+        case 'K':
             kings[0].move(kings[0].position, move);
+            break;
+        default:
+            // Piece is not valid.
+            result = false;
+            break;
         }
-        
     }
-    else if (movement[0] == 'P' || movement[0] == 'p')
+    else
     {
-        for (int i = 0; i < 8; i++)
-        {
-            // Fisrt move may be simple or double (white pawn).
-            if (((pawns[i].position[1] == (move[1] - 1)) || ((pawns[i].position[1] == (move[1] - 2)) && pawns[i].position[1] == '2')) && (this->color == 1))
-            {
-                if ((pawns[i].position[1] == (move[1] - 2)))
-                    result = pawns[i].move(movement, 2);
-                else
-                    result = pawns[i].move(movement, 1);
-            }
-            // Fisrt move may be simple or double (black pawn).
-            else if (((pawns[i].position[1] == (move[1] + 1)) || ((pawns[i].position[1] == (move[1] + 2)) && pawns[i].position[1] == '7')) && (this->color == 0))
-            {
-                if ((pawns[i].position[1] == (move[1] + 2)))
-                    result = pawns[i].move(movement, 2);
-                else
-                    result = pawns[i].move(movement, 1);
-            }  
-            // Eat piece (white pawn).
-            else if (((pawns[i].position[1] == (move[1] - 1)) && (this->color == 1) && ((pawns[i].position[0] == (move[0] - 1)) || pawns[i].position[0] == (move[0] - 1))))
-            {
-                result = pawns[i].move(movement, 3);
-            }
-            // Eat piece (black pawn).
-            else if (((pawns[i].position[1] == (move[1] + 1)) && (this->color == 1) && ((pawns[i].position[0] == (move[0] + 1)) || pawns[i].position[0] == (move[0] - 1))))
-            {
-                result = pawns[i].move(movement, 3);
-            }
-            else     // Movement is nos possible.
-                result = false;
-        }
+        // Move is in outside the expected ranges for columns and rows.
+        result = false;
     }
 
     return result;
@@ -145,6 +89,10 @@ string CPlayer::Move()
     {
         cout << movement;
         cin >> move;
+        // Ensrure standard notation for movement input.
+        move[0] = toupper(move[0]);
+        move[1] = toupper(move[1]); 
+        // Check movement validity.
         bool ok = CheckMove(move);
         if (ok)
         {
