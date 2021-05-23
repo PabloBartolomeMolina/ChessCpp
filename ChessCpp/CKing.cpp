@@ -40,13 +40,14 @@ bool CKing::move(string origin, string movement)
 {
 	cout << "I am the KING" << endl;
 
-	bool ret = false;
+	bool ret = false;		// Flag to return.
 
-	char colOri = tolower(origin[0]);
-	int rowOri = origin[1] - '0';
-	char colDes = tolower(movement[0]);
-	int rowDes = movement[1] - '0';
+	char colOri = tolower(origin[0]);		// Column of origin.
+	int rowOri = origin[1] - '0';			// Row of origin.
+	char colDes = tolower(movement[0]);		// Column of destination.
+	int rowDes = movement[1] - '0';			// Row of destination.
 
+	// Check is done according to the origin column as initial reference.
 	switch (colOri)
 	{
 	case 'a':	// Check movement's validity from columns a, any row.
@@ -89,8 +90,6 @@ bool CKing::move(string origin, string movement)
 		ret = false;
 		break;
 	}
-
-
 
 	return ret;
 }
