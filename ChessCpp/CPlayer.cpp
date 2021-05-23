@@ -52,14 +52,39 @@ bool CPlayer::CheckMove(string movement)
         switch (movement[0])
         {
         case 'P':
+            for (int i = 0; i < 8; i++)
+            {
+                result = pawns[i].move(pawns[i].position, move);
+                if (result)
+                    break;
+            }
             break;
         case 'R':
+            for (int i = 0; i < 2; i++)
+            {
+                result = rooks[i].move(rooks[i].position, move);
+                if (result)
+                    break;
+            }
             break;
         case 'N':
+            for (int i = 0; i < 2; i++)
+            {
+                result = knights[i].move(knights[i].position, move);
+                if (result)
+                    break;
+            }
             break;
         case 'B':
+            for (int i = 0; i < 2; i++)
+            {
+                result = bishops[i].move(bishops[i].position, move);
+                if (result)
+                    break;
+            }
             break;
         case 'Q':
+            queens[0].move(queens[0].position, move);
             break;
         case 'K':
             kings[0].move(kings[0].position, move);
