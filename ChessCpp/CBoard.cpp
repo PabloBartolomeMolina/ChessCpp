@@ -115,3 +115,28 @@ void CBoard::showBoard(bool player)
     }
     
 }
+
+/// <summary>
+/// Helper method to check if the way for a given movement is free or blocked.
+/// </summary>
+/// <param name="position">Position to check.</param>
+/// <returns>True if free, False if not free.</returns>
+bool CBoard::CheckPosition(string position)
+{
+    bool returned = false;
+
+    for (int i = 0; sizeof(whitePositions); i++)
+    {
+        // Since both arrays have same size, we can compare at the same time.
+        if (whitePositions[i] == position || BlackPositions[i] == position)
+        {
+            returned = true;
+            break;
+        }
+        else
+        {
+            returned = false;
+        }
+    }
+    return returned;
+}

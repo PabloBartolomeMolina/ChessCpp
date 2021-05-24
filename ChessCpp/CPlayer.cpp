@@ -88,7 +88,6 @@ bool CPlayer::CheckMove(string movement)
     bool result = false;
     string move = movement.substr(1, 2);  // Get the displacement.
 
-
     if ((move[0] >= 'a' && move[0] <= 'h') && (move[1] >= '1' && move[8] <= '8'))
     {
         // Move is in the expected ranges for columns and rows, so continue wuth the checkings.
@@ -147,6 +146,7 @@ bool CPlayer::CheckMove(string movement)
         }
         else
         {
+            // Destination is already occupied by a piece of the same player.
             result = false;
         }
     }

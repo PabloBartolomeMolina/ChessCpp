@@ -1,4 +1,5 @@
 #include "CRook.h"
+#include "CBoard.h"
 
 /* Basic methods, like constructor and destructor. */
 
@@ -34,11 +35,58 @@ bool CRook::move(string origin, string movement)
 	cout << "I am a ROOK" << endl;
 
 	bool ret = false;
+	bool freeWay = false;
 
 	char colOri = origin[0];
 	char rowOri = origin[1];
 	char colDes = movement[0];
 	char rowDes = movement[1];
+
+	if (colOri == colDes)			// Vertical movement check.
+	{
+		// This piece can arrive to the destination if the way to it is free.
+		CBoard board = CBoard();
+		for (int i = origin[1] + 1; i < movement[1] - 1; i++)
+		{
+			freeWay = board.CheckPosition(movement);
+			if (freeWay)
+			{
+				/* Continue to check.*/
+				ret = true;
+			}
+			else
+			{
+				/* A piece is in the way, no possible to make the move*/
+				ret = false;
+				break;
+			}
+		}
+	}
+	else if ( rowOri == rowDes)		// Horizontal movement check.
+	{
+		// This piece can arrive to the destination if the way to it is free.
+		CBoard board = CBoard();
+		for (int i = origin[0] + 1; i < movement[0] - 1; i++)
+		{
+			freeWay = board.CheckPosition(movement);
+			if (freeWay)
+			{
+				/* Continue to check.*/
+				ret = true;
+			}
+			else
+			{
+				/* A piece is in the way, no possible to make the move*/
+				ret = false;
+				break;
+			}
+		}
+	}
+	else
+	{
+		// Movement is not possible for this piece.
+		ret = false;
+	}
 
 	return ret;
 }
