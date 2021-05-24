@@ -39,6 +39,7 @@ private:
 	// Check movement.
 	bool CheckMove(string movement);
 	// Check destination before moving.
+	bool CheckOccupied(string movement);
 
 public:
 	vector<CPawn> pawns;

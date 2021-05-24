@@ -39,7 +39,7 @@ CPlayer::~CPlayer()
 /// </summary>
 /// <param name="movement">Destination case.</param>
 /// <returns></returns>
-bool CPlayer::CheckMove(string movement)
+bool CPlayer::CheckOccupied(string movement)
 {
     bool occupied = false;
     
@@ -74,7 +74,6 @@ bool CPlayer::CheckMove(string movement)
             occupied = true;
             break;
         }
-
     }
 
     return occupied;
@@ -88,12 +87,12 @@ bool CPlayer::CheckMove(string movement)
     bool result = false;
     string move = movement.substr(1, 2);  // Get the displacement.
 
-    if ((move[0] >= 'a' && move[0] <= 'h') && (move[1] >= '1' && move[8] <= '8'))
+    if ((move[0] >= 'a' && move[0] <= 'h') && (move[1] >= '1' && move[1] <= '8'))
     {
         // Move is in the expected ranges for columns and rows, so continue wuth the checkings.
         result = true;
         // First, check if the destination is already occupied by a piece of the same player.
-        bool occupied = CheckMove(move);
+        bool occupied = CheckOccupied(move);
 
         if (!occupied)
         {
@@ -152,6 +151,7 @@ bool CPlayer::CheckMove(string movement)
     }
     else
     {
+        cout << "error" << endl;
         // Move is in outside the expected ranges for columns and rows.
         result = false;
     }
@@ -171,7 +171,8 @@ string CPlayer::Move()
         cin >> move;
         // Ensrure standard notation for movement input.
         move[0] = toupper(move[0]);
-        move[1] = toupper(move[1]); 
+        move[1] = tolower(move[1]); 
+
         // Check movement validity.
         bool ok = CheckMove(move);
         if (ok)

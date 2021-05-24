@@ -35,11 +35,18 @@ bool CBishop::move(string origin, string movement)
 	cout << "I am a BISHOP" << endl;
 
 	bool ret = false;
+	bool freeWay = false;
 
 	char colOri = origin[0];
 	char rowOri = origin[1];
 	char colDes = movement[0];
 	char rowDes = movement[1];
+
+	int intOri = (int)rowOri;
+	int intDes = (int)rowDes;
+	int differ = 0;
+
+
 
 	return ret;
 }

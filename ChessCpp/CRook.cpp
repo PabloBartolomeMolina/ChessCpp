@@ -48,7 +48,8 @@ bool CRook::move(string origin, string movement)
 		CBoard board = CBoard();
 		for (int i = origin[1] + 1; i < movement[1] - 1; i++)
 		{
-			freeWay = board.CheckPosition(movement);
+			string mov = to_string(colOri) + to_string(i);
+			freeWay = board.CheckPosition(mov);
 			if (freeWay)
 			{
 				/* Continue to check.*/
