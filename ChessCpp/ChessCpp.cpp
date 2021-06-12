@@ -12,16 +12,24 @@
 /// </summary>
 void basicLogic()
 {
+    bool mate = false;  // Variable to indicate the end of the game.
+
     // Creation of board and both players.
     CBoard board = CBoard();
     CPlayer whitePlayer = CPlayer(true);
     CPlayer blackPlayer = CPlayer(false);
 
-    // Show board.
-    board.showBoard(1);     // Board view for white player.
-    board.showBoard(0);     // Board view for black player.
+    while (!mate)
+    {
+        // Show board.
+        board.showBoard(1);     // Board view for white player.
+        // White player moves.
+        string movement = whitePlayer.Move();
 
-    string movement = whitePlayer.Move();
+        //board.showBoard(0);     // Board view for black player.
+        // Black player moves.
+        string movement = whitePlayer.Move();
+    }
 }
 
 /// <summary>
