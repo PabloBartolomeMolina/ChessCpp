@@ -86,7 +86,7 @@ bool CBoard::CheckPosition(string position)
 /// </summary>
 string CBoard::placePieces(string origin, string destination)
 {
-
+    return "TOTO";
 }
 
 /// <summary>

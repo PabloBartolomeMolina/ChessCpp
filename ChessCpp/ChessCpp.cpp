@@ -40,7 +40,7 @@ void basicLogic()
 /// <returns>True if number, False if not.</returns>
 bool isNumber(string s)
 {
-    for (int i = 0; i < s.length(); i++)
+    for (string::size_type i = 0; i < s.length(); i++)
         if (isdigit(s[i]) == false)
             return false;
 

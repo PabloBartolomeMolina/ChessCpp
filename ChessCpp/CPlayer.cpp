@@ -99,7 +99,7 @@ bool CPlayer::CheckMove(string movement)
             // Check if movement can be done according to the type of piece to be moved.
             switch (movement[0])
             {
-            case 'P':
+            case 'p':
                 for (int i = 0; i < 8; i++)
                 {
                     result = pawns[i].move(pawns[i].position, move);
@@ -165,23 +165,111 @@ bool CPlayer::CheckMove(string movement)
 string* CPlayer::Move()
 {
     string movement[2] = { "origin", "destination" };
-    string move = " ";
-    while (1)
+    string move = "none";
+    bool ok = false;
+
+
+    if (ok == false)
+        ok == true;
+
+
+    if (ok)
+        cout << "ok" << endl;
+    else
+        cout << "issue" << endl;
+
+    /* Ensures that we get a valid movement befor advancing in the code. */
+    while (!ok)
     {
         cout << movementText;
         cin >> move;
-        // Ensrure standard notation for movement input.
-        move[0] = toupper(move[0]);
-        move[1] = tolower(move[1]); 
-
-        // Check movement validity.
-        bool ok = CheckMove(move);
-        if (ok)
+        
+        // Check if format is correct.
+        if (move.length() == 3 && isalpha(move[0]) && isalpha(move[1]) && isdigit(move[2]))
         {
-            move = "Check for intermediate way.";
-            break;
+            // Ensrure standard notation for movement input.
+            for (int i = 0; i < piecesDefault.length(); ++i)
+            {
+                /* Check notation for the piece*/
+                if (toupper(move[0]) == toupper(piecesDefault[i]))      // toUpper helps to compare two chars quicker with a cleaner code.
+                {
+                    switch (move[0])
+                    {
+                    case 'p':
+                    case 'P':
+                        move[0] = tolower(move[0]);     // Pawn notation is in lowercase.
+                        ok = true;  // It can retake FALSE value if the notation of the case of destination is not good.
+                        break;
+                    case 'r':
+                    case 'R':
+                    case 'n':
+                    case 'N':
+                    case 'b':
+                    case 'B':
+                    case 'q':
+                    case 'Q':
+                    case 'k':
+                    case 'K':
+                        move[0] = toupper(move[0]);     // Notation for these pieces in in uppercase.
+                        ok = true;  // It can retake FALSE value if the notation of the case of destination is not good.
+                        break;
+                    default:        // Not a valid piece, safety case. Normally, this will go in the ELSE.
+                        ok = false;
+                        break;
+                    }
+                }
+                else
+                {
+                    /* Letter is not valid.*/
+                    ok = false;
+                }
+
+                /* The notation of the case is always in lowercase. Conversion is done before validity check to facilitate the comparison. */
+                move[1] = tolower(move[1]);
+
+                /* Check notation for the case of destination. */
+                if (move[1] >= 'a' && move[1] <= 'h' && move[2] >= '1' && move[2] <= '8' && ok == true)
+                {
+                    /* Only possible if the notation of the piece is valid. */
+                    ok = true;
+                    movement[1].assign(move.substr(1, 2));      // Take just the final position to be returned as a destination.
+                    cout << "Movement is consideredDD" << endl;
+                    break;
+                }
+                else
+                {
+                    /* Either the notation for the position is false or we already knew that the notation for the piece was not good. */
+                    ok = false;
+                }
+            }
+
+            /* UP TO HERE, THE OPTIMAL IMPLEMENTATION IS DONE. NEED TO CHECK THE REST TO OPTIMIZE IT. */
+            
+            // Check movement validity.
+            /*ok = CheckMove(move);
+            if (ok)
+            {
+                move = "Check for intermediate way.";
+                break;
+            }*/
         }
+        else
+        {
+            /* NOPE */
+            /* Format is not valid. */
+            ok = false;
+            cout << "Invalid format." << endl;
+        }
+
+        if (ok)
+            cout << "OKey" << endl;
+        else
+            cout << "Something strange happening" << endl;
+        
     }
+    cout << "Movement is considered" << endl << endl;
+    cout << movement[1] << endl;
+    system("pause");
 
     return movement;
 }
