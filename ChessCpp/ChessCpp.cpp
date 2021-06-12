@@ -1,6 +1,8 @@
 // ChessCpp.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 
+#include <iostream>
+#include <algorithm>
 #include "CBoard.h"
 #include "CPlayer.h"
 
@@ -23,11 +25,40 @@ void basicLogic()
 }
 
 /// <summary>
+/// Check if a string is numeric or not.
+/// </summary>
+/// <returns>True if number, False if not.</returns>
+bool isNumber(string s)
+{
+    for (int i = 0; i < s.length(); i++)
+        if (isdigit(s[i]) == false)
+            return false;
+
+    return true;
+}
+
+/// <summary>
 /// Main function, the entry point of the program.
 /// </summary>
 /// <returns></returns>
 int main()
 {
+    string input = "empty";
     cout << initialMessage << endl << endl;
-    basicLogic();
+    
+    while (!isNumber(input) || (stoi(input) != 1 && stoi(input) != 2) )
+    {
+        cout << "Please, select an option by its number :" << endl << "     1. PLay a new game." << endl << "     2. Exit app." << endl;
+        cin >> input;
+    }
+
+    if (stoi(input) == 1)
+    {
+        basicLogic();
+    }
+    else if (stoi(input) == 1)
+    {
+        cout << "See you next time!!" << endl;
+    }
+    
 }

@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const string initialMessage = "Welcome to the chess program. Please, follow always the instructions on the screen.";
+const string initialMessage = "Welcome to the chess program. Please, follow always the instructions on the screen as they appear.";
 const string movement = "Please, enter your movement : ";
 
 const char columns[8] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
