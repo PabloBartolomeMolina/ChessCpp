@@ -45,6 +45,6 @@ public:
 	vector<CPawn> pawns;
 	CPlayer(bool input = false);
 	~CPlayer();
-	string Move();
+	string* Move();
 };
 

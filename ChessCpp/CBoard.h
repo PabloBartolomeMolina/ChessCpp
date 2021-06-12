@@ -39,12 +39,13 @@ private:
     string row7 = "";
     string row8 = "";
 
-    void placePieces();
+    
     void initPlace();
 
 public:
     CBoard();
     ~CBoard();
-    void showBoard(bool player = 1);
     bool CheckPosition(string position);
+    string placePieces(string origin, string destination);
+    void showBoard(bool player = 1);
 };

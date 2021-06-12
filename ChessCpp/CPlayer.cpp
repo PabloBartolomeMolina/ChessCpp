@@ -162,12 +162,13 @@ bool CPlayer::CheckMove(string movement)
 /// <summary>
 /// Method to perform a move.
 /// </summary>
-string CPlayer::Move()
+string* CPlayer::Move()
 {
+    string movement[2] = { "origin", "destination" };
     string move = " ";
     while (1)
     {
-        cout << movement;
+        cout << movementText;
         cin >> move;
         // Ensrure standard notation for movement input.
         move[0] = toupper(move[0]);
@@ -182,7 +183,7 @@ string CPlayer::Move()
         }
     }
 
-    return move;
+    return movement;
 }
 
 /* PRIVATE methods of the class Player. */

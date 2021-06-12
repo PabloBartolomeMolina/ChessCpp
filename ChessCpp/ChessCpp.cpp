@@ -24,11 +24,13 @@ void basicLogic()
         // Show board.
         board.showBoard(1);     // Board view for white player.
         // White player moves.
-        string movement = whitePlayer.Move();
+        string* movement = whitePlayer.Move();
+        board.placePieces(movement[0], movement[1]);
 
         //board.showBoard(0);     // Board view for black player.
         // Black player moves.
-        string movement = whitePlayer.Move();
+        movement = whitePlayer.Move();
+        board.placePieces(movement[0], movement[1]);
     }
 }
 

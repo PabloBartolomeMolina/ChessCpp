@@ -52,10 +52,39 @@ void CBoard::initPlace()
     row6 = "6  " + rowEmpty;
 }
 
+
+
+/* PUBLIC methods of the class Board. */
+
+/// <summary>
+/// Helper method to check if the way for a given movement is free or blocked.
+/// </summary>
+/// <param name="position">Position to check.</param>
+/// <returns>True if free, False if not free.</returns>
+bool CBoard::CheckPosition(string position)
+{
+    bool returned = false;
+
+    for (int i = 0; sizeof(whitePositions); i++)
+    {
+        // Since both arrays have same size, we can compare at the same time.
+        if (whitePositions[i] == position || BlackPositions[i] == position)
+        {
+            returned = true;
+            break;
+        }
+        else
+        {
+            returned = false;
+        }
+    }
+    return returned;
+}
+
 /// <summary>
 /// Method to place all the pieces on the board before showing it, with the current informations.
 /// </summary>
-void CBoard::placePieces()
+string CBoard::placePieces(string origin, string destination)
 {
 
 }
@@ -113,30 +142,5 @@ void CBoard::showBoard(bool player)
         cout << row8 << endl;
         cout << horizontal << endl << endl;
     }
-    
 }
 
-/// <summary>
-/// Helper method to check if the way for a given movement is free or blocked.
-/// </summary>
-/// <param name="position">Position to check.</param>
-/// <returns>True if free, False if not free.</returns>
-bool CBoard::CheckPosition(string position)
-{
-    bool returned = false;
-
-    for (int i = 0; sizeof(whitePositions); i++)
-    {
-        // Since both arrays have same size, we can compare at the same time.
-        if (whitePositions[i] == position || BlackPositions[i] == position)
-        {
-            returned = true;
-            break;
-        }
-        else
-        {
-            returned = false;
-        }
-    }
-    return returned;
-}
