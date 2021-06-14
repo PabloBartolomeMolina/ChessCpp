@@ -47,11 +47,7 @@ bool CBishop::move(string origin, string movement)
 	int intDes = (int)rowDes;
 	int differ = 0;
 
-	// Check how far the bishop is moving.
-	if (intOri < intDes)
-		differ = intDes - intOri;
-	else
-		differ = intOri - intDes;
+	differ = abs(intOri - intDes);
 
 	// Take action depending on distance.
 	if (differ == 1)
