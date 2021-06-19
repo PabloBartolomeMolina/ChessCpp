@@ -242,14 +242,16 @@ vector<string> CPlayer::Move()
             }
 
             /* UP TO HERE, THE OPTIMAL IMPLEMENTATION IS DONE. NEED TO CHECK THE REST TO OPTIMIZE IT. */
+
+            /* Now, it depends on the piece to move to check if it is possible to make the movement or not. */
             
             // Check movement validity.
-            /*ok = CheckMove(move);
+            ok = CheckMove(move);
             if (ok)
             {
                 move = "Check for intermediate way.";
                 break;
-            }*/
+            }
         }
         else
         {
