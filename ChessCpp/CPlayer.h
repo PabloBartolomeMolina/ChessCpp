@@ -1,7 +1,6 @@
 #pragma once
 
 #include <iostream>
-#include <map>
 #include <math.h>
 #include <vector>
 #include "Defines.h"
