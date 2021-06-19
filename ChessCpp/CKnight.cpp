@@ -36,10 +36,42 @@ bool CKnight::move(string origin, string movement)
 	bool ret = false;
 
 	char colOri = origin[0];
-	char rowOri = origin[1];
+	int rowOri = origin[1] - '0';
 	char colDes = movement[0];
-	char rowDes = movement[1];
+	int rowDes = movement[1] - '0';
 
+	/* Check column difference. */
+	int dif = abs(rowDes - rowOri);
+
+	if (dif == 1)	// 1 row of difference means 2 columns of difference.
+	{
+		if ((colOri == colDes + 2) || (colOri == colDes - 2))
+		{
+			ret = true;
+		}
+		else
+		{
+			cout << "Movement not possible for this piece." << endl;
+			ret = false;
+		}
+	}
+	else if (dif == 2)	// 2 rows of difference means s column of difference.
+	{
+		if ((colOri == colDes + 1) || (colOri == colDes - 1))
+		{
+			ret = true;
+		}
+		else
+		{
+			cout << "Movement not possible for this piece." << endl;
+			ret = false;
+		}
+	}
+	else	// No other options are possible for this piece.
+	{
+		cout << "Movement not possible for this piece." << endl;
+		ret = false;
+	}
 
 
 	return ret;
