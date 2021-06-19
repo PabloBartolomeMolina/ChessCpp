@@ -164,10 +164,9 @@ bool CPlayer::CheckMove(string movement)
 /// </summary>
 string* CPlayer::Move()
 {
-    string movement[2] = { "origin", "destination" };
-    string move = "none";
-    bool ok = false;
-
+    string movement[2] = { "origin", "destination" };   // Array to allocate the return values.
+    string move = "none";   // String to allocate input movement of player.
+    bool ok = false;    // Control flag for validity of movement. It helps to control logic of the function.
 
  /*   if (ok == false)
         ok = true;
@@ -209,7 +208,7 @@ string* CPlayer::Move()
                     case 'Q':
                     case 'k':
                     case 'K':
-                        move[0] = toupper(move[0]);     // Notation for these pieces in in uppercase.
+                        move[0] = toupper(move[0]);     // Notation for these pieces is in uppercase.
                         ok = true;  // It can retake FALSE value if the notation of the case of destination is not good.
                         break;
                     default:        // Not a valid piece, safety case. Normally, this will go in the ELSE.
