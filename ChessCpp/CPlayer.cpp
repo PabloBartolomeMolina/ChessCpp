@@ -169,15 +169,14 @@ string* CPlayer::Move()
     bool ok = false;
 
 
-    if (ok == false)
+ /*   if (ok == false)
         ok = true;
-
 
     if (ok)
         cout << "ok" << endl;
     else
         cout << "issue" << endl;
-
+*/
     /* Ensures that we get a valid movement befor advancing in the code. */
     while (!ok)
     {
