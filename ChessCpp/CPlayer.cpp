@@ -162,9 +162,9 @@ bool CPlayer::CheckMove(string movement)
 /// <summary>
 /// Method to perform a move.
 /// </summary>
-string* CPlayer::Move()
+vector<string> CPlayer::Move()
 {
-    string movement[2] = { "origin", "destination" };   // Array to allocate the return values.
+    vector<string> movement { "origin", "destination" };   // Vector to allocate the return values.
     string move = "none";   // String to allocate input movement of player.
     bool ok = false;    // Control flag for validity of movement. It helps to control logic of the function.
 

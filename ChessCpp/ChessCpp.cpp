@@ -24,7 +24,8 @@ void basicLogic()
         // Show board.
         board.showBoard(1);     // Board view for white player.
         // White player moves.
-        string* movement = whitePlayer.Move();
+        vector<string> movement = whitePlayer.Move();
+        cout << movement[0] << "   " << movement[1] << endl;
         board.placePieces(movement[0], movement[1]);
 
         //board.showBoard(0);     // Board view for black player.
