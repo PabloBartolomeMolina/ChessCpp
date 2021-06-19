@@ -15,7 +15,8 @@ CPawn::CPawn(bool color, string pos, int num)
 		named = "pw";
 	else
 		named = "pb";
-	idd = named + to_string(num); 
+	idd = named + to_string(num);
+	this->color = color;
 	this->id = idd;
 	this->name = named;
 	this->position = pos; 
@@ -38,16 +39,74 @@ CPawn::~CPawn()
 /// <param name="movement"> Movement to do in string format. Already validated but need to check if the way is clear.</param>
 /// <param name="moveType">1 to advance 1 position, 2 to advance 2 positions and 3 to eat a piece.</param>
 /// <returns></returns>
-bool CPawn::move(string origin, string movement, int moveType)
+bool CPawn::move(string origin, string movement)
 {
 	cout << "I am a PAWN" << endl;
+
+	if (this->color)	// Debuging purposes.
+		cout << "white pawn" << endl;
 
 	bool ret = false;
 
 	char colOri = origin[0];
-	char rowOri = origin[1];
+	int rowOri = origin[1] - '0';
 	char colDes = movement[0];
-	char rowDes = movement[1];
+	int rowDes = movement[1] - '0';
+
+	/* Check column difference. */
+	int dif = abs(rowDes - rowOri);
+
+
+	if (colOri == colDes)	// Same column.
+	{
+		if (dif == 1)	// Next row.
+		{
+			ret = simpleMove(origin, movement);
+		}
+		else if (dif == 2)	// Row 2 places away.
+		{
+			
+		}
+		else	// Further row. This case is not possible, just safety usecase.
+		{
+			ret = false;
+		}
+	}
+	else if ((colOri == colDes + 1) || (colOri == colDes - 1))	// Adyacent column.
+	{
+		if (dif == 1)	// Next row.
+		{
+			ret = simpleMove(origin, movement);
+		}
+		else	// Further row. This case is not possible, just safety usecase.
+		{
+			ret = false;
+		}
+	}
+	else	// Further column. This case is not possible, just safety usecase.
+	{
+		ret = false;
+	}
+
+	return ret;
+}
+
+/* PRIVATE methods of the class CPawn. */
+
+/// <summary>
+/// Perform all checks for advancing one single cell.
+/// </summary>
+/// <param name="origin">Origin position</param>
+/// <param name="movement">Destination</param>
+/// <returns></returns>
+bool CPawn::simpleMove(string origin, string movement)
+{
+	bool ret = false;
+
+	char colOri = origin[0];
+	int rowOri = origin[1] - '0';
+	char colDes = movement[0];
+	int rowDes = movement[1] - '0';
 
 	return ret;
 }

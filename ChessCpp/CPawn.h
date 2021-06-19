@@ -3,9 +3,11 @@
 
 class CPawn : public CPiece
 {
+private:
+	bool simpleMove(string origin, string movement);
 public:
 	CPawn(bool color = 0, string pos = "a2", int num = 0);
 	~CPawn();
-	bool move(string origin, string movement, int moveType = 1);
+	bool move(string origin, string movement);
 };
 

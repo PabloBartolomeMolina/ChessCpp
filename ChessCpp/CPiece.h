@@ -1,8 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include <math.h>
 #include <sstream>
-#include <map>
 #include "Defines.h"
 
 using namespace std;
@@ -14,6 +14,7 @@ public:
 	string name = "Nan";
 	string position = "Nan";
 	string type = "Nan";
+	bool color = 0;
 
 	CPiece();
 	~CPiece();
