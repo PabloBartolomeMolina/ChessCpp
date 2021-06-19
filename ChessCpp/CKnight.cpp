@@ -31,7 +31,7 @@ CKnight::~CKnight()
 
 bool CKnight::move(string origin, string movement)
 {
-	cout << "I am a PAWN" << endl;
+	cout << "I am a KNIGHT" << endl;
 
 	bool ret = false;
 
@@ -39,6 +39,8 @@ bool CKnight::move(string origin, string movement)
 	char rowOri = origin[1];
 	char colDes = movement[0];
 	char rowDes = movement[1];
+
+
 
 	return ret;
 }

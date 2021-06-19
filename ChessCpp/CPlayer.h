@@ -2,9 +2,9 @@
 
 #include <iostream>
 #include <map>
+#include <math.h>
 #include <vector>
 #include "Defines.h"
-#include "CPiece.h"
 #include "CPawn.h"
 #include "CRook.h"
 #include "CKnight.h"

@@ -170,7 +170,7 @@ string* CPlayer::Move()
 
 
     if (ok == false)
-        ok == true;
+        ok = true;
 
 
     if (ok)
