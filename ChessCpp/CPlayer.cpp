@@ -159,12 +159,14 @@ bool CPlayer::CheckMove(string movement)
     return result;
 }
 
+vector<string> movement{ "origin", "destination" };   // Vector to allocate the return values.
+
 /// <summary>
 /// Method to perform a move.
 /// </summary>
 vector<string> CPlayer::Move()
 {
-    vector<string> movement { "origin", "destination" };   // Vector to allocate the return values.
+    
     string move = "none";   // String to allocate input movement of player.
     bool ok = false;    // Control flag for validity of movement. It helps to control logic of the function.
 
@@ -193,20 +195,7 @@ vector<string> CPlayer::Move()
                 /* The notation of the case is always in lowercase. Conversion is done before validity check to facilitate the comparison. */
                 move[1] = tolower(move[1]);
 
-                /* Check notation for the case of destination. */
-                if (move[1] >= 'a' && move[1] <= 'h' && move[2] >= '1' && move[2] <= '8' && ok == true)
-                {
-                    /* Only possible if the notation of the piece is valid. */
-                    ok = true;
-                    movement[1].assign(move.substr(1, 2));      // Take just the final position to be returned as a destination.
-                    cout << "Movement is consideredDD" << endl;
-                    break;
-                }
-                else
-                {
-                    /* Either the notation for the position is false or we already knew that the notation for the piece was not good. */
-                    ok = false;
-                }
+                ok = checkDestination(move);
             }
             else
             {
@@ -334,7 +323,7 @@ void CPlayer::createPieces(bool color)
 }
 
 /// <summary>
-/// Helper to simmplify Move method by checking in here the notation.
+/// Helper to simmplify Move method by checking in here the notation of the piece.
 /// </summary>
 /// <param name="movement">Movement that is given by the player</param>
 /// <returns></returns>
@@ -378,5 +367,27 @@ bool CPlayer::checkPiece(string move)
             /* Letter is not valid.*/
             ok = false;
         }
+    }
+}
+
+/// <summary>
+/// Helper to simmplify Move method by checking in here the notation of the destination.
+/// </summary>
+/// <param name="movement">Movement that is given by the player</param>
+/// <returns></returns>
+bool CPlayer::checkDestination(string move)
+{
+    /* Check notation for the case of destination. */
+    if (move[1] >= 'a' && move[1] <= 'h' && move[2] >= '1' && move[2] <= '8' && ok == true)
+    {
+        /* Only possible if the notation of the piece is valid. */
+        ok = true;
+        movement[1].assign(move.substr(1, 2));      // Take just the final position to be returned as a destination.
+        cout << "Movement is consideredDD" << endl;
+    }
+    else
+    {
+        /* Either the notation for the position is false or we already knew that the notation for the piece was not good. */
+        ok = false;
     }
 }

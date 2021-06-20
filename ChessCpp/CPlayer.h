@@ -38,8 +38,10 @@ private:
 	bool CheckMove(string movement);
 	// Check destination before moving.
 	bool CheckOccupied(string movement);
-	// Check notation.
+	// Check notation if piece.
 	bool checkPiece(string move);
+	// Check notation if destination.
+	bool checkDestination(string move);
 
 public:
 	vector<CPawn> pawns;
