@@ -183,45 +183,13 @@ vector<string> CPlayer::Move()
         cin >> move;
         
         // Check if format is correct.
-        if (move.length() == 3 && isalpha(move[0]) && isalpha(move[1]) && isdigit(move[2]))
+        if (move.length() == 3 && isalpha(move[0]) && isalpha(move[1]) && isdigit(move[2]))     // Simple move.
         {
             // Ensrure standard notation for movement input.
-            for (int i = 0; i < piecesDefault.length(); ++i)
-            {
-                /* Check notation for the piece*/
-                if (toupper(move[0]) == toupper(piecesDefault[i]))      // toUpper helps to compare two chars quicker with a cleaner code.
-                {
-                    switch (move[0])
-                    {
-                    case 'p':
-                    case 'P':
-                        move[0] = tolower(move[0]);     // Pawn notation is in lowercase.
-                        ok = true;  // It can retake FALSE value if the notation of the case of destination is not good.
-                        break;
-                    case 'r':
-                    case 'R':
-                    case 'n':
-                    case 'N':
-                    case 'b':
-                    case 'B':
-                    case 'q':
-                    case 'Q':
-                    case 'k':
-                    case 'K':
-                        move[0] = toupper(move[0]);     // Notation for these pieces is in uppercase.
-                        ok = true;  // It can retake FALSE value if the notation of the case of destination is not good.
-                        break;
-                    default:        // Not a valid piece, safety case. Normally, this will go in the ELSE.
-                        ok = false;
-                        break;
-                    }
-                }
-                else
-                {
-                    /* Letter is not valid.*/
-                    ok = false;
-                }
+            ok = checkPiece(move);
 
+            if (ok)
+            {
                 /* The notation of the case is always in lowercase. Conversion is done before validity check to facilitate the comparison. */
                 move[1] = tolower(move[1]);
 
@@ -240,6 +208,10 @@ vector<string> CPlayer::Move()
                     ok = false;
                 }
             }
+            else
+            {
+                // Since piece is not valid, it does not make sense to continue checkings.
+            }
 
             /* UP TO HERE, THE OPTIMAL IMPLEMENTATION IS DONE. NEED TO CHECK THE REST TO OPTIMIZE IT. */
 
@@ -253,9 +225,33 @@ vector<string> CPlayer::Move()
                 break;
             }
         }
+        else if (move.length() == 4 && isalpha(move[0]) && (move[1] == 'x' || move[1] == 'X') && isalpha(move[2]) && isdigit(move[3]))     // Eat a piece.
+        {
+            // Ensrure standard notation for movement input.
+            ok = checkPiece(move);
+        }
+        else if (move.length() == 4 && isalpha(move[0]) && isalpha(move[1]) && isdigit(move[2]) && move[3] == '+')     // Move and check.
+        {
+            // Ensrure standard notation for movement input.
+            ok = checkPiece(move);
+        }
+        else if (move.length() == 5 && isalpha(move[0]) && (move[1] == 'x' || move[1] == 'X') && isalpha(move[2]) && isdigit(move[3]) && move[4] == '+') // Eat a piece and check.
+        {
+            // Ensrure standard notation for movement input.
+            ok = checkPiece(move);
+        }
+        else if (move == "0 - 0" || move == "0-0" || move == "O - O" || move == "O-O")     // Short roque.
+        {
+            // Ensrure standard notation for movement input.
+            ok = checkPiece(move);
+        }
+        else if (move == "0 - 0 - 0" || move == "0-0-0" || move == "O - O - O" || move == "O-O-O")     // Long roque.
+        {
+            // Ensrure standard notation for movement input.
+            ok = checkPiece(move);
+        }
         else
         {
-            /* NOPE */
             /* Format is not valid. */
             ok = false;
             cout << "Invalid format." << endl;
@@ -334,5 +330,53 @@ void CPlayer::createPieces(bool color)
         knights.push_back(knight1);
         CBishop bishop2(color, blackInitialPieces[7], 2);
         bishops.push_back(bishop1);
+    }
+}
+
+/// <summary>
+/// Helper to simmplify Move method by checking in here the notation.
+/// </summary>
+/// <param name="movement">Movement that is given by the player</param>
+/// <returns></returns>
+bool CPlayer::checkPiece(string move)
+{
+
+    bool ok = false;    // Control flag for validity of movement. It helps to control logic of the function.
+
+    for (int i = 0; i < piecesDefault.length(); ++i)
+    {
+        /* Check notation for the piece*/
+        if (toupper(move[0]) == toupper(piecesDefault[i]))      // toUpper helps to compare two chars quicker with a cleaner code.
+        {
+            switch (move[0])
+            {
+            case 'p':
+            case 'P':
+                move[0] = tolower(move[0]);     // Pawn notation is in lowercase.
+                ok = true;  // It can retake FALSE value if the notation of the case of destination is not good.
+                break;
+            case 'r':
+            case 'R':
+            case 'n':
+            case 'N':
+            case 'b':
+            case 'B':
+            case 'q':
+            case 'Q':
+            case 'k':
+            case 'K':
+                move[0] = toupper(move[0]);     // Notation for these pieces is in uppercase.
+                ok = true;  // It can retake FALSE value if the notation of the case of destination is not good.
+                break;
+            default:        // Not a valid piece, safety case. Normally, this will go in the ELSE.
+                ok = false;
+                break;
+            }
+        }
+        else
+        {
+            /* Letter is not valid.*/
+            ok = false;
+        }
     }
 }
