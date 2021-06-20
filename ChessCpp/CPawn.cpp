@@ -110,3 +110,57 @@ bool CPawn::simpleMove(string origin, string movement)
 
 	return ret;
 }
+
+/// <summary>
+/// Check conditions to advance two positions. Only possible for the first move.
+/// </summary>
+/// <param name="origin">Origin position</param>
+/// <param name="movement">Destination</param>
+/// <returns></returns>
+bool CPawn::doubleMove(string origin, string movement)
+{
+	bool ret = false;
+
+	char colOri = origin[0];
+	int rowOri = origin[1] - '0';
+	char colDes = movement[0];
+	int rowDes = movement[1] - '0';
+
+	return ret;
+}
+
+/// <summary>
+/// Checks for eating a piece.
+/// </summary>
+/// <param name="origin">Origin position</param>
+/// <param name="movement">Destination</param>
+/// <returns></returns>
+bool CPawn::eat(string origin, string movement)
+{
+	bool ret = false;
+
+	char colOri = origin[0];
+	int rowOri = origin[1] - '0';
+	char colDes = movement[0];
+	int rowDes = movement[1] - '0';
+
+	return ret;
+}
+
+/// <summary>
+/// Checks for eating at passant.
+/// </summary>
+/// <param name="origin">Origin position</param>
+/// <param name="movement">Destination</param>
+/// <returns></returns>
+bool CPawn::eatPassant(string origin, string movement)
+{
+	bool ret = false;
+
+	char colOri = origin[0];
+	int rowOri = origin[1] - '0';
+	char colDes = movement[0];
+	int rowDes = movement[1] - '0';
+
+	return ret;
+}
