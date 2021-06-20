@@ -166,7 +166,6 @@ vector<string> movement{ "origin", "destination" };   // Vector to allocate the 
 /// </summary>
 vector<string> CPlayer::Move()
 {
-    
     string move = "none";   // String to allocate input movement of player.
     bool ok = false;    // Control flag for validity of movement. It helps to control logic of the function.
 
@@ -194,24 +193,23 @@ vector<string> CPlayer::Move()
             {
                 /* The notation of the case is always in lowercase. Conversion is done before validity check to facilitate the comparison. */
                 move[1] = tolower(move[1]);
-
                 ok = checkDestination(move);
+
+                /* UP TO HERE, THE OPTIMAL IMPLEMENTATION IS DONE. NEED TO CHECK THE REST TO OPTIMIZE IT. */
+
+                /* Now, it depends on the piece to move to check if it is possible to make the movement or not. */
+
+                // Check movement validity.
+                ok = CheckMove(move);
+                if (ok)
+                {
+                    move = "Check for intermediate way.";
+                    break;
+                }
             }
             else
             {
                 // Since piece is not valid, it does not make sense to continue checkings.
-            }
-
-            /* UP TO HERE, THE OPTIMAL IMPLEMENTATION IS DONE. NEED TO CHECK THE REST TO OPTIMIZE IT. */
-
-            /* Now, it depends on the piece to move to check if it is possible to make the movement or not. */
-            
-            // Check movement validity.
-            ok = CheckMove(move);
-            if (ok)
-            {
-                move = "Check for intermediate way.";
-                break;
             }
         }
         else if (move.length() == 4 && isalpha(move[0]) && (move[1] == 'x' || move[1] == 'X') && isalpha(move[2]) && isdigit(move[3]))     // Eat a piece.
@@ -250,8 +248,8 @@ vector<string> CPlayer::Move()
             cout << "OKey" << endl;
         else
             cout << "Something strange happening" << endl;
-        
     }
+
     cout << "Movement is considered" << endl << endl;
     cout << movement[1] << endl;
     system("pause");
