@@ -225,10 +225,6 @@ vector<string> CPlayer::Move()
                 move[2] = tolower(move[2]);
                 ok = checkDestination(move.substr(2, 2));   // Pass just the destination.
 
-                /* UP TO HERE, THE OPTIMAL IMPLEMENTATION IS DONE. NEED TO CHECK THE REST TO OPTIMIZE IT. */
-
-                /* Now, it depends on the piece to move to check if it is possible to make the movement or not. */
-
                 // Check movement validity.
                 ok = CheckMove(move);
                 if (ok)
@@ -246,11 +242,51 @@ vector<string> CPlayer::Move()
         {
             // Ensrure standard notation for movement input.
             ok = checkPiece(move);
+
+            if (ok)
+            {
+                /* The notation of the case is always in lowercase. Conversion is done before validity check to facilitate the comparison. */
+                move[1] = tolower(move[1]);
+                ok = checkDestination(move.substr(1, 2));   // Pass just the destination.
+
+                // Check movement validity.
+                ok = CheckMove(move);
+                if (ok)
+                {
+                    move = "Check for intermediate way.";
+                    break;
+                }
+            }
+            else
+            {
+                // Since piece is not valid, it does not make sense to continue checkings.
+            }
         }
         else if (move.length() == 5 && isalpha(move[0]) && (move[1] == 'x' || move[1] == 'X') && isalpha(move[2]) && isdigit(move[3]) && move[4] == '+') // Eat a piece and check.
         {
             // Ensrure standard notation for movement input.
             ok = checkPiece(move);
+
+            if (ok)
+            {
+                /* The notation for eating a piece is always lowercase. */
+                move[1] = tolower(move[1]);
+                /* The notation of the case is always in lowercase. Conversion is done before validity check to facilitate the comparison. */
+                move[2] = tolower(move[2]);
+                ok = checkDestination(move.substr(2, 2));   // Pass just the destination.
+
+                // Check movement validity.
+                ok = CheckMove(move);
+                if (ok)
+                {
+                    move = "Check for intermediate way.";
+                    break;
+                }
+            }
+            else
+            {
+                // Since piece is not valid, it does not make sense to continue checkings.
+            }
         }
         else if (move == "0 - 0" || move == "0-0" || move == "O - O" || move == "O-O")     // Short roque.
         {
