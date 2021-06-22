@@ -168,14 +168,13 @@ bool CPlayer::CheckMove(string movement)
 bool CPlayer::checkRoque(string movement)
 {
     bool result = false;
-    int i = 0;
+    string move = "";
     // Normalice notation.
     for (char& c : movement) {
         if (c == 'o' || c == 'O')       // Left only version with 0 (zeros).
-            c = '0';
-        else if (c == ' ')
-            movement.erase(i, 1);   // Erase empty spaces.
-        i++;
+            move += '0';
+        else if (c == '-')
+            move += '-';   // Erase empty spaces.
     }
 
     return result;
