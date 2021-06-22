@@ -91,3 +91,35 @@ bool CRook::move(string origin, string movement)
 
 	return ret;
 }
+
+/// <summary>
+/// Method to check if the king has already been moved.
+/// </summary>
+/// <returns>TRUE if not yet moved. FALSE if already moved</returns>
+bool CRook::firstMovement(string movement, bool color)
+{
+	bool result = false;
+
+	if (movement == "0-0" && this->position == "h1" && this->color == color && this->firstMove)
+	{
+		result = true;
+	}
+	else if (movement == "0-0-0" && this->position == "a1" && this->color == color && this->firstMove)
+	{
+		result = true;
+	}
+	else if (movement == "0-0" && this->position == "h8" && this->color == color && this->firstMove)
+	{
+		result = true;
+	}
+	else if (movement == "0-0-0" && this->position == "a8" && this->color == color && this->firstMove)
+	{
+		result = true;
+	}
+	else
+	{
+		result = false;		// Not possible case.
+	}
+
+	return result;
+}

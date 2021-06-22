@@ -159,7 +159,6 @@ bool CPlayer::CheckMove(string movement)
     return result;
 }
 
-
 /// <summary>
 /// // Check possibility of roque movement.
 /// </summary>
@@ -175,6 +174,31 @@ bool CPlayer::checkRoque(string movement)
             move += '0';
         else if (c == '-')
             move += '-';   // Erase empty spaces.
+    }
+
+    /* Once format it standarized, need to check if king has already moved before or not. */
+    result = kings[0].firstMovement();
+
+    /* Only if king has not yet moved, we check if the corresponding tower has already moved before or not. */
+    if (result)
+    {
+        result = rooks[0].firstMovement(move, this->color);
+        if (!result)    // If the first rook is not good, check the second one.
+            result = rooks[1].firstMovement(move, this->color);
+    }
+    else
+    {
+        result = false;
+    }
+
+    /* Only if both pieces are still on place, we will check the free way to proceed with the movement. */
+    if (result)
+    {
+        /* Proceed. */
+
+    }
+    else {
+        /* NOPE */
     }
 
     return result;

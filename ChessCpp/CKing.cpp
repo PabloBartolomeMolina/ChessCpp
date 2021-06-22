@@ -93,3 +93,27 @@ bool CKing::move(string origin, string movement)
 
 	return ret;
 }
+
+/// <summary>
+/// Method to check if the king has already been moved.
+/// </summary>
+/// <returns>TRUE if not yet moved. FALSE if already moved</returns>
+bool CKing::firstMovement()
+{
+	bool result = false;
+
+	if (this->position == "e1" && this->color == true && this->firstMove == true)		// White king check.
+	{
+		result = true;
+	}
+	else if (this->position == "e8" && this->color == false && this->firstMove == true)		// Black king check.
+	{
+		result = true;
+	}
+	else
+	{
+		result = false;	// Not possible case.
+	}
+
+	return result;
+}

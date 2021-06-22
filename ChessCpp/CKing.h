@@ -11,5 +11,6 @@ public:
 	CKing(bool color = 0, string pos = "e1", int num = 0);
 	~CKing();
 	bool move(string origin, string movement);
+	bool firstMovement();
 };
 
