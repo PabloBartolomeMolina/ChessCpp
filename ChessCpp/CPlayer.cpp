@@ -159,6 +159,28 @@ bool CPlayer::CheckMove(string movement)
     return result;
 }
 
+
+/// <summary>
+/// // Check possibility of roque movement.
+/// </summary>
+/// <param name="movement">Short or long roque</param>
+/// <returns></returns>
+bool CPlayer::checkRoque(string movement)
+{
+    bool result = false;
+    int i = 0;
+    // Normalice notation.
+    for (char& c : movement) {
+        if (c == 'o' || c == 'O')       // Left only version with 0 (zeros).
+            c = '0';
+        else if (c == ' ')
+            movement.erase(i, 1);   // Erase empty spaces.
+        i++;
+    }
+
+    return result;
+}
+
 vector<string> movement{ "origin", "destination" };   // Vector to allocate the return values.
 
 /// <summary>
@@ -291,12 +313,18 @@ vector<string> CPlayer::Move()
         else if (move == "0 - 0" || move == "0-0" || move == "O - O" || move == "O-O")     // Short roque.
         {
             // Ensrure standard notation for movement input.
-            ok = checkPiece(move);
+            // No need to check piece notation, since no piece is indicated.
+
+            // Check possility or roque.
+            ok = checkRoque(move);
         }
         else if (move == "0 - 0 - 0" || move == "0-0-0" || move == "O - O - O" || move == "O-O-O")     // Long roque.
         {
             // Ensrure standard notation for movement input.
-            ok = checkPiece(move);
+            // No need to check piece notation, since no piece is indicated.
+
+            // Check possility or roque.
+            ok = checkRoque(move);
         }
         else
         {

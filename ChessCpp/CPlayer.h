@@ -40,6 +40,8 @@ private:
 	bool CheckOccupied(string movement);
 	// Check notation if piece.
 	bool checkPiece(string move);
+	// Check possibility of roque movement.
+	bool checkRoque(string movement);
 	// Check notation if destination.
 	bool checkDestination(string move);
 
