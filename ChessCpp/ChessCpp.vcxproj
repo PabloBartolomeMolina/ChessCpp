@@ -150,6 +150,7 @@
     <ClCompile Include="CPlayer.cpp" />
     <ClCompile Include="CQueen.cpp" />
     <ClCompile Include="CRook.cpp" />
+    <ClCompile Include="Files.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CBishop.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="CQueen.h" />
     <ClInclude Include="CRook.h" />
     <ClInclude Include="Defines.h" />
+    <ClInclude Include="Files.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
