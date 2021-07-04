@@ -214,15 +214,6 @@ vector<string> CPlayer::Move()
     string move = "none";   // String to allocate input movement of player.
     bool ok = false;    // Control flag for validity of movement. It helps to control logic of the function.
 
- /*   if (ok == false)
-        ok = true;
-
-    if (ok)
-        cout << "ok" << endl;
-    else
-        cout << "issue" << endl;
-*/
-    /* Ensures that we get a valid movement befor advancing in the code. */
     while (!ok)
     {
         cout << movementText;
@@ -485,7 +476,7 @@ bool CPlayer::checkPiece(string move)
 /// </summary>
 /// <param name="movement">Movement that is given by the player</param>
 /// <returns></returns>
-bool CPlayer::checkDestination(string move)
+bool CPlayer::checkDestination(string move, bool& ok)
 {
     /* Check notation for the case of destination. */
     if (move[1] >= 'a' && move[1] <= 'h' && move[2] >= '1' && move[2] <= '8' && ok == true)

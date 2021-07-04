@@ -43,7 +43,7 @@ private:
 	// Check possibility of roque movement.
 	bool checkRoque(string movement);
 	// Check notation if destination.
-	bool checkDestination(string move);
+	bool checkDestination(string move, bool& ok);
 
 public:
 	vector<CPawn> pawns;
