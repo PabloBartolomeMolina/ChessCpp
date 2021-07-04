@@ -87,72 +87,61 @@ bool CPlayer::CheckMove(string movement)
     bool result = false;
     string move = movement;     // Use local variable.
 
-    if ((move[0] >= 'a' && move[0] <= 'h') && (move[1] >= '1' && move[1] <= '8'))
-    {
-        // Move is in the expected ranges for columns and rows, so continue wuth the checkings.
-        result = true;
-        // First, check if the destination is already occupied by a piece of the same player.
-        bool occupied = CheckOccupied(move);
+    // First, check if the destination is already occupied by a piece of the same player.
+    bool occupied = CheckOccupied(move);
 
-        if (!occupied)
+    if (!occupied)      // Not occupied by a piece of the same player.
+    {
+        // Check if movement can be done according to the type of piece to be moved. If possible, the movement will be done.
+        switch (movement[0])
         {
-            // Check if movement can be done according to the type of piece to be moved.
-            switch (movement[0])
+        case 'p':
+            for (int i = 0; i < 8; i++)
             {
-            case 'p':
-                for (int i = 0; i < 8; i++)
-                {
-                    result = pawns[i].move(pawns[i].position, move);
-                    if (result)
-                        break;
-                }
-                break;
-            case 'R':
-                for (int i = 0; i < 2; i++)
-                {
-                    result = rooks[i].move(rooks[i].position, move);
-                    if (result)
-                        break;
-                }
-                break;
-            case 'N':
-                for (int i = 0; i < 2; i++)
-                {
-                    result = knights[i].move(knights[i].position, move);
-                    if (result)
-                        break;
-                }
-                break;
-            case 'B':
-                for (int i = 0; i < 2; i++)
-                {
-                    result = bishops[i].move(bishops[i].position, move);
-                    if (result)
-                        break;
-                }
-                break;
-            case 'Q':
-                queens[0].move(queens[0].position, move);
-                break;
-            case 'K':
-                kings[0].move(kings[0].position, move);
-                break;
-            default:
-                // Piece is not valid.
-                result = false;
-                break;
+                result = pawns[i].move(pawns[i].position, move);
+                if (result)
+                    break;
             }
-        }
-        else
-        {
-            // Destination is already occupied by a piece of the same player.
+            break;
+        case 'R':
+            for (int i = 0; i < 2; i++)
+            {
+                result = rooks[i].move(rooks[i].position, move);
+                if (result)
+                    break;
+            }
+            break;
+        case 'N':
+            for (int i = 0; i < 2; i++)
+            {
+                result = knights[i].move(knights[i].position, move);
+                if (result)
+                    break;
+            }
+            break;
+        case 'B':
+            for (int i = 0; i < 2; i++)
+            {
+                result = bishops[i].move(bishops[i].position, move);
+                if (result)
+                    break;
+            }
+            break;
+        case 'Q':
+            queens[0].move(queens[0].position, move);
+            break;
+        case 'K':
+            kings[0].move(kings[0].position, move);
+            break;
+        default:
+            // Piece is not valid.
             result = false;
+            break;
         }
     }
     else
     {
-        cout << "error" << endl;
-        // Move is in outside the expected ranges for columns and rows.
+        // Destination is already occupied by a piece of the same player.
         result = false;
     }
 
@@ -236,9 +225,9 @@ vector<string> CPlayer::Move()
                 /* Now, it depends on the piece to move to check if it is possible to make the movement or not. */
 
                 // Check movement validity.
-                ok = CheckMove(move);
                 if (ok)
                 {
+                    ok = CheckMove(move);
                     move = "Check for intermediate way.";
                     break;
                 }
@@ -430,7 +419,6 @@ void CPlayer::createPieces(bool color)
 /// <returns></returns>
 bool CPlayer::checkPiece(string move)
 {
-
     bool ok = false;    // Control flag for validity of movement. It helps to control logic of the function.
 
     for (int i = 0; i < piecesDefault.length(); ++i)
@@ -469,6 +457,8 @@ bool CPlayer::checkPiece(string move)
             ok = false;
         }
     }
+
+    return ok;
 }
 
 /// <summary>
@@ -476,10 +466,11 @@ bool CPlayer::checkPiece(string move)
 /// </summary>
 /// <param name="movement">Movement that is given by the player</param>
 /// <returns></returns>
-bool CPlayer::checkDestination(string move, bool& ok)
+bool CPlayer::checkDestination(string move)
 {
+    bool ok = false;
     /* Check notation for the case of destination. */
-    if (move[1] >= 'a' && move[1] <= 'h' && move[2] >= '1' && move[2] <= '8' && ok == true)
+    if (move[1] >= 'a' && move[1] <= 'h' && move[2] >= '1' && move[2] <= '8')
     {
         /* Only possible if the notation of the piece is valid. */
         ok = true;
@@ -491,4 +482,6 @@ bool CPlayer::checkDestination(string move, bool& ok)
         /* Either the notation for the position is false or we already knew that the notation for the piece was not good. */
         ok = false;
     }
+
+    return ok;
 }
