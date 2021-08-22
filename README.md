@@ -1,6 +1,10 @@
 # ChessCpp
 Console program to play chess, written in C++
 
+## NOTE
+After some difficulties to have time for developping the project due to personal contraints, I will retake the project on 23rd August.
+After analysing the project and its current status, some changes in the general logic and process to follow in the program are going to be implemented. See Word document "Basic_descirption_logic".
+
 ## Objective
 Creation of a C++ console application to play chess by using OOP
 
