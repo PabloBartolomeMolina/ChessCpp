@@ -1,6 +1,8 @@
 // ChessCpp.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 
+#include <conio.h>
+
 #include <iostream>
 #include <algorithm>
 #include "CBoard.h"
@@ -16,8 +18,11 @@ void basicLogic()
 
     // Creation of board and both players.
     CBoard board = CBoard();
+    //_getch();     // Debugging purposes
     CPlayer whitePlayer = CPlayer(true);
+    //_getch();     // Debugging purposes
     CPlayer blackPlayer = CPlayer(false);
+    //_getch();     // Debugging purposes
 
     while (!mate)
     {
