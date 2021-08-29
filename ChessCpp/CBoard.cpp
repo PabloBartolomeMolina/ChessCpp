@@ -9,7 +9,7 @@
 CBoard::CBoard()
 {
     initPlace();
-    cout << "Board object has been created." << endl;
+    cout << "Board object has been created." << endl;       // Debugging purposes.
 }
 
 /// <summary>
@@ -17,7 +17,7 @@ CBoard::CBoard()
 /// </summary>
 CBoard::~CBoard()
 {
-    cout << "Board object has been destroyed." << endl;
+    cout << "Board object has been destroyed." << endl;     // Debugging purposes.
 }
 
 /* PRIVATE methods of the class Board. */
@@ -57,10 +57,10 @@ void CBoard::initPlace()
 /* PUBLIC methods of the class Board. */
 
 /// <summary>
-/// Helper method to check if the way for a given movement is free or blocked.
+/// Helper method to check if the way for a given movement is free or blocked. Need to be called for each intermediate position.
 /// </summary>
 /// <param name="position">Position to check.</param>
-/// <returns>True if free, False if not free.</returns>
+/// <returns>True if some intermediate position is occupied, False if free path.</returns>
 bool CBoard::CheckPosition(string position)
 {
     bool returned = false;
@@ -71,7 +71,7 @@ bool CBoard::CheckPosition(string position)
         if (whitePositions[i] == position || BlackPositions[i] == position)
         {
             returned = true;
-            break;
+            break;              // As soon as one postition on the path is not free, it does not matter the status of the rest.
         }
         else
         {
@@ -86,6 +86,7 @@ bool CBoard::CheckPosition(string position)
 /// </summary>
 string CBoard::placePieces(string origin, string destination)
 {
+    /* To be populated with real code. */
     return "TOTO";
 }
 
