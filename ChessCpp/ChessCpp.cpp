@@ -28,11 +28,11 @@ void basicLogic()
         cout << movement[0] << "   " << movement[1] << endl;
         board.placePieces(movement[0], movement[1]);
 
-        //board.showBoard(0);     // Board view for black player.
+        board.showBoard(0);     // Board view for black player.
         // Black player moves.
         movement = whitePlayer.Move();
         board.placePieces(movement[0], movement[1]);
-    }
+    }   // Rest in the loop until one player plays a "check mate" movement.
 }
 
 /// <summary>
@@ -61,15 +61,16 @@ int main()
     {
         cout << "Please, select an option by its number :" << endl << "     1. PLay a new game." << endl << "     2. Exit app." << endl;
         cin >> input;
-    }
+    }   // Rest in the loop until one of the 2 valid options is choosen.
 
     if (stoi(input) == 1)
     {
         basicLogic();
+        cout << "That was the end of the game..." << endl;
+        cout << "See you next time!!" << endl;
     }
     else if (stoi(input) == 1)
     {
         cout << "See you next time!!" << endl;
     }
-    
 }
