@@ -41,14 +41,14 @@ CBishop::~CBishop()
 /// <returns></returns>
 bool CBishop::check_movement(char new_f, char old_f, char new_c, char old_c)
 {
-	if (abs((int)new_f - (int)old_f) && ((int)new_c - (int)old_c))
+	if (abs((int)new_f - (int)old_f) == abs((int)new_c - (int)old_c))
 	{
-		// Diagonal move is possible for a rook.
+		// Diagonal move is possible for a bishop.
 		return true;
 	}
 	else
 	{
-		// Other type of move is not possible for a rook.
+		// Other type of move is not possible for a bishop.
 		return false;
 	}
 }
