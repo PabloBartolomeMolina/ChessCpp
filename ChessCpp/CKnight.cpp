@@ -29,6 +29,33 @@ CKnight::~CKnight()
 	cout << "Knight object has been destroyed." << endl;
 }
 
+/// <summary>
+/// Check the plausability of the movement taking into account the old position and the new one.
+/// </summary>
+/// <param name="new_f">New file</param>
+/// <param name="old_f">Old file</param>
+/// <param name="new_c">New column</param>
+/// <param name="old_c">Old column</param>
+/// <returns></returns>
+bool CKnight::check_movement(char new_f, char old_f, char new_c, char old_c)
+{
+	if ((abs((int)new_f - (int)old_f) == 1) && (abs((int)new_c - (int)old_c) == 2))
+	{
+		// Correct move is possible for a knight.
+		return true;
+	}
+	else if ((abs((int)new_f - (int)old_f) == 2) && (abs((int)new_c - (int)old_c) == 1))
+	{
+		// Correct move is possible for a knight.
+		return true;
+	}
+	else
+	{
+		// Other type of move is not possible for a knight.
+		return false;
+	}
+}
+
 bool CKnight::move(string origin, string movement)
 {
 	cout << "I am a KNIGHT" << endl;
