@@ -30,6 +30,34 @@ CRook::~CRook()
 	cout << "Rook object has been destroyed." << endl;
 }
 
+
+/// <summary>
+/// Check the plausability of the movement taking into account the old position and the new one.
+/// </summary>
+/// <param name="new_f">New file</param>
+/// <param name="old_f">Old file</param>
+/// <param name="new_c">New column</param>
+/// <param name="old_c">Old column</param>
+/// <returns></returns>
+bool CRook::check_movement(char new_f, char old_f, char new_c, char old_c)
+{
+	if ((new_f == old_f) && (new_c != old_c))
+	{
+		// Horizontal move is possible for a rook.
+		return true;
+	}
+	else if ((new_f != old_f) && (new_c == old_c))
+	{
+		// Vertical move is possible for a rook.
+		return true;
+	}
+	else
+	{
+		// Other type of move is not possible for a rook.
+		return false;
+	}
+}
+
 bool CRook::move(string origin, string movement)
 {
 	cout << "I am a ROOK" << endl;
