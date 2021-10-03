@@ -31,11 +31,12 @@ void basicLogic()
         // White player moves.
         vector<string> movement = whitePlayer.Move();
         cout << movement[0] << "   " << movement[1] << endl;
+        movement = whitePlayer.Move();
         board.placePieces(movement[0], movement[1]);
 
         board.showBoard(0);     // Board view for black player.
         // Black player moves.
-        movement = whitePlayer.Move();
+        movement = blackPlayer.Move();
         board.placePieces(movement[0], movement[1]);
     }   // Rest in the loop until one player plays a "check mate" movement.
 }
