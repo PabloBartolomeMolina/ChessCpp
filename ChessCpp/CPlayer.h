@@ -34,6 +34,8 @@ private:
 
 	// Creation of pieces.
 	void createPieces(bool color = 0);
+	// Check notation if destination.
+	bool checkDestination(string move);
 	// Check movement.
 	bool CheckMove(string movement);
 	// Check destination before moving.
@@ -42,8 +44,6 @@ private:
 	bool checkPiece(string move);
 	// Check possibility of roque movement.
 	bool checkRoque(string movement);
-	// Check notation if destination.
-	bool checkDestination(string move);
 
 public:
 	vector<CPawn> pawns;

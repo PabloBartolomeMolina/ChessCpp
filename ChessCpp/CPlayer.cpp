@@ -35,51 +35,6 @@ CPlayer::~CPlayer()
 }
 
 /// <summary>
-/// Check if destination is occupied by a piece of the same player.
-/// </summary>
-/// <param name="movement">Destination case.</param>
-/// <returns></returns>
-bool CPlayer::CheckOccupied(string movement)
-{
-    bool occupied = false;
-    
-    // Check if queen or king are in that position.
-    if (kings[0].position == movement || queens[0].position == movement)
-    {
-        occupied = true;
-    }
-
-    // Check if a rook, a knight or a bishop are in that position.
-    for (int i = 0; i < 2; i++)
-    {
-        // If already one piece is in the objective case, it is not needed to keep checking.
-        if (occupied)
-            break;
-
-        if (rooks[i].position == movement || knights[i].position == movement || bishops[i].position == movement)
-        {
-            occupied = true;
-            break;
-        }
-    }
-
-    // Check if a pawn is in that position.
-    for (int i = 0; i < 8; i++)
-    {
-        // If already one piece is in the objective case, it is not needed to keep checking.
-        if (occupied)
-            break;
-        if (pawns[i].position == movement)
-        {
-            occupied = true;
-            break;
-        }
-    }
-
-    return occupied;
-}
-
-/// <summary>
 /// Helper for move method.
 /// </summary>
 bool CPlayer::CheckMove(string movement)
@@ -149,6 +104,51 @@ bool CPlayer::CheckMove(string movement)
 }
 
 /// <summary>
+/// Check if destination is occupied by a piece of the same player.
+/// </summary>
+/// <param name="movement">Destination case.</param>
+/// <returns></returns>
+bool CPlayer::CheckOccupied(string movement)
+{
+    bool occupied = false;
+    
+    // Check if queen or king are in that position.
+    if (kings[0].position == movement || queens[0].position == movement)
+    {
+        occupied = true;
+    }
+
+    // Check if a rook, a knight or a bishop are in that position.
+    for (int i = 0; i < 2; i++)
+    {
+        // If already one piece is in the objective case, it is not needed to keep checking.
+        if (occupied)
+            break;
+
+        if (rooks[i].position == movement || knights[i].position == movement || bishops[i].position == movement)
+        {
+            occupied = true;
+            break;
+        }
+    }
+
+    // Check if a pawn is in that position.
+    for (int i = 0; i < 8; i++)
+    {
+        // If already one piece is in the objective case, it is not needed to keep checking.
+        if (occupied)
+            break;
+        if (pawns[i].position == movement)
+        {
+            occupied = true;
+            break;
+        }
+    }
+
+    return occupied;
+}
+
+/// <summary>
 /// // Check possibility of roque movement.
 /// </summary>
 /// <param name="movement">Short or long roque</param>
@@ -193,7 +193,8 @@ bool CPlayer::checkRoque(string movement)
     return result;
 }
 
-vector<string> movement{ "origin", "destination" };   // Vector to allocate the return values.
+// Vector to allocate the return values.
+vector<string> movement{ "origin", "destination" };
 
 /// <summary>
 /// Method to perform a move.
@@ -352,6 +353,80 @@ vector<string> CPlayer::Move()
 /* PRIVATE methods of the class Player. */
 
 /// <summary>
+/// Helper to simmplify Move method by checking in here the notation of the destination.
+/// </summary>
+/// <param name="movement">Movement that is given by the player</param>
+/// <returns></returns>
+bool CPlayer::checkDestination(string move)
+{
+    bool ok = false;
+    /* Check notation for the case of destination. */
+    if (move[1] >= 'a' && move[1] <= 'h' && move[2] >= '1' && move[2] <= '8')
+    {
+        /* Only possible if the notation of the piece is valid. */
+        ok = true;
+        movement[1].assign(move.substr(1, 2));      // Take just the final position to be returned as a destination.
+        cout << "Movement is consideredDD" << endl;
+    }
+    else
+    {
+        /* Either the notation for the position is false or we already knew that the notation for the piece was not good. */
+        ok = false;
+    }
+
+    return ok;
+}
+
+/// <summary>
+/// Helper to simmplify Move method by checking in here the notation of the piece.
+/// </summary>
+/// <param name="movement">Movement that is given by the player</param>
+/// <returns></returns>
+bool CPlayer::checkPiece(string move)
+{
+    bool ok = false;    // Control flag for validity of movement. It helps to control logic of the function.
+
+    for (int i = 0; i < piecesDefault.length(); ++i)
+    {
+        /* Check notation for the piece*/
+        if (toupper(move[0]) == toupper(piecesDefault[i]))      // toUpper helps to compare two chars quicker with a cleaner code.
+        {
+            switch (move[0])
+            {
+            case 'p':
+            case 'P':
+                move[0] = tolower(move[0]);     // Pawn notation is in lowercase.
+                ok = true;  // It can retake FALSE value if the notation of the case of destination is not good.
+                break;
+            case 'r':
+            case 'R':
+            case 'n':
+            case 'N':
+            case 'b':
+            case 'B':
+            case 'q':
+            case 'Q':
+            case 'k':
+            case 'K':
+                move[0] = toupper(move[0]);     // Notation for these pieces is in uppercase.
+                ok = true;  // It can retake FALSE value if the notation of the case of destination is not good.
+                break;
+            default:        // Not a valid piece, safety case. Normally, this will go in the ELSE.
+                ok = false;
+                break;
+            }
+        }
+        else
+        {
+            /* Letter is not valid.*/
+            ok = false;
+        }
+    }
+
+    return ok;
+}
+
+/// <summary>
 /// Method to create the proper pieces when player instance is created.
 /// </summary>
 /// <param name="color"></param>
@@ -410,78 +485,4 @@ void CPlayer::createPieces(bool color)
         CBishop bishop2(color, blackInitialPieces[7], 2);
         bishops.push_back(bishop1);
     }
-}
-
-/// <summary>
-/// Helper to simmplify Move method by checking in here the notation of the piece.
-/// </summary>
-/// <param name="movement">Movement that is given by the player</param>
-/// <returns></returns>
-bool CPlayer::checkPiece(string move)
-{
-    bool ok = false;    // Control flag for validity of movement. It helps to control logic of the function.
-
-    for (int i = 0; i < piecesDefault.length(); ++i)
-    {
-        /* Check notation for the piece*/
-        if (toupper(move[0]) == toupper(piecesDefault[i]))      // toUpper helps to compare two chars quicker with a cleaner code.
-        {
-            switch (move[0])
-            {
-            case 'p':
-            case 'P':
-                move[0] = tolower(move[0]);     // Pawn notation is in lowercase.
-                ok = true;  // It can retake FALSE value if the notation of the case of destination is not good.
-                break;
-            case 'r':
-            case 'R':
-            case 'n':
-            case 'N':
-            case 'b':
-            case 'B':
-            case 'q':
-            case 'Q':
-            case 'k':
-            case 'K':
-                move[0] = toupper(move[0]);     // Notation for these pieces is in uppercase.
-                ok = true;  // It can retake FALSE value if the notation of the case of destination is not good.
-                break;
-            default:        // Not a valid piece, safety case. Normally, this will go in the ELSE.
-                ok = false;
-                break;
-            }
-        }
-        else
-        {
-            /* Letter is not valid.*/
-            ok = false;
-        }
-    }
-
-    return ok;
-}
-
-/// <summary>
-/// Helper to simmplify Move method by checking in here the notation of the destination.
-/// </summary>
-/// <param name="movement">Movement that is given by the player</param>
-/// <returns></returns>
-bool CPlayer::checkDestination(string move)
-{
-    bool ok = false;
-    /* Check notation for the case of destination. */
-    if (move[1] >= 'a' && move[1] <= 'h' && move[2] >= '1' && move[2] <= '8')
-    {
-        /* Only possible if the notation of the piece is valid. */
-        ok = true;
-        movement[1].assign(move.substr(1, 2));      // Take just the final position to be returned as a destination.
-        cout << "Movement is consideredDD" << endl;
-    }
-    else
-    {
-        /* Either the notation for the position is false or we already knew that the notation for the piece was not good. */
-        ok = false;
-    }
-
-    return ok;
 }
