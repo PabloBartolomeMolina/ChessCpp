@@ -10,3 +10,14 @@ const char rows[8] = { '1', '2', '3', '4', '5', '6', '7', '8' };
 
 const char piecesC[6] = { 'p', 'R', 'N', 'B', 'Q', 'K'};
 const string piecesDefault = "pRNBQK";
+
+const int EMPTY = 0;
+const int PAWN = 1;
+const int ROOK = 2;
+const int KNIGHT = 3;
+const int BISHOP = 4;
+const int QUEEN = 5;
+const int KING = 6;
+
+const int WHITE = 1;
+const int BLACK = 2;
