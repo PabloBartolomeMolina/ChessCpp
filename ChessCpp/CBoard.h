@@ -51,4 +51,5 @@ public:
 
     int pieces[64];
     int color[64];
+    struct board_index { int index; string position; };
 };
