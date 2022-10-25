@@ -48,4 +48,7 @@ public:
     bool CheckPosition(string position);
     string placePieces(string origin, string destination);
     void showBoard(bool player = 1);
+
+    int pieces[64];
+    int color[64];
 };
