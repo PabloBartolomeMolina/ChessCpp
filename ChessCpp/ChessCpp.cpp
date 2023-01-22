@@ -1,12 +1,30 @@
 // ChessCpp.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 
-#include <conio.h>
-
-#include <iostream>
 #include <algorithm>
+#include <conio.h>
+#include <iostream>
+#include <vector>
+
 #include "CBoard.h"
 #include "CPlayer.h"
+#include "Movement.h"
+
+using namespace std;
+
+
+///
+bool Move()
+{
+    bool moved = false;
+    string movementInput = "";
+
+    cout << "Please, enter your move: ";
+    cin >> movementInput;
+    check_input(movementInput);
+
+    return moved;
+}
 
 
 /// <summary>
@@ -28,6 +46,10 @@ void basicLogic()
     {
         // Show board.
         board.showBoard(1);     // Board view for white player.
+        
+        bool moved = Move();
+
+/*
         // White player moves.
         vector<string> movement = whitePlayer.Move();
         cout << movement[0] << "   " << movement[1] << endl;
@@ -38,6 +60,7 @@ void basicLogic()
         // Black player moves.
         movement = blackPlayer.Move();
         board.placePieces(movement[0], movement[1]);
+*/
     }   // Rest in the loop until one player plays a "check mate" movement.
 }
 
@@ -71,7 +94,7 @@ int main()
 
     if (stoi(input) == 1)       // Play a new game option.
     {
-        //basicLogic();
+        basicLogic();
         cout << "That was the end of the game..." << endl;  // End of a chess game.
         // Provisional behavior. Better to go to the initial menu to give option to reply a game.
         cout << "See you next time!!" << endl;
