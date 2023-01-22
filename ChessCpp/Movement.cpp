@@ -1,5 +1,11 @@
 #include "Movement.h"
 
+/// <summary>
+/// Function to receive the movement of the users. A check is launched for the format.
+/// </summary>
+/// <returns>
+/// Returns TRUE if all good and FALSE if some issues found.
+/// </returns>
 bool Movement()
 {
 	bool result = false;
@@ -8,11 +14,21 @@ bool Movement()
     cout << "Please, insert your movement: ";
     cin >> move;
 
-    check_input(move);
+    result = check_input(move);
 
 	return result;
 }
 
+
+/// <summary>
+/// Check the format of the user's input according to international notation system. No check of feasibility of the movement is done here.
+/// </summary>
+/// <param name="move">
+/// As parameter, we receive in the function the user's input.
+/// </param>
+/// <returns>
+/// Returns TRUE if all good and FALSE if some issues found.
+/// </returns>
 bool check_input(string move)
 {
     bool ok = false;
@@ -33,7 +49,6 @@ bool check_input(string move)
         if ((move[i] == 'k' || move[i] == 'q' || move[i] == 'r' || move[i] == 'n' || move[i] == 'b') && (move[i + 1] >= 'a' && move[i + 1] <= 'h'))
             move[i] = toupper(move[i]);
     }
-    cout << "movement after casing... " << move << endl;
 
     if (move.length() == 2 && isalpha(move[0]) && isdigit(move[1]))
     {
