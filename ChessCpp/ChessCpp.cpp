@@ -13,15 +13,32 @@
 using namespace std;
 
 
-///
+/// <summary>
+/// Function to manage the basic logic of movements.
+/// </summary>
+/// <returns></returns>
 bool Move()
 {
     bool moved = false;
     string movementInput = "";
 
-    cout << "Please, enter your move: ";
-    cin >> movementInput;
-    check_input(movementInput);
+    while (!moved) {
+        cout << "Please, enter your move: ";
+        cin >> movementInput;
+        bool valid_format = check_input(movementInput);
+        if (valid_format)
+        {
+            // Format is valid, so we can analyze the feasibility of the movement.
+
+            // Is the position of destination empty ? Can we eat an enemy piece at that position ?
+            // is the path until destination free ? Is the piece we want to move bloqued in his way there ?
+        }
+        else
+        {
+            // Format is not valid, so we need to ask again the user's input for the movement.
+        }
+    }
+    
 
     return moved;
 }
