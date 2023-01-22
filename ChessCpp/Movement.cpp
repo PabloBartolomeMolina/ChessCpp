@@ -18,18 +18,22 @@ bool check_input(string move)
     bool ok = false;
 
     // Remove whote spaces from user's input to simplify checking the strings.
-    // All leters to Uppercase for the same reason.
+    // Letters to Uppercase or Lowercase depending on which letter we find in the string.
     move.erase(remove_if(move.begin(), move.end(), isspace), move.end());
     for (int i = 0; i < move.size(); i++)
     {
-        if (move[i] >= 'a' && move[i] <= 'h')
+        if ((move[i] >= 'a' && move[i] <= 'z') || (move[i] >= 'A' && move[i] <= 'Z'))
             move[i] = tolower(move[i]);
-        if (move[i] == 'K' || move[i] == 'Q' || move[i] == 'R' || move[i] == 'N' || move[i] == 'B')
-            move[i] = toupper(move[i]);
         if (move[i] == 'x' || move[i] == 'X')
+            move[i] = tolower(move[i]);
+    }
+    for (int i = 0; i < move.size(); i++)
+    {
+        // Letter of pieces is done separately to ensure it is set to Uppercase.
+        if ((move[i] == 'k' || move[i] == 'q' || move[i] == 'r' || move[i] == 'n' || move[i] == 'b') && (move[i + 1] >= 'a' && move[i + 1] <= 'h'))
             move[i] = toupper(move[i]);
     }
-        
+    cout << "movement after casing... " << move << endl;
 
     if (move.length() == 2 && isalpha(move[0]) && isdigit(move[1]))
     {
@@ -48,14 +52,12 @@ bool check_input(string move)
         // Format neeeds to be LETTER - LETTER - NUMBER
         // Check if notation is according to the places in the board.
         if (move[1] >= 'a' && move[1] <= 'h' && move[2] >= '1' && move[2] <= '8')
-            ok = true;
+            // Check if notation is according to the pieces abbreviations.
+            if (move[0] == 'K' || move[0] == 'Q' || move[0] == 'R' || move[0] == 'N' || move[0] == 'B')
+                ok = true;
         else
             ok = false;
-        // Check if notation is according to the pieces abbreviations.
-        if (move[0] == 'K' || move[0] == 'Q' || move[0] == 'R' || move[0] == 'N' || move[0] == 'B')
-            ok = true;
-        else
-            ok = false;
+        
         // Need to add the check to at the piece at the destination.
         // Need to add the check of the path possibility.
     }
