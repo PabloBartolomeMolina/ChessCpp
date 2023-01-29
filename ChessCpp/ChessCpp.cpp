@@ -20,9 +20,14 @@ using namespace std;
 bool Move()
 {
     bool moved = false;
-    string movementInput = "";
-    bool valid_format = check_input(movementInput);
-    if (valid_format)
+    /// <summary>
+    ///  Expected format :
+    /// movement_parts[0] : format ok / nok
+    /// </summary>
+    /// <returns></returns>
+    string* movement_parts;
+    movement_parts = Movement();
+    if (movement_parts[0] == "True")
     {
         // Format is valid, so we can analyze the feasibility of the movement.
 

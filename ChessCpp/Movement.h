@@ -5,5 +5,5 @@
 
 using namespace std;
 
-bool Movement();
-bool check_input(string move);
+string * Movement();
+bool check_input(string &move);

@@ -6,9 +6,10 @@
 /// <returns>
 /// Returns TRUE if all good and FALSE if some issues found.
 /// </returns>
-bool Movement()
+string * Movement()
 {
-	bool result = false;
+    string *result = false;
+    bool checked = false;
     string move = "dummy";
 
     while (!result)
@@ -16,10 +17,29 @@ bool Movement()
         cout << "Please, insert your movement: ";
         cin >> move;
 
-        result = check_input(move);
+        checked = check_input(move);
     }
-    
-
+    if (move == "0-0" || move == "0-0-0") {
+        result[0] = "Roque";    // Indicates movement is a roque.
+        result[0] = move;       // Indicates if short or long roque.
+    }        
+    else {
+        if (isalpha(move[0]) && isupper(move[0])) {
+            result[0] = move[0];    // Indicates piece moving.
+            if (move[1] == 'x')
+                result[1] = move[1];
+            else
+                result[1] = move.substr(1, 2);  // Copy destination place.
+        }
+        else {
+            result[0] = "pawn"; // Indicates the piece moving is a pawn.
+            if (move[1] == 'x')
+                result[1] = move[1];
+            else
+                result[1] = move.substr(1, 2);  // Copy destination place.
+        }
+    }
+        
 	return result;
 }
 
@@ -33,7 +53,7 @@ bool Movement()
 /// <returns>
 /// Returns TRUE if all good and FALSE if some issues found.
 /// </returns>
-bool check_input(string move)
+bool check_input(string &move)
 {
     bool ok = false;
 
@@ -129,10 +149,7 @@ bool check_input(string move)
     }
     else if (move == "0-0-0" || move == "O-O-O")     // Long roque.
     {
-        for (int i = 0; i < move.size(); i++) {
-            if(move[i] == 'O')
-                move[i] = tolower(move[i]);
-        }
+        move = "0-0-0";
         ok = true;
 
         // Need to add the check to at the piece at the destination.
