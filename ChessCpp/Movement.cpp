@@ -11,10 +11,14 @@ bool Movement()
 	bool result = false;
     string move = "dummy";
 
-    cout << "Please, insert your movement: ";
-    cin >> move;
+    while (!result)
+    {
+        cout << "Please, insert your movement: ";
+        cin >> move;
 
-    result = check_input(move);
+        result = check_input(move);
+    }
+    
 
 	return result;
 }
