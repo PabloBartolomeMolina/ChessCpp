@@ -60,65 +60,42 @@ CBoard::~CBoard()
 /// </summary>
 void CBoard::initPlace()
 {
-    // Pawn rows.
-    row2 = "2" + dSpace;
-    row7 = "7" + dSpace;
-    for (int i = 0; i < 8; i++)
-    {
-        row2 += "  pw" + dSpace;
-        row7 += "  pb" + dSpace;
+    square[0][0].setPieceAndColor(ROOK, WHITE);
+    square[1][0].setPieceAndColor(KNIGHT, WHITE);
+    square[2][0].setPieceAndColor(BISHOP, WHITE);
+    square[3][0].setPieceAndColor(QUEEN, WHITE);
+    square[4][0].setPieceAndColor(KING, WHITE);
+    square[5][0].setPieceAndColor(BISHOP, WHITE);
+    square[6][0].setPieceAndColor(KNIGHT, WHITE);
+    square[7][0].setPieceAndColor(ROOK, WHITE);
+
+    square[0][7].setPieceAndColor(ROOK, BLACK);
+    square[1][7].setPieceAndColor(KNIGHT, BLACK);
+    square[2][7].setPieceAndColor(BISHOP, BLACK);
+    square[3][7].setPieceAndColor(QUEEN, BLACK);
+    square[4][7].setPieceAndColor(KING, BLACK);
+    square[5][7].setPieceAndColor(BISHOP, BLACK);
+    square[6][7].setPieceAndColor(KNIGHT, BLACK);
+    square[7][7].setPieceAndColor(ROOK, BLACK);
+
+    for (int i = 0; i < 8; i++) {
+        square[i][1].setPieceAndColor(PAWN, WHITE);
+        square[i][6].setPieceAndColor(PAWN, BLACK);
     }
 
-    // Pieces rows.
-    row1 = "1" + dSpace;
-    row8 = "8" + dSpace;
-    for (int i = 0; i < 8; i++)
-    {
-        row1 += "  " + whitePieces[i] + dSpace;
-        row8 += "  " + blackPieces[i] + dSpace;
+    for (int i = 0; i < 8; i++) {
+        for (int j = 2; j < 6; j++) {
+            square[i][j].setPieceAndColor(EMPTY, NONE);
+        }
     }
 
-    // Empty rows.
-    row3 = "3  " + rowEmpty;
-    row4 = "4  " + rowEmpty;
-    row5 = "5  " + rowEmpty;
-    row6 = "6  " + rowEmpty;
-
-    int pieces[64] = {
-        ROOK,  KNIGHT,BISHOP,QUEEN, KING,  BISHOP,KNIGHT,ROOK,
-        PAWN,  PAWN,  PAWN,  PAWN,  PAWN,  PAWN,  PAWN,  PAWN,
-        EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-        EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-        EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-        EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-        PAWN,  PAWN,  PAWN,  PAWN,  PAWN,  PAWN,  PAWN,  PAWN,
-        ROOK,  KNIGHT,BISHOP,QUEEN, KING,  BISHOP,KNIGHT,ROOK
-    };
-
-    int color[64] = {
-        BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK,
-        BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK,
-        EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-        EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-        EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-        EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,
-        WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE,
-        WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE
-    };
-
-    board_index board[64]{
-         {0, "a8"}, {1, "b8"}, {2, "c8"}, {3, "d8"}, {4, "e8"}, {5, "f8"}, {6, "g8"}, {7, "h8"},
-         {8, "a7"}, {9, "b7"}, {10, "c7"}, {11, "d7"}, {12, "e7"}, {13, "f7"}, {14, "g7"}, {15, "h7"},
-         {16, "a6"}, {17, "b6"}, {18, "c6"}, {19, "d6"}, {20, "e6"}, {21, "f6"}, {22, "g6"}, {23, "h6"},
-         {24, "a5"}, {25, "b5"}, {26, "c5"}, {27, "d5"}, {28, "e5"}, {29, "f5"}, {30, "g5"}, {31, "h5"},
-         {32, "a4"}, {33, "b4"}, {34, "c4"}, {35, "d4"}, {36, "e4"}, {37, "f4"}, {38, "g4"}, {39, "h4"},
-         {40, "a3"}, {41, "b3"}, {42, "c3"}, {43, "d3"}, {44, "e3"}, {45, "f3"}, {46, "g3"}, {47, "h3"},
-         {48, "a2"}, {49, "b2"}, {50, "c2"}, {51, "d2"}, {52, "e2"}, {53, "f2"}, {54, "g2"}, {55, "h2"},
-         {56, "a1"}, {57, "b1"}, {58, "c1"}, {59, "d1"}, {60, "e1"}, {61, "f1"}, {62, "g1"}, {63, "h1"},
-    };
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            square[i][j].setX(i);
+            square[i][j].setY(j);
+        }
+    }
 }
-
-
 
 /* PUBLIC methods of the class Board. */
 
@@ -211,3 +188,12 @@ void CBoard::showBoard(bool player)
     }
 }
 
+CSquare* CBoard::getSquare(int x, int y)
+{
+    return &square[x][y];
+}
+
+void CBoard::setSquare(CSquare* sq, int x, int y)
+{
+    square[x][y] = *sq;
+}
