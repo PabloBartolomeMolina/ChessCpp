@@ -28,6 +28,7 @@ Initially it will be just a game in the console to play 1v1. I would like to con
   - Basic game logic to play against the computer.
   - Register several players, so it will be possible to select them to play and to see statistics about wins, draws and loses.
 
-Coordinates for the board
+
+## Coordinates for the board
 
 ![image](https://user-images.githubusercontent.com/81037848/230918207-2d06192e-c150-418f-9774-e42feefbbae3.png)
