@@ -18,8 +18,8 @@ private:
 public:
     CSquare(); 
     void setEmpty();
-    void setPiece();
-    void setColor();
+    void setPiece(Piece p);
+    void setColor(Color p);
     Piece getPiece();
     Color getColor();
     void setX(int x);
