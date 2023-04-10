@@ -152,6 +152,7 @@
     <ClCompile Include="CRook.cpp" />
     <ClCompile Include="Files.cpp" />
     <ClCompile Include="Movement.cpp" />
+    <ClCompile Include="CSquare.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CBishop.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="Defines.h" />
     <ClInclude Include="Files.h" />
     <ClInclude Include="Movement.h" />
+    <ClInclude Include="CSquare.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

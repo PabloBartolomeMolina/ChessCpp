@@ -39,6 +39,7 @@ private:
     string row7 = "";
     string row8 = "";
 
+
     
     void initPlace();
 
