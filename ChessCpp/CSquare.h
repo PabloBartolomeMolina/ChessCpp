@@ -8,17 +8,16 @@ using namespace std;
 class CSquare
 {
 private:
-    Piece piece;
-    Color color;
+    string piece;
+    string color;
     int x, y;
 
 public:
     CSquare(); 
     void setEmpty();
-    void setPiece(Piece p);
-    void setColor(Color p);
-    Piece getPiece();
-    Color getColor();
+    void setPieceAndColor(string p, string c);
+    string getPiece();
+    string getColor();
     void setX(int x);
     void setY(int y);
     int getX();

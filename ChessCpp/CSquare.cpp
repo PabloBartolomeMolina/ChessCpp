@@ -12,22 +12,18 @@ void CSquare::setEmpty()
 	color = NONE;
 }
 
-void CSquare::setPiece(Piece p)
+void CSquare::setPieceAndColor(string p, string c)
 {
 	piece = p;
-}
-
-void CSquare::setColor(Color c)
-{
 	color = c;
 }
 
-Piece CSquare::getPiece()
+string CSquare::getPiece()
 {
 	return piece;
 }
 
-Color CSquare::getColor()
+string CSquare::getColor()
 {
 	return color;
 }
