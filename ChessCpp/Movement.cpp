@@ -8,11 +8,12 @@
 /// </returns>
 string * Movement()
 {
-    string *result = false;
+    bool res = false;
+    string *result = NULL;
     bool checked = false;
     string move = "dummy";
 
-    while (!result)
+    while (!res)
     {
         cout << "Please, insert your movement: ";
         cin >> move;
@@ -60,14 +61,14 @@ bool check_input(string &move)
     // Remove whote spaces from user's input to simplify checking the strings.
     // Letters to Uppercase or Lowercase depending on which letter we find in the string.
     move.erase(remove_if(move.begin(), move.end(), isspace), move.end());
-    for (int i = 0; i < move.size(); i++)
+    for (unsigned int i = 0; i < move.size(); i++)
     {
         if ((move[i] >= 'a' && move[i] <= 'z') || (move[i] >= 'A' && move[i] <= 'Z'))
             move[i] = tolower(move[i]);
         if (move[i] == 'x' || move[i] == 'X')
             move[i] = tolower(move[i]);
     }
-    for (int i = 0; i < move.size(); i++)
+    for (unsigned int i = 0; i < move.size(); i++)
     {
         // Letter of pieces is done separately to ensure it is set to Uppercase.
         if ((move[i] == 'k' || move[i] == 'q' || move[i] == 'r' || move[i] == 'n' || move[i] == 'b') && (move[i + 1] >= 'a' && move[i + 1] <= 'h'))

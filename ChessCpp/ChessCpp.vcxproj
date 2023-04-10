@@ -158,6 +158,7 @@
     <ClInclude Include="CBoard.h" />
     <ClInclude Include="CKing.h" />
     <ClInclude Include="CKnight.h" />
+    <ClInclude Include="color.h" />
     <ClInclude Include="CPawn.h" />
     <ClInclude Include="CPiece.h" />
     <ClInclude Include="CPlayer.h" />
