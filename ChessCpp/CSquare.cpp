@@ -12,7 +12,7 @@ void CSquare::setEmpty()
 	color = NONE;
 }
 
-void CSquare::setPieceAndColor(string p, string c)
+void CSquare::setPieceAndColor(int p, int c)
 {
 	piece = p;
 	color = c;

@@ -15,7 +15,7 @@ private:
 public:
     CSquare(); 
     void setEmpty();
-    void setPieceAndColor(string p, string c);
+    void setPieceAndColor(int p, int c);
     string getPiece();
     string getColor();
     void setX(int x);
