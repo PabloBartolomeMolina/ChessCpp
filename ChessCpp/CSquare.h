@@ -5,9 +5,6 @@
 
 using namespace std;
 
-enum Piece {KIG, QUEEN, ROOK, KNIGHT, BISHOP, PAWN, EMPTY};
-enum Color {WHITE, BLACK, NONE};
-
 class CSquare
 {
 private:
