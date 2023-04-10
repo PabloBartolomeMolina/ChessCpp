@@ -14,6 +14,9 @@
 
 using namespace std;
 
+#define dyeBlackWhite(text) dye::black_on_bright_white(text)
+#define greenText(text) dye::green(text)
+#define redText(text) dye::red(text)
 
 /// <summary>
 /// Function to manage the basic logic of movements.
@@ -103,23 +106,25 @@ bool isNumber(string s)
 int main()
 {
     string input = "empty";
-    cout << initialMessage << endl << endl;
+
+    cout << dyeBlackWhite(initialMessage) << endl << endl;
     
     while (!isNumber(input) || (stoi(input) != 1 && stoi(input) != 2) )
     {
-        cout << "Please, select an option by its number :" << endl << "     1. Play a new game." << endl << "     2. Exit app." << endl;
+        cout << optionNumber << endl << greenText(newGame) << endl << redText(exitApp) << endl;
         cin >> input;
+        cout << endl;
     }   // Rest in the loop until one of the 2 valid options is choosen.
 
     if (stoi(input) == 1)       // Play a new game option.
     {
         basicLogic();
-        cout << "That was the end of the game..." << endl;  // End of a chess game.
+        cout << redText(endGame) << endl;  // End of a chess game.
         // Provisional behavior. Better to go to the initial menu to give option to reply a game.
-        cout << "See you next time!!" << endl;
+        cout << seeYou << endl;
     }
     else if (stoi(input) == 2)  // Exit game option.
     {
-        cout << "See you next time!!" << endl;
+        cout << seeYou << endl;
     }
 }
