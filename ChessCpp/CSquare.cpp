@@ -18,12 +18,12 @@ void CSquare::setPieceAndColor(int p, int c)
 	color = c;
 }
 
-string CSquare::getPiece()
+int CSquare::getPiece()
 {
 	return piece;
 }
 
-string CSquare::getColor()
+int CSquare::getColor()
 {
 	return color;
 }
