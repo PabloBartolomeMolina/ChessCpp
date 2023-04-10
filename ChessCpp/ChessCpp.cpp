@@ -104,9 +104,6 @@ int main()
 {
     string input = "empty";
     cout << initialMessage << endl << endl;
-
-    std::cout << dye::aqua("Hello, World!") << std::endl;
-
     
     while (!isNumber(input) || (stoi(input) != 1 && stoi(input) != 2) )
     {
