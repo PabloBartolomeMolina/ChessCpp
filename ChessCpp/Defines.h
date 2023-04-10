@@ -27,3 +27,4 @@ const int KING = 6;
 
 const int WHITE = 1;
 const int BLACK = 2;
+const int NONE = 2;
