@@ -30,15 +30,6 @@ private:
     string horizontal = "    ______ ______ ______ ______ ______ ______ ______ ______ ";
     string rowEmpty = "|      |      |      |      |      |      |      |      |";
     string dSpace = "  |";
-    /* Rows with initial position. */
-    string row1 = "";
-    string row2 = "";
-    string row3 = "";
-    string row4 = "";
-    string row5 = "";
-    string row6 = "";
-    string row7 = "";
-    string row8 = "";
 
     CSquare square[8][8];
     

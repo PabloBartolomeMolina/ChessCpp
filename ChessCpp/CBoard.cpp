@@ -42,7 +42,7 @@ CBoard::CBoard()
          {48, "a2"}, {49, "b2"}, {50, "c2"}, {51, "d2"}, {52, "e2"}, {53, "f2"}, {54, "g2"}, {55, "h2"},
          {56, "a1"}, {57, "b1"}, {58, "c1"}, {59, "d1"}, {60, "e1"}, {61, "f1"}, {62, "g1"}, {63, "h1"},
     };
-    cout << "Board object has been created." << endl;       // Debugging purposes.
+    std::cout << "Board object has been created." << endl;       // Debugging purposes.
 }
 
 /// <summary>
@@ -50,7 +50,7 @@ CBoard::CBoard()
 /// </summary>
 CBoard::~CBoard()
 {
-    cout << "Board object has been destroyed." << endl;     // Debugging purposes.
+    std::cout << "Board object has been destroyed." << endl;     // Debugging purposes.
 }
 
 /* PRIVATE methods of the class Board. */
@@ -60,23 +60,23 @@ CBoard::~CBoard()
 /// </summary>
 void CBoard::initPlace()
 {
-    square[0][0].setPieceAndColor(ROOK, WHITE);
-    square[1][0].setPieceAndColor(KNIGHT, WHITE);
-    square[2][0].setPieceAndColor(BISHOP, WHITE);
-    square[3][0].setPieceAndColor(QUEEN, WHITE);
-    square[4][0].setPieceAndColor(KING, WHITE);
-    square[5][0].setPieceAndColor(BISHOP, WHITE);
-    square[6][0].setPieceAndColor(KNIGHT, WHITE);
-    square[7][0].setPieceAndColor(ROOK, WHITE);
+    square[0][7].setPieceAndColor(ROOK, WHITE);
+    square[1][7].setPieceAndColor(KNIGHT, WHITE);
+    square[2][7].setPieceAndColor(BISHOP, WHITE);
+    square[3][7].setPieceAndColor(QUEEN, WHITE);
+    square[4][7].setPieceAndColor(KING, WHITE);
+    square[5][7].setPieceAndColor(BISHOP, WHITE);
+    square[6][7].setPieceAndColor(KNIGHT, WHITE);
+    square[7][7].setPieceAndColor(ROOK, WHITE);
 
-    square[0][7].setPieceAndColor(ROOK, BLACK);
-    square[1][7].setPieceAndColor(KNIGHT, BLACK);
-    square[2][7].setPieceAndColor(BISHOP, BLACK);
-    square[3][7].setPieceAndColor(QUEEN, BLACK);
-    square[4][7].setPieceAndColor(KING, BLACK);
-    square[5][7].setPieceAndColor(BISHOP, BLACK);
-    square[6][7].setPieceAndColor(KNIGHT, BLACK);
-    square[7][7].setPieceAndColor(ROOK, BLACK);
+    square[0][0].setPieceAndColor(ROOK, BLACK);
+    square[1][0].setPieceAndColor(KNIGHT, BLACK);
+    square[2][0].setPieceAndColor(BISHOP, BLACK);
+    square[3][0].setPieceAndColor(QUEEN, BLACK);
+    square[4][0].setPieceAndColor(KING, BLACK);
+    square[5][0].setPieceAndColor(BISHOP, BLACK);
+    square[6][0].setPieceAndColor(KNIGHT, BLACK);
+    square[7][0].setPieceAndColor(ROOK, BLACK);
 
     for (int i = 0; i < 8; i++) {
         square[i][1].setPieceAndColor(PAWN, WHITE);
@@ -141,71 +141,83 @@ void CBoard::showBoard(bool player)
     if (player)     // White player.
     {
         // Set the columns letter.
-        cout << endl << colsWhite << endl;
+        std::cout << endl << colsWhite << endl;
+        std::cout << horizontal << endl;
 
         // Print out the board.
         for (int i = 0; i < 8; i++)
         {
-            cout << i+1 << "      ";
-            for (int j = 0; j < 8; j = j++)
+            std::cout << i+1 << "   | ";
+
+            for (int j = 0; j < 8; j++)
             {
-                int p = square[i][j].getPiece();
-                int c = square[i][j].getColor();
+                int p = square[j][i].getPiece();
+                int c = square[j][i].getColor();
 
                 switch (p)
                 {
-                case KING: (c == WHITE) ? cout << "K" : cout << "k";
+                case KING: (c == WHITE) ? std::cout << "K" : std::cout << "k";
                     break;
-                case QUEEN: (c == WHITE) ? cout << "Q" : cout << "q";
+                case QUEEN: (c == WHITE) ? std::cout << "Q" : std::cout << "q";
                     break;
-                case ROOK: (c == WHITE) ? cout << "R" : cout << "r";
+                case ROOK: (c == WHITE) ? std::cout << "R" : std::cout << "r";
                     break;
-                case KNIGHT: (c == WHITE) ? cout << "N" : cout << "n";
+                case KNIGHT: (c == WHITE) ? std::cout << "N" : std::cout << "n";
                     break;
-                case BISHOP: (c == WHITE) ? cout << "B" : cout << "b";
+                case BISHOP: (c == WHITE) ? std::cout << "B" : std::cout << "b";
                     break;
-                case PAWN: (c == WHITE) ? cout << "P" : cout << "p";
+                case PAWN: (c == WHITE) ? std::cout << "P" : std::cout << "p";
+                    break;
+                case EMPTY: std::cout << " ";
                     break;
                 default:
                     break;
                 }
+
+                std::cout << "   |  ";
             }
+            std::cout << endl;
+            std::cout << horizontal << endl;
         }
     }
     else            // Black player.
     {
         // Set the columns letter.
-        cout << endl << colsBlack << endl;
+        std::cout << endl << colsBlack << endl;
 
         // Print out the board.
         for (int i = 0; i < 8; i++)
         {
-            cout << 8 - i << "      ";
-            for (int j = 0; j < 8; j = j++)
+            std::cout << 8 - i << "    | ";
+            for (int j = 0; j < 8; j++)
             {
                 int p = square[i][j].getPiece();
                 int c = square[i][j].getColor();
 
                 switch (p)
                 {
-                case KING: (c == WHITE) ? cout << "K" : cout << "k";
+                case KING: (c == WHITE) ? std::cout << "K" : std::cout << "k";
                     break;
-                case QUEEN: (c == WHITE) ? cout << "Q" : cout << "q";
+                case QUEEN: (c == WHITE) ? std::cout << "Q" : std::cout << "q";
                     break;
-                case ROOK: (c == WHITE) ? cout << "R" : cout << "r";
+                case ROOK: (c == WHITE) ? std::cout << "R" : std::cout << "r";
                     break;
-                case KNIGHT: (c == WHITE) ? cout << "N" : cout << "n";
+                case KNIGHT: (c == WHITE) ? std::cout << "N" : std::cout << "n";
                     break;
-                case BISHOP: (c == WHITE) ? cout << "B" : cout << "b";
+                case BISHOP: (c == WHITE) ? std::cout << "B" : std::cout << "b";
                     break;
-                case PAWN: (c == WHITE) ? cout << "P" : cout << "p";
+                case PAWN: (c == WHITE) ? std::cout << "P" : std::cout << "p";
+                    break;
+                case EMPTY: std::cout << " ";
                     break;
                 default:
                     break;
                 }
 
-                cout << 8 - i << "   |   ";
+                std::cout << "   |  ";
             }
+            std::cout << endl;
+            std::cout << horizontal << endl;
         }
     }
 }

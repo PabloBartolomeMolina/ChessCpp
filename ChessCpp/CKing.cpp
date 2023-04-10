@@ -18,7 +18,7 @@ CKing::CKing(bool color, string pos, int num)
 	this->name = named;
 	this->position = pos;
 	this->type = "King";
-	cout << "King object has been created." << endl;
+	std::cout << "King object has been created." << endl;
 }
 
 /// <summary>
@@ -26,7 +26,7 @@ CKing::CKing(bool color, string pos, int num)
 /// </summary>
 CKing::~CKing()
 {
-	cout << "King object has been destroyed." << endl;
+	std::cout << "King object has been destroyed." << endl;
 }
 
 /// <summary>
