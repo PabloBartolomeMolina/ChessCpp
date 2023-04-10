@@ -144,23 +144,33 @@ void CBoard::showBoard(bool player)
         cout << endl << colsWhite << endl;
 
         // Print out the board.
-        cout << horizontal << endl << endl;
-        cout << row8 << endl;
-        cout << horizontal << endl << endl;
-        cout << row7 << endl;
-        cout << horizontal << endl << endl;
-        cout << row6 << endl;
-        cout << horizontal << endl << endl;
-        cout << row5 << endl;
-        cout << horizontal << endl << endl;
-        cout << row4 << endl;
-        cout << horizontal << endl << endl;
-        cout << row3 << endl;
-        cout << horizontal << endl << endl;
-        cout << row2 << endl;
-        cout << horizontal << endl << endl;
-        cout << row1 << endl;
-        cout << horizontal << endl << endl;
+        for (int i = 0; i < 8; i++)
+        {
+            cout << i+1 << "      ";
+            for (int j = 0; j < 8; j = j++)
+            {
+                int p = square[i][j].getPiece();
+                int c = square[i][j].getColor();
+
+                switch (p)
+                {
+                case KING: (c == WHITE) ? cout << "K" : cout << "k";
+                    break;
+                case QUEEN: (c == WHITE) ? cout << "Q" : cout << "q";
+                    break;
+                case ROOK: (c == WHITE) ? cout << "R" : cout << "r";
+                    break;
+                case KNIGHT: (c == WHITE) ? cout << "N" : cout << "n";
+                    break;
+                case BISHOP: (c == WHITE) ? cout << "B" : cout << "b";
+                    break;
+                case PAWN: (c == WHITE) ? cout << "P" : cout << "p";
+                    break;
+                default:
+                    break;
+                }
+            }
+        }
     }
     else            // Black player.
     {
@@ -168,23 +178,35 @@ void CBoard::showBoard(bool player)
         cout << endl << colsBlack << endl;
 
         // Print out the board.
-        cout << horizontal << endl << endl;
-        cout << row1 << endl;
-        cout << horizontal << endl << endl;
-        cout << row2 << endl;
-        cout << horizontal << endl << endl;
-        cout << row3 << endl;
-        cout << horizontal << endl << endl;
-        cout << row4 << endl;
-        cout << horizontal << endl << endl;
-        cout << row5 << endl;
-        cout << horizontal << endl << endl;
-        cout << row6 << endl;
-        cout << horizontal << endl << endl;
-        cout << row7 << endl;
-        cout << horizontal << endl << endl;
-        cout << row8 << endl;
-        cout << horizontal << endl << endl;
+        for (int i = 0; i < 8; i++)
+        {
+            cout << 8 - i << "      ";
+            for (int j = 0; j < 8; j = j++)
+            {
+                int p = square[i][j].getPiece();
+                int c = square[i][j].getColor();
+
+                switch (p)
+                {
+                case KING: (c == WHITE) ? cout << "K" : cout << "k";
+                    break;
+                case QUEEN: (c == WHITE) ? cout << "Q" : cout << "q";
+                    break;
+                case ROOK: (c == WHITE) ? cout << "R" : cout << "r";
+                    break;
+                case KNIGHT: (c == WHITE) ? cout << "N" : cout << "n";
+                    break;
+                case BISHOP: (c == WHITE) ? cout << "B" : cout << "b";
+                    break;
+                case PAWN: (c == WHITE) ? cout << "P" : cout << "p";
+                    break;
+                default:
+                    break;
+                }
+
+                cout << 8 - i << "   |   ";
+            }
+        }
     }
 }
 
