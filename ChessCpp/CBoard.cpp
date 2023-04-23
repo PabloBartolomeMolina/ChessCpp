@@ -149,12 +149,61 @@ void CBoard::showBoard(bool player)
         // Print out the board.
         for (int i = 0; i < 8; i++)
         {
-            std::cout << dye::black_on_aqua(i + 1) << dye::black_on_aqua("   ") << "| ";
+            std::cout << dye::black_on_aqua(8-i) << dye::black_on_aqua("   ") << "| ";
 
             for (int j = 0; j < 8; j++)
             {
                 int p = square[j][i].getPiece();
                 int c = square[j][i].getColor();
+
+                switch (p)
+                {
+                case KING: (c == WHITE) ? std::cout << "K" : std::cout << "k";
+                    break;
+                case QUEEN: (c == WHITE) ? std::cout << "Q" : std::cout << "q";
+                    break;
+                case ROOK: (c == WHITE) ? std::cout << "R" : std::cout << "r";
+                    break;
+                case KNIGHT: (c == WHITE) ? std::cout << "N" : std::cout << "n";
+                    break;
+                case BISHOP: (c == WHITE) ? std::cout << "B" : std::cout << "b";
+                    break;
+                case PAWN: (c == WHITE) ? std::cout << "P" : std::cout << "p";
+                    break;
+                case EMPTY: std::cout << " ";
+                    break;
+                default:
+                    break;
+                }
+                // After last square of the line, less space with black background.
+                (j == 7) ? std::cout << "   |" : std::cout << "   |  ";
+            }
+            std::cout << dye::black_on_aqua("   ") << dye::black_on_aqua(8-i);
+            std::cout << std::endl;
+            std::cout << dye::black_on_aqua("    ") << dye::black_on_white(horizontal);
+            std::cout << dye::black_on_aqua("    ");
+            (i == 7) ? std::cout << "" : std::cout << std::endl;
+        }
+        // Letter for columns at the bottom of the board.
+        std::cout << std::endl << dye::black_on_aqua(colsWhite);
+        std::cout << dye::black_on_aqua("    ") << std::endl;
+    }
+    else            // Black player.
+    {
+        // Set the columns letter.
+        std::cout << std::endl << dye::black_on_aqua(colsBlack);
+        std::cout << dye::black_on_aqua("    ") << std::endl;
+        std::cout << dye::black_on_aqua("    ") << dye::black_on_white(horizontal);
+        std::cout << dye::black_on_aqua("    ") << std::endl;
+
+        // Print out the board.
+        for (int i = 0; i < 8; i++)
+        {
+            std::cout << dye::black_on_aqua(i + 1) << dye::black_on_aqua("   ") << "| ";
+            for (int j = 0; j < 8; j++)
+            {
+                int p = square[i][j].getPiece();
+                int c = square[i][j].getColor();
 
                 switch (p)
                 {
@@ -185,48 +234,8 @@ void CBoard::showBoard(bool player)
             (i == 7) ? std::cout << "" : std::cout << std::endl;
         }
         // Letter for columns at the bottom of the board.
-        std::cout << std::endl << dye::black_on_aqua(colsWhite);
+        std::cout << std::endl << dye::black_on_aqua(colsBlack);
         std::cout << dye::black_on_aqua("    ") << std::endl;
-    }
-    else            // Black player.
-    {
-        // Set the columns letter.
-        std::cout << std::endl << colsBlack << std::endl;
-
-        // Print out the board.
-        for (int i = 0; i < 8; i++)
-        {
-            std::cout << 8 - i << "    | ";
-            for (int j = 0; j < 8; j++)
-            {
-                int p = square[i][j].getPiece();
-                int c = square[i][j].getColor();
-
-                switch (p)
-                {
-                case KING: (c == WHITE) ? std::cout << "K" : std::cout << "k";
-                    break;
-                case QUEEN: (c == WHITE) ? std::cout << "Q" : std::cout << "q";
-                    break;
-                case ROOK: (c == WHITE) ? std::cout << "R" : std::cout << "r";
-                    break;
-                case KNIGHT: (c == WHITE) ? std::cout << "N" : std::cout << "n";
-                    break;
-                case BISHOP: (c == WHITE) ? std::cout << "B" : std::cout << "b";
-                    break;
-                case PAWN: (c == WHITE) ? std::cout << "P" : std::cout << "p";
-                    break;
-                case EMPTY: std::cout << " ";
-                    break;
-                default:
-                    break;
-                }
-
-                std::cout << "   |  ";
-            }
-            std::cout << std::endl;
-            std::cout << horizontal << std::endl;
-        }
     }
 }
 
