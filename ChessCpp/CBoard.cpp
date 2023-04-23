@@ -181,8 +181,12 @@ void CBoard::showBoard(bool player)
             std::cout << dye::black_on_aqua("   ") << dye::black_on_aqua(i + 1);
             std::cout << std::endl;
             std::cout << dye::black_on_aqua("    ") << dye::black_on_white(horizontal);
-            std::cout << dye::black_on_aqua("    ") << std::endl;
+            std::cout << dye::black_on_aqua("    ");
+            (i == 7) ? std::cout << "" : std::cout << std::endl;
         }
+        // Letter for columns at the bottom of the board.
+        std::cout << std::endl << dye::black_on_aqua(colsWhite);
+        std::cout << dye::black_on_aqua("    ") << std::endl;
     }
     else            // Black player.
     {
