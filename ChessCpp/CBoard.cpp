@@ -79,8 +79,8 @@ void CBoard::initPlace()
     square[7][0].setPieceAndColor(ROOK, BLACK);
 
     for (int i = 0; i < 8; i++) {
-        square[i][1].setPieceAndColor(PAWN, WHITE);
-        square[i][6].setPieceAndColor(PAWN, BLACK);
+        square[i][1].setPieceAndColor(PAWN, BLACK);
+        square[i][6].setPieceAndColor(PAWN, WHITE);
     }
 
     for (int i = 0; i < 8; i++) {
