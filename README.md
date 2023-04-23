@@ -31,4 +31,4 @@ Initially it will be just a game in the console to play 1v1. I would like to con
 
 ## Coordinates for the board
 
-![image](https://user-images.githubusercontent.com/81037848/230918207-2d06192e-c150-418f-9774-e42feefbbae3.png)
+![image](https://user-images.githubusercontent.com/81037848/230926894-e958d373-3cf3-4ea6-bfce-2f30d636c416.png)
