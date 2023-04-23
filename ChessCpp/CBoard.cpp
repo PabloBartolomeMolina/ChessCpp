@@ -1,4 +1,5 @@
 #include "CBoard.h"
+#include "color.h"
 
 /* Basic methods, like constructor and destructor. */
 
@@ -140,13 +141,15 @@ void CBoard::showBoard(bool player)
     if (player)     // White player.
     {
         // Set the columns letter.
-        std::cout << std::endl << colsWhite << std::endl;
-        std::cout << horizontal << std::endl;
+        std::cout << std::endl << dye::black_on_aqua(colsWhite);
+        std::cout << dye::black_on_aqua("    ") << std::endl;
+        std::cout << dye::black_on_aqua("    ") << dye::black_on_white(horizontal);
+        std::cout << dye::black_on_aqua("    ") << std::endl;
 
         // Print out the board.
         for (int i = 0; i < 8; i++)
         {
-            std::cout << i+1 << "   | ";
+            std::cout << dye::black_on_aqua(i + 1) << dye::black_on_aqua("   ") << "| ";
 
             for (int j = 0; j < 8; j++)
             {
@@ -172,11 +175,13 @@ void CBoard::showBoard(bool player)
                 default:
                     break;
                 }
-
-                std::cout << "   |  ";
+                // After last square of the line, less space with black background.
+                (j == 7) ? std::cout << "   |" : std::cout << "   |  ";
             }
+            std::cout << dye::black_on_aqua("   ") << dye::black_on_aqua(i + 1);
             std::cout << std::endl;
-            std::cout << horizontal << std::endl;
+            std::cout << dye::black_on_aqua("    ") << dye::black_on_white(horizontal);
+            std::cout << dye::black_on_aqua("    ") << std::endl;
         }
     }
     else            // Black player.
