@@ -202,8 +202,8 @@ void CBoard::showBoard(bool player)
             std::cout << dye::black_on_aqua(i + 1) << dye::black_on_aqua("   ") << "| ";
             for (int j = 0; j < 8; j++)
             {
-                int p = square[i][j].getPiece();
-                int c = square[i][j].getColor();
+                int p = square[j][7-i].getPiece();
+                int c = square[j][7-i].getColor();
 
                 switch (p)
                 {
