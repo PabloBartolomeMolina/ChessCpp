@@ -18,7 +18,7 @@ CQueen::CQueen(bool color, string pos, int num)
 	this->name = named;
 	this->position = pos;
 	this->type = "Queen";
-	cout << "Queen object has been created." << endl;
+	cout << "Queen object has been created." << std::endl;
 }
 
 /// <summary>
@@ -26,7 +26,7 @@ CQueen::CQueen(bool color, string pos, int num)
 /// </summary>
 CQueen::~CQueen()
 {
-	cout << "Queen object has been destroyed." << endl;
+	cout << "Queen object has been destroyed." << std::endl;
 }
 
 /// <summary>
@@ -63,7 +63,7 @@ bool CQueen::check_movement(char new_f, char old_f, char new_c, char old_c)
 
 bool CQueen::move(string origin, string movement)
 {
-	cout << "I am the QUEEN" << endl;
+	cout << "I am the QUEEN" << std::endl;
 
 	bool ret = false;
 

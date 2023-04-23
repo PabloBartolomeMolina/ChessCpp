@@ -11,13 +11,13 @@ CPlayer::CPlayer(bool input)
     // Set color of instance.
     if (color)
     {
-        cout << "Player white has been created." << endl;
+        cout << "Player white has been created." << std::endl;
         createPieces(1);
         turn = 1;   // First move is for white player.
     } 
     else
     {
-        cout << "Player black has been created." << endl;
+        cout << "Player black has been created." << std::endl;
         createPieces(0);
     }
 }
@@ -29,9 +29,9 @@ CPlayer::~CPlayer()
 {
     
     if (color)
-        cout << "Player white has been destroyed." << endl;
+        cout << "Player white has been destroyed." << std::endl;
     else
-        cout << "Player black has been destroyed." << endl;
+        cout << "Player black has been destroyed." << std::endl;
 }
 
 /// <summary>
@@ -334,17 +334,17 @@ vector<string> CPlayer::Move()
         {
             /* Format is not valid. */
             ok = false;
-            cout << "Invalid format." << endl;
+            cout << "Invalid format." << std::endl;
         }
 
         if (ok)
-            cout << "OKey" << endl;
+            cout << "OKey" << std::endl;
         else
-            cout << "Something strange happening" << endl;
+            cout << "Something strange happening" << std::endl;
     }
 
-    cout << "Movement is considered" << endl << endl;
-    cout << movement[1] << endl;
+    cout << "Movement is considered" << std::endl << std::endl;
+    cout << movement[1] << std::endl;
     system("pause");
 
     return movement;
@@ -366,7 +366,7 @@ bool CPlayer::checkDestination(string move)
         /* Only possible if the notation of the piece is valid. */
         ok = true;
         movement[1].assign(move.substr(1, 2));      // Take just the final position to be returned as a destination.
-        cout << "Movement is consideredDD" << endl;
+        cout << "Movement is consideredDD" << std::endl;
     }
     else
     {

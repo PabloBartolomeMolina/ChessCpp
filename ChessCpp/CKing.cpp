@@ -18,7 +18,7 @@ CKing::CKing(bool color, string pos, int num)
 	this->name = named;
 	this->position = pos;
 	this->type = "King";
-	std::cout << "King object has been created." << endl;
+	std::cout << "King object has been created." << std::endl;
 }
 
 /// <summary>
@@ -26,7 +26,7 @@ CKing::CKing(bool color, string pos, int num)
 /// </summary>
 CKing::~CKing()
 {
-	std::cout << "King object has been destroyed." << endl;
+	std::cout << "King object has been destroyed." << std::endl;
 }
 
 /// <summary>
@@ -38,7 +38,7 @@ CKing::~CKing()
 /// <returns></returns>
 bool CKing::move(string origin, string movement)
 {
-	cout << "I am the KING" << endl;
+	cout << "I am the KING" << std::endl;
 
 	bool ret = false;		// Flag to return.
 

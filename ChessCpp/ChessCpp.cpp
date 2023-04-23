@@ -1,23 +1,13 @@
 // ChessCpp.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 
-#include <algorithm>
-#include <conio.h>
-#include <iostream>
 #include <vector>
-
-#include "color.h"
 
 #include "CBoard.h"
 #include "CPlayer.h"
 #include "Movement.h"
 
 using namespace std;
-
-#define dyeBlackWhite(text) dye::black_on_bright_white(text)
-#define greenText(text) dye::green(text)
-#define redText(text) dye::red(text)
-
 /// <summary>
 /// Function to manage the basic logic of movements.
 /// </summary>
@@ -74,7 +64,7 @@ void basicLogic()
 /*
         // White player moves.
         vector<string> movement = whitePlayer.Move();
-        cout << movement[0] << "   " << movement[1] << endl;
+        cout << movement[0] << "   " << movement[1] << std::endl;
         movement = whitePlayer.Move();
         board.placePieces(movement[0], movement[1]);
 
@@ -107,24 +97,24 @@ int main()
 {
     string input = "empty";
 
-    cout << dyeBlackWhite(initialMessage) << endl << endl;
+    cout << initialMessage << std::endl << std::endl;
     
     while (!isNumber(input) || (stoi(input) != 1 && stoi(input) != 2) )
     {
-        cout << optionNumber << endl << greenText(newGame) << endl << redText(exitApp) << endl;
+        cout << optionNumber << std::endl << newGame << std::endl << exitApp << std::endl;
         cin >> input;
-        cout << endl;
+        cout << std::endl;
     }   // Rest in the loop until one of the 2 valid options is choosen.
 
     if (stoi(input) == 1)       // Play a new game option.
     {
         basicLogic();
-        cout << redText(endGame) << endl;  // End of a chess game.
+        cout << endGame << std::endl;  // End of a chess game.
         // Provisional behavior. Better to go to the initial menu to give option to reply a game.
-        cout << seeYou << endl;
+        cout << seeYou << std::endl;
     }
     else if (stoi(input) == 2)  // Exit game option.
     {
-        cout << seeYou << endl;
+        cout << seeYou << std::endl;
     }
 }

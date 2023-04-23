@@ -19,7 +19,7 @@ CRook::CRook(bool color, string pos, int num)
 	this->name = named;
 	this->position = pos;
 	this->type = "Rook";
-	cout << "Rook object has been created." << endl;
+	cout << "Rook object has been created." << std::endl;
 }
 
 /// <summary>
@@ -27,7 +27,7 @@ CRook::CRook(bool color, string pos, int num)
 /// </summary>
 CRook::~CRook()
 {
-	cout << "Rook object has been destroyed." << endl;
+	cout << "Rook object has been destroyed." << std::endl;
 }
 
 
@@ -60,7 +60,7 @@ bool CRook::check_movement(char new_f, char old_f, char new_c, char old_c)
 
 bool CRook::move(string origin, string movement)
 {
-	cout << "I am a ROOK" << endl;
+	cout << "I am a ROOK" << std::endl;
 
 	bool ret = false;
 	bool freeWay = false;

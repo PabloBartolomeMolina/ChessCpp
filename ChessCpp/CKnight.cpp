@@ -18,7 +18,7 @@ CKnight::CKnight(bool color, string pos, int num)
 	this->name = named;
 	this->position = pos;
 	this->type = "Knight";
-	cout << "Knight object has been created." << endl;
+	cout << "Knight object has been created." << std::endl;
 }
 
 /// <summary>
@@ -26,7 +26,7 @@ CKnight::CKnight(bool color, string pos, int num)
 /// </summary>
 CKnight::~CKnight()
 {
-	cout << "Knight object has been destroyed." << endl;
+	cout << "Knight object has been destroyed." << std::endl;
 }
 
 /// <summary>
@@ -58,7 +58,7 @@ bool CKnight::check_movement(char new_f, char old_f, char new_c, char old_c)
 
 bool CKnight::move(string origin, string movement)
 {
-	cout << "I am a KNIGHT" << endl;
+	cout << "I am a KNIGHT" << std::endl;
 
 	bool ret = false;
 
@@ -78,7 +78,7 @@ bool CKnight::move(string origin, string movement)
 		}
 		else
 		{
-			cout << "Movement not possible for this piece." << endl;
+			cout << "Movement not possible for this piece." << std::endl;
 			ret = false;
 		}
 	}
@@ -90,13 +90,13 @@ bool CKnight::move(string origin, string movement)
 		}
 		else
 		{
-			cout << "Movement not possible for this piece." << endl;
+			cout << "Movement not possible for this piece." << std::endl;
 			ret = false;
 		}
 	}
 	else	// No other options are possible for this piece.
 	{
-		cout << "Movement not possible for this piece." << endl;
+		cout << "Movement not possible for this piece." << std::endl;
 		ret = false;
 	}
 

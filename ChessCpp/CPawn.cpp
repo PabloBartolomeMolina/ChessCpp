@@ -21,7 +21,7 @@ CPawn::CPawn(bool color, string pos, int num)
 	this->name = named;
 	this->position = pos; 
 	this->type = "pawn";
-	cout << "Pawn object has been created." << endl;
+	cout << "Pawn object has been created." << std::endl;
 }
 
 /// <summary>
@@ -29,7 +29,7 @@ CPawn::CPawn(bool color, string pos, int num)
 /// </summary>
 CPawn::~CPawn()
 {
-	cout << "Pawn object has been destroyed." << endl;
+	cout << "Pawn object has been destroyed." << std::endl;
 }
 
 
@@ -41,10 +41,10 @@ CPawn::~CPawn()
 /// <returns></returns>
 bool CPawn::move(string origin, string movement)
 {
-	cout << "I am a PAWN" << endl;
+	cout << "I am a PAWN" << std::endl;
 
 	if (this->color)	// Debuging purposes.
-		cout << "white pawn" << endl;
+		cout << "white pawn" << std::endl;
 
 	bool ret = false;
 

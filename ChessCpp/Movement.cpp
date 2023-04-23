@@ -233,9 +233,9 @@ bool check_input(string &move)
 
     // Print message according to results of the checks.
     if (ok)
-        cout << endl << "Movement: " << move << endl;
+        cout << std::endl << "Movement: " << move << std::endl;
     else
-        cout << endl << "Format of the movement is no correct, please insert a valid one..." << endl;
+        cout << std::endl << "Format of the movement is no correct, please insert a valid one..." << std::endl;
 
     return ok;
 }

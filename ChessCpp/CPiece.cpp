@@ -7,7 +7,7 @@
 /// </summary>
 CPiece::CPiece()
 {
-	cout << "Piece object has been created." << endl;
+	cout << "Piece object has been created." << std::endl;
 }
 
 /// <summary>
@@ -15,10 +15,10 @@ CPiece::CPiece()
 /// </summary>
 CPiece::~CPiece()
 {
-	cout << "Piece object has been destroyed." << endl;
+	cout << "Piece object has been destroyed." << std::endl;
 }
 
 void CPiece::move()
 {
-	cout << "I am generic" << endl;
+	cout << "I am generic" << std::endl;
 }

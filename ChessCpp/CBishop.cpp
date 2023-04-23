@@ -19,7 +19,7 @@ CBishop::CBishop(bool color, string pos, int num)
 	this->name = named;
 	this->position = pos;
 	this->type = "Bishop";
-	cout << "Bishop object has been created." << endl;
+	cout << "Bishop object has been created." << std::endl;
 }
 
 /// <summary>
@@ -27,7 +27,7 @@ CBishop::CBishop(bool color, string pos, int num)
 /// </summary>
 CBishop::~CBishop()
 {
-	cout << "Bishop object has been destroyed." << endl;
+	cout << "Bishop object has been destroyed." << std::endl;
 }
 
 
@@ -55,7 +55,7 @@ bool CBishop::check_movement(char new_f, char old_f, char new_c, char old_c)
 
 bool CBishop::move(string origin, string movement)
 {
-	cout << "I am a BISHOP" << endl;
+	cout << "I am a BISHOP" << std::endl;
 
 	bool ret = false;
 	bool freeWay = false;
