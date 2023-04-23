@@ -6,20 +6,20 @@
 /// <summary>
 /// Public constructor to set up basic elements of the Board objects.
 /// </summary>
-CRook::CRook(bool color, string pos, int num)
+CRook::CRook(bool color, std::string pos, int num)
 {
-	string named = "Nan";
-	string idd = "Nan";
+	std::string named = "Nan";
+	std::string idd = "Nan";
 	if (color)
 		named = "Rw";
 	else
 		named = "Rb";
-	idd = named + to_string(num);
+	idd = named + std::to_string(num);
 	this->id = idd;
 	this->name = named;
 	this->position = pos;
 	this->type = "Rook";
-	cout << "Rook object has been created." << std::endl;
+	std::cout << "Rook object has been created." << std::endl;
 }
 
 /// <summary>
@@ -27,7 +27,7 @@ CRook::CRook(bool color, string pos, int num)
 /// </summary>
 CRook::~CRook()
 {
-	cout << "Rook object has been destroyed." << std::endl;
+	std::cout << "Rook object has been destroyed." << std::endl;
 }
 
 
@@ -58,9 +58,9 @@ bool CRook::check_movement(char new_f, char old_f, char new_c, char old_c)
 	}
 }
 
-bool CRook::move(string origin, string movement)
+bool CRook::move(std::string origin, std::string movement)
 {
-	cout << "I am a ROOK" << std::endl;
+	std::cout << "I am a ROOK" << std::endl;
 
 	bool ret = false;
 	bool freeWay = false;
@@ -76,7 +76,7 @@ bool CRook::move(string origin, string movement)
 		CBoard board = CBoard();
 		for (int i = origin[1] + 1; i < movement[1] - 1; i++)
 		{
-			string mov = to_string(colOri) + to_string(i);
+			std::string mov = std::to_string(colOri) + std::to_string(i);
 			freeWay = board.CheckPosition(mov);
 			if (freeWay)
 			{
@@ -124,7 +124,7 @@ bool CRook::move(string origin, string movement)
 /// Method to check if the king has already been moved.
 /// </summary>
 /// <returns>TRUE if not yet moved. FALSE if already moved</returns>
-bool CRook::firstMovement(string movement, bool color)
+bool CRook::firstMovement(std::string movement, bool color)
 {
 	bool result = false;
 

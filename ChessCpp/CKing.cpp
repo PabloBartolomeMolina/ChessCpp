@@ -5,15 +5,15 @@
 /// <summary>
 /// Public constructor to set up basic elements of the Board objects.
 /// </summary>
-CKing::CKing(bool color, string pos, int num)
+CKing::CKing(bool color, std::string pos, int num)
 {
-	string named = "Nan";
-	string idd = "Nan";
+	std::string named = "Nan";
+	std::string idd = "Nan";
 	if (color)
 		named = "Kw";
 	else
 		named = "Kb";
-	idd = named + to_string(num);
+	idd = named + std::to_string(num);
 	this->id = idd;
 	this->name = named;
 	this->position = pos;
@@ -36,9 +36,9 @@ CKing::~CKing()
 /// <param name="movement">Destination.</param>
 /// <param name="firstMove">First move is already done or not.</param>
 /// <returns></returns>
-bool CKing::move(string origin, string movement)
+bool CKing::move(std::string origin, std::string movement)
 {
-	cout << "I am the KING" << std::endl;
+	std::cout << "I am the KING" << std::endl;
 
 	bool ret = false;		// Flag to return.
 

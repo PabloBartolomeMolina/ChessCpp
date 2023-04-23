@@ -7,7 +7,6 @@
 #include "CPlayer.h"
 #include "Movement.h"
 
-using namespace std;
 /// <summary>
 /// Function to manage the basic logic of movements.
 /// </summary>
@@ -20,7 +19,7 @@ bool Move()
     /// movement_parts[0] : format ok / nok
     /// </summary>
     /// <returns></returns>
-    string* movement_parts;
+    std::string* movement_parts;
     movement_parts = Movement();
     if (movement_parts[0] == "True")
     {
@@ -63,8 +62,8 @@ void basicLogic()
 
 /*
         // White player moves.
-        vector<string> movement = whitePlayer.Move();
-        cout << movement[0] << "   " << movement[1] << std::endl;
+        vector<std::string> movement = whitePlayer.Move();
+       std::cout << movement[0] << "   " << movement[1] << std::endl;
         movement = whitePlayer.Move();
         board.placePieces(movement[0], movement[1]);
 
@@ -80,9 +79,9 @@ void basicLogic()
 /// Check if a string is numeric or not.
 /// </summary>
 /// <returns>True if number, False if not.</returns>
-bool isNumber(string s)
+bool isNumber(std::string s)
 {
-    for (string::size_type i = 0; i < s.length(); i++)
+    for (std::string::size_type i = 0; i < s.length(); i++)
         if (isdigit(s[i]) == false)
             return false;
 
@@ -95,26 +94,26 @@ bool isNumber(string s)
 /// <returns></returns>
 int main()
 {
-    string input = "empty";
+    std::string input = "empty";
 
-    cout << initialMessage << std::endl << std::endl;
+    std::cout << initialMessage << std::endl << std::endl;
     
     while (!isNumber(input) || (stoi(input) != 1 && stoi(input) != 2) )
     {
-        cout << optionNumber << std::endl << newGame << std::endl << exitApp << std::endl;
-        cin >> input;
-        cout << std::endl;
+       std::cout << optionNumber << std::endl << newGame << std::endl << exitApp << std::endl;
+       std::cin >> input;
+       std::cout << std::endl;
     }   // Rest in the loop until one of the 2 valid options is choosen.
 
     if (stoi(input) == 1)       // Play a new game option.
     {
         basicLogic();
-        cout << endGame << std::endl;  // End of a chess game.
+       std::cout << endGame << std::endl;  // End of a chess game.
         // Provisional behavior. Better to go to the initial menu to give option to reply a game.
-        cout << seeYou << std::endl;
+       std::cout << seeYou << std::endl;
     }
     else if (stoi(input) == 2)  // Exit game option.
     {
-        cout << seeYou << std::endl;
+       std::cout << seeYou << std::endl;
     }
 }

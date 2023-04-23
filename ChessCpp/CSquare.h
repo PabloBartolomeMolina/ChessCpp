@@ -3,8 +3,6 @@
 #include <map>
 #include "Defines.h"
 
-using namespace std;
-
 class CSquare
 {
 private:

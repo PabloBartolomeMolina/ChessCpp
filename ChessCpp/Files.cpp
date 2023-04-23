@@ -1,12 +1,12 @@
 #include "Files.h"
 
 
-bool fileWrite(string newLine)
+bool fileWrite(std::string newLine)
 {
 	bool writing = false;
 
 	// Open the file for writing always at the end of it.
-	ofstream myfile("example.bin", ios::out | ios::app);		
+	std::ofstream myfile("example.bin", std::ios::out | std::ios::app);
 
 	if (myfile.is_open())		// Write operations only done in case of succesful opening.
 	{
@@ -15,7 +15,7 @@ bool fileWrite(string newLine)
 	}
 	else
 	{
-		cout << "Unable to open file \n";
+		std::cout << "Unable to open file \n";
 		writing = false;
 	}
 
@@ -26,25 +26,25 @@ bool fileWrite(string newLine)
 }
 
 
-bool fileRead(string info)
+bool fileRead(std::string info)
 {
 	bool reading = false;
-	string line;
+	std::string line;
 
 	// Open the file for reading.
-	ifstream myfile("example.bin", ios::in);
+	std::ifstream myfile("example.bin", std::ios::in);
 
 	if (myfile.is_open())		// Reading operations only done in case of succesful opening.
 	{
 		while (getline(myfile, line))
 		{
-			cout << line << '\n';
+			std::cout << line << '\n';
 		}
 		reading = true;
 	}
 	else
 	{
-		cout << "Unable to open file \n";
+		std::cout << "Unable to open file \n";
 		reading = false;
 	}
 

@@ -3,7 +3,5 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-string * Movement();
-bool check_input(string &move);
+std::string * Movement();
+bool check_input(std::string &move);

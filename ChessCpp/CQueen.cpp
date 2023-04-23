@@ -5,20 +5,20 @@
 /// <summary>
 /// Public constructor to set up basic elements of the Board objects.
 /// </summary>
-CQueen::CQueen(bool color, string pos, int num)
+CQueen::CQueen(bool color, std::string pos, int num)
 {
-	string named = "Nan";
-	string idd = "Nan";
+	std::string named = "Nan";
+	std::string idd = "Nan";
 	if (color)
 		named = "Qw";
 	else
 		named = "Qb";
-	idd = named + to_string(num);
+	idd = named + std::to_string(num);
 	this->id = idd;
 	this->name = named;
 	this->position = pos;
 	this->type = "Queen";
-	cout << "Queen object has been created." << std::endl;
+	std::cout << "Queen object has been created." << std::endl;
 }
 
 /// <summary>
@@ -26,7 +26,7 @@ CQueen::CQueen(bool color, string pos, int num)
 /// </summary>
 CQueen::~CQueen()
 {
-	cout << "Queen object has been destroyed." << std::endl;
+	std::cout << "Queen object has been destroyed." << std::endl;
 }
 
 /// <summary>
@@ -61,9 +61,9 @@ bool CQueen::check_movement(char new_f, char old_f, char new_c, char old_c)
 	}
 }
 
-bool CQueen::move(string origin, string movement)
+bool CQueen::move(std::string origin, std::string movement)
 {
-	cout << "I am the QUEEN" << std::endl;
+	std::cout << "I am the QUEEN" << std::endl;
 
 	bool ret = false;
 

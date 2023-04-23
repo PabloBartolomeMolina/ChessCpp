@@ -5,20 +5,20 @@
 /// <summary>
 /// Public constructor to set up basic elements of the Board objects.
 /// </summary>
-CKnight::CKnight(bool color, string pos, int num)
+CKnight::CKnight(bool color, std::string pos, int num)
 {
-	string named = "Nan";
-	string idd = "Nan";
+	std::string named = "Nan";
+	std::string idd = "Nan";
 	if (color)
 		named = "Nw";
 	else
 		named = "Nb";
-	idd = named + to_string(num);
+	idd = named + std::to_string(num);
 	this->id = idd;
 	this->name = named;
 	this->position = pos;
 	this->type = "Knight";
-	cout << "Knight object has been created." << std::endl;
+	std::cout << "Knight object has been created." << std::endl;
 }
 
 /// <summary>
@@ -26,7 +26,7 @@ CKnight::CKnight(bool color, string pos, int num)
 /// </summary>
 CKnight::~CKnight()
 {
-	cout << "Knight object has been destroyed." << std::endl;
+	std::cout << "Knight object has been destroyed." << std::endl;
 }
 
 /// <summary>
@@ -56,9 +56,9 @@ bool CKnight::check_movement(char new_f, char old_f, char new_c, char old_c)
 	}
 }
 
-bool CKnight::move(string origin, string movement)
+bool CKnight::move(std::string origin, std::string movement)
 {
-	cout << "I am a KNIGHT" << std::endl;
+	std::cout << "I am a KNIGHT" << std::endl;
 
 	bool ret = false;
 
@@ -78,7 +78,7 @@ bool CKnight::move(string origin, string movement)
 		}
 		else
 		{
-			cout << "Movement not possible for this piece." << std::endl;
+			std::cout << "Movement not possible for this piece." << std::endl;
 			ret = false;
 		}
 	}
@@ -90,13 +90,13 @@ bool CKnight::move(string origin, string movement)
 		}
 		else
 		{
-			cout << "Movement not possible for this piece." << std::endl;
+			std::cout << "Movement not possible for this piece." << std::endl;
 			ret = false;
 		}
 	}
 	else	// No other options are possible for this piece.
 	{
-		cout << "Movement not possible for this piece." << std::endl;
+		std::cout << "Movement not possible for this piece." << std::endl;
 		ret = false;
 	}
 

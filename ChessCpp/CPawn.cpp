@@ -1,27 +1,25 @@
 #include "CPawn.h"
 
-using namespace std;
-
 /* Basic methods, like constructor and destructor. */
 
 /// <summary>
 /// Public constructor to set up basic elements of the Board objects.
 /// </summary>
-CPawn::CPawn(bool color, string pos, int num)
+CPawn::CPawn(bool color, std::string pos, int num)
 {
-	string named = "Nan";
-	string idd = "Nan";
+	std::string named = "Nan";
+	std::string idd = "Nan";
 	if (color)
 		named = "pw";
 	else
 		named = "pb";
-	idd = named + to_string(num);
+	idd = named + std::to_string(num);
 	this->color = color;
 	this->id = idd;
 	this->name = named;
 	this->position = pos; 
 	this->type = "pawn";
-	cout << "Pawn object has been created." << std::endl;
+	std::cout << "Pawn object has been created." << std::endl;
 }
 
 /// <summary>
@@ -29,22 +27,22 @@ CPawn::CPawn(bool color, string pos, int num)
 /// </summary>
 CPawn::~CPawn()
 {
-	cout << "Pawn object has been destroyed." << std::endl;
+	std::cout << "Pawn object has been destroyed." << std::endl;
 }
 
 
 /// <summary>
 /// 
 /// </summary>
-/// <param name="movement"> Movement to do in string format. Already validated but need to check if the way is clear.</param>
+/// <param name="movement"> Movement to do in  std::string format. Already validated but need to check if the way is clear.</param>
 /// <param name="moveType">1 to advance 1 position, 2 to advance 2 positions and 3 to eat a piece.</param>
 /// <returns></returns>
-bool CPawn::move(string origin, string movement)
+bool CPawn::move(std::string origin, std::string movement)
 {
-	cout << "I am a PAWN" << std::endl;
+	std::cout << "I am a PAWN" << std::endl;
 
 	if (this->color)	// Debuging purposes.
-		cout << "white pawn" << std::endl;
+		std::cout << "white pawn" << std::endl;
 
 	bool ret = false;
 
@@ -99,7 +97,7 @@ bool CPawn::move(string origin, string movement)
 /// <param name="origin">Origin position</param>
 /// <param name="movement">Destination</param>
 /// <returns></returns>
-bool CPawn::simpleMove(string origin, string movement)
+bool CPawn::simpleMove(std::string origin, std::string movement)
 {
 	bool ret = false;
 
@@ -117,7 +115,7 @@ bool CPawn::simpleMove(string origin, string movement)
 /// <param name="origin">Origin position</param>
 /// <param name="movement">Destination</param>
 /// <returns></returns>
-bool CPawn::doubleMove(string origin, string movement)
+bool CPawn::doubleMove(std::string origin, std::string movement)
 {
 	bool ret = false;
 
@@ -135,7 +133,7 @@ bool CPawn::doubleMove(string origin, string movement)
 /// <param name="origin">Origin position</param>
 /// <param name="movement">Destination</param>
 /// <returns></returns>
-bool CPawn::eat(string origin, string movement)
+bool CPawn::eat(std::string origin, std::string movement)
 {
 	bool ret = false;
 
@@ -153,7 +151,7 @@ bool CPawn::eat(string origin, string movement)
 /// <param name="origin">Origin position</param>
 /// <param name="movement">Destination</param>
 /// <returns></returns>
-bool CPawn::eatPassant(string origin, string movement)
+bool CPawn::eatPassant(std::string origin, std::string movement)
 {
 	bool ret = false;
 

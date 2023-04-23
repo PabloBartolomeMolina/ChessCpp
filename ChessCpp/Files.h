@@ -4,7 +4,5 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-bool fileWrite(string newLine);
-bool fileRead(string info);
+bool fileWrite(std::string newLine);
+bool fileRead(std::string info);

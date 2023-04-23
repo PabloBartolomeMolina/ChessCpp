@@ -6,17 +6,17 @@
 /// <returns>
 /// Returns TRUE if all good and FALSE if some issues found.
 /// </returns>
-string * Movement()
+std::string * Movement()
 {
     bool res = false;
-    string *result = NULL;
+    std::string *result = NULL;
     bool checked = false;
-    string move = "dummy";
+    std::string move = "dummy";
 
     while (!res)
     {
-        cout << "Please, insert your movement: ";
-        cin >> move;
+       std::cout << "Please, insert your movement: ";
+       std::cin >> move;
 
         checked = check_input(move);
     }
@@ -54,7 +54,7 @@ string * Movement()
 /// <returns>
 /// Returns TRUE if all good and FALSE if some issues found.
 /// </returns>
-bool check_input(string &move)
+bool check_input(std::string &move)
 {
     bool ok = false;
 
@@ -233,9 +233,9 @@ bool check_input(string &move)
 
     // Print message according to results of the checks.
     if (ok)
-        cout << std::endl << "Movement: " << move << std::endl;
+       std::cout << std::endl << "Movement: " << move << std::endl;
     else
-        cout << std::endl << "Format of the movement is no correct, please insert a valid one..." << std::endl;
+       std::cout << std::endl << "Format of the movement is no correct, please insert a valid one..." << std::endl;
 
     return ok;
 }

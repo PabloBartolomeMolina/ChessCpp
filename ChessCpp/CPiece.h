@@ -5,15 +5,15 @@
 #include <sstream>
 #include "Defines.h"
 
-using namespace std;
+;
 
 class CPiece
 {
 public:
-	string id = "Nan";
-	string name = "Nan";
-	string position = "Nan";
-	string type = "Nan";
+	 std::string id = "Nan";
+	 std::string name = "Nan";
+	 std::string position = "Nan";
+	 std::string type = "Nan";
 	bool color = 0;
 
 	CPiece();

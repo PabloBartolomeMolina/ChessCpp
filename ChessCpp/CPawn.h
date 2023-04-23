@@ -4,13 +4,13 @@
 class CPawn : public CPiece
 {
 private:
-	bool simpleMove(string origin, string movement);
-	bool doubleMove(string origin, string movement);
-	bool eat(string origin, string movement);
-	bool eatPassant(string origin, string movement);
+	bool simpleMove(std::string origin, std::string movement);
+	bool doubleMove(std::string origin, std::string movement);
+	bool eat(std::string origin, std::string movement);
+	bool eatPassant(std::string origin, std::string movement);
 public:
-	CPawn(bool color = 0, string pos = "a2", int num = 0);
+	CPawn(bool color = 0, std::string pos = "a2", int num = 0);
 	~CPawn();
-	bool move(string origin, string movement);
+	bool move(std::string origin, std::string movement);
 };
 

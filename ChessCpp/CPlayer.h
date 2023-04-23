@@ -10,8 +10,6 @@
 #include "CQueen.h"
 #include "CKing.h"
 
-using namespace std;
-
 class CPlayer
 {
 private:
@@ -20,35 +18,35 @@ private:
 	// 0 for no turn of movement and 1 for turn of movement.
 	bool turn = 0;
 	// By default it is for black pieces, to be changed if needed at creation of object.
-	string pieces[8] = { "Rb", "Nb", "Bb", "Qb", "Kb", "Bb", "Nb", "Rb" };
-	string whiteInitialPawns[8] = { "a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2"};
-	string whiteInitialPieces[8] = { "a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1" };
-	string blackInitialPawns[8] = { "a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7" };
-	string blackInitialPieces[8] = { "a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8" };
+	std::string pieces[8] = { "Rb", "Nb", "Bb", "Qb", "Kb", "Bb", "Nb", "Rb" };
+	std::string whiteInitialPawns[8] = { "a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2"};
+	std::string whiteInitialPieces[8] = { "a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1" };
+	std::string blackInitialPawns[8] = { "a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7" };
+	std::string blackInitialPieces[8] = { "a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8" };
 
-	vector<CRook> rooks;
-	vector<CKnight> knights;
-	vector<CBishop> bishops;
-	vector<CQueen> queens;
-	vector<CKing> kings;
+	std::vector<CRook> rooks;
+	std::vector<CKnight> knights;
+	std::vector<CBishop> bishops;
+	std::vector<CQueen> queens;
+	std::vector<CKing> kings;
 
 	// Creation of pieces.
 	void createPieces(bool color = 0);
 	// Check notation if destination.
-	bool checkDestination(string move);
+	bool checkDestination(std::string move);
 	// Check movement.
-	bool CheckMove(string movement);
+	bool CheckMove(std::string movement);
 	// Check destination before moving.
-	bool CheckOccupied(string movement);
+	bool CheckOccupied(std::string movement);
 	// Check notation if piece.
-	bool checkPiece(string move);
+	bool checkPiece(std::string move);
 	// Check possibility of roque movement.
-	bool checkRoque(string movement);
+	bool checkRoque(std::string movement);
 
 public:
-	vector<CPawn> pawns;
+	std::vector<CPawn> pawns;
 	CPlayer(bool input = false);
 	~CPlayer();
-	vector<string> Move();
+	std::vector<std::string> Move();
 };
 

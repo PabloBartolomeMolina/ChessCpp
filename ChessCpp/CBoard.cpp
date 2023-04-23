@@ -103,7 +103,7 @@ void CBoard::initPlace()
 /// </summary>
 /// <param name="position">Position to check.</param>
 /// <returns>True if some intermediate position is occupied, False if free path.</returns>
-bool CBoard::CheckPosition(string position)
+bool CBoard::CheckPosition(std::string position)
 {
     bool returned = false;
 
@@ -126,7 +126,7 @@ bool CBoard::CheckPosition(string position)
 /// <summary>
 /// Method to place all the pieces on the board before showing it, with the current informations.
 /// </summary>
-string CBoard::placePieces(string origin, string destination)
+std::string CBoard::placePieces(std::string origin, std::string destination)
 {
     /* To be populated with real code. */
     return "TOTO";
