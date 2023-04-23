@@ -11,13 +11,13 @@ CPlayer::CPlayer(bool input)
     // Set color of instance.
     if (color)
     {
-        cout << "Player white has been created." << std::endl;
+       std::cout << "Player white has been created." << std::endl;
         createPieces(1);
         turn = 1;   // First move is for white player.
     } 
     else
     {
-        cout << "Player black has been created." << std::endl;
+       std::cout << "Player black has been created." << std::endl;
         createPieces(0);
     }
 }
@@ -29,18 +29,18 @@ CPlayer::~CPlayer()
 {
     
     if (color)
-        cout << "Player white has been destroyed." << std::endl;
+       std::cout << "Player white has been destroyed." << std::endl;
     else
-        cout << "Player black has been destroyed." << std::endl;
+       std::cout << "Player black has been destroyed." << std::endl;
 }
 
 /// <summary>
 /// Helper for move method.
 /// </summary>
-bool CPlayer::CheckMove(string movement)
+bool CPlayer::CheckMove(std::string movement)
 {
     bool result = false;
-    string move = movement;     // Use local variable.
+    std::string move = movement;     // Use local variable.
 
     // First, check if the destination is already occupied by a piece of the same player.
     bool occupied = CheckOccupied(move);
@@ -108,7 +108,7 @@ bool CPlayer::CheckMove(string movement)
 /// </summary>
 /// <param name="movement">Destination case.</param>
 /// <returns></returns>
-bool CPlayer::CheckOccupied(string movement)
+bool CPlayer::CheckOccupied(std::string movement)
 {
     bool occupied = false;
     
@@ -153,10 +153,10 @@ bool CPlayer::CheckOccupied(string movement)
 /// </summary>
 /// <param name="movement">Short or long roque</param>
 /// <returns></returns>
-bool CPlayer::checkRoque(string movement)
+bool CPlayer::checkRoque(std::string movement)
 {
     bool result = false;
-    string move = "";
+    std::string move = "";
     // Normalice notation.
     for (char& c : movement) {
         if (c == 'o' || c == 'O')       // Left only version with 0 (zeros).
@@ -194,20 +194,20 @@ bool CPlayer::checkRoque(string movement)
 }
 
 // Vector to allocate the return values.
-vector<string> movement{ "origin", "destination" };
+std::vector<std::string> movement{ "origin", "destination" };
 
 /// <summary>
 /// Method to perform a move.
 /// </summary>
-vector<string> CPlayer::Move()
+std::vector<std::string> CPlayer::Move()
 {
-    string move = "none";   // String to allocate input movement of player.
+    std::string move = "none";   // String to allocate input movement of player.
     bool ok = false;    // Control flag for validity of movement. It helps to control logic of the function.
 
     while (!ok)
     {
-        cout << movementText;
-        cin >> move;
+       std::cout << movementText;
+       std::cin >> move;
         
         // Check if format is correct.
         if (move.length() == 3 && isalpha(move[0]) && isalpha(move[1]) && isdigit(move[2]))     // Simple move.
@@ -334,17 +334,17 @@ vector<string> CPlayer::Move()
         {
             /* Format is not valid. */
             ok = false;
-            cout << "Invalid format." << std::endl;
+           std::cout << "Invalid format." << std::endl;
         }
 
         if (ok)
-            cout << "OKey" << std::endl;
+           std::cout << "OKey" << std::endl;
         else
-            cout << "Something strange happening" << std::endl;
+           std::cout << "Something strange happening" << std::endl;
     }
 
-    cout << "Movement is considered" << std::endl << std::endl;
-    cout << movement[1] << std::endl;
+   std::cout << "Movement is considered" << std::endl << std::endl;
+   std::cout << movement[1] << std::endl;
     system("pause");
 
     return movement;
@@ -357,7 +357,7 @@ vector<string> CPlayer::Move()
 /// </summary>
 /// <param name="movement">Movement that is given by the player</param>
 /// <returns></returns>
-bool CPlayer::checkDestination(string move)
+bool CPlayer::checkDestination(std::string move)
 {
     bool ok = false;
     /* Check notation for the case of destination. */
@@ -366,7 +366,7 @@ bool CPlayer::checkDestination(string move)
         /* Only possible if the notation of the piece is valid. */
         ok = true;
         movement[1].assign(move.substr(1, 2));      // Take just the final position to be returned as a destination.
-        cout << "Movement is consideredDD" << std::endl;
+       std::cout << "Movement is consideredDD" << std::endl;
     }
     else
     {
@@ -382,11 +382,11 @@ bool CPlayer::checkDestination(string move)
 /// </summary>
 /// <param name="movement">Movement that is given by the player</param>
 /// <returns></returns>
-bool CPlayer::checkPiece(string move)
+bool CPlayer::checkPiece(std::string move)
 {
     bool ok = false;    // Control flag for validity of movement. It helps to control logic of the function.
 
-    for (int i = 0; i < piecesDefault.length(); ++i)
+    for (unsigned int i = 0; i < piecesDefault.length(); ++i)
     {
         /* Check notation for the piece*/
         if (toupper(move[0]) == toupper(piecesDefault[i]))      // toUpper helps to compare two chars quicker with a cleaner code.
