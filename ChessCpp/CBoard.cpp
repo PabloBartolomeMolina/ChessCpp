@@ -1,6 +1,5 @@
 #include "CBoard.h"
 
-
 /* Basic methods, like constructor and destructor. */
 
 /// <summary>
@@ -42,7 +41,7 @@ CBoard::CBoard()
          {48, "a2"}, {49, "b2"}, {50, "c2"}, {51, "d2"}, {52, "e2"}, {53, "f2"}, {54, "g2"}, {55, "h2"},
          {56, "a1"}, {57, "b1"}, {58, "c1"}, {59, "d1"}, {60, "e1"}, {61, "f1"}, {62, "g1"}, {63, "h1"},
     };
-    std::cout << "Board object has been created." << endl;       // Debugging purposes.
+    std::cout << "Board object has been created." << std::endl;       // Debugging purposes.
 }
 
 /// <summary>
@@ -50,7 +49,7 @@ CBoard::CBoard()
 /// </summary>
 CBoard::~CBoard()
 {
-    std::cout << "Board object has been destroyed." << endl;     // Debugging purposes.
+    std::cout << "Board object has been destroyed." << std::endl;     // Debugging purposes.
 }
 
 /* PRIVATE methods of the class Board. */
@@ -141,8 +140,8 @@ void CBoard::showBoard(bool player)
     if (player)     // White player.
     {
         // Set the columns letter.
-        std::cout << endl << colsWhite << endl;
-        std::cout << horizontal << endl;
+        std::cout << std::endl << colsWhite << std::endl;
+        std::cout << horizontal << std::endl;
 
         // Print out the board.
         for (int i = 0; i < 8; i++)
@@ -176,14 +175,14 @@ void CBoard::showBoard(bool player)
 
                 std::cout << "   |  ";
             }
-            std::cout << endl;
-            std::cout << horizontal << endl;
+            std::cout << std::endl;
+            std::cout << horizontal << std::endl;
         }
     }
     else            // Black player.
     {
         // Set the columns letter.
-        std::cout << endl << colsBlack << endl;
+        std::cout << std::endl << colsBlack << std::endl;
 
         // Print out the board.
         for (int i = 0; i < 8; i++)
@@ -216,8 +215,8 @@ void CBoard::showBoard(bool player)
 
                 std::cout << "   |  ";
             }
-            std::cout << endl;
-            std::cout << horizontal << endl;
+            std::cout << std::endl;
+            std::cout << horizontal << std::endl;
         }
     }
 }
