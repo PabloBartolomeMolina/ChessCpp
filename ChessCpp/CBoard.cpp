@@ -133,10 +133,9 @@ std::string CBoard::placePieces(std::string origin, std::string destination)
     return "TOTO";
 }
 
-// Helper.
+// Helper to print squares with proper background.
 void printSquare(int indexParity, int piece, int color)
 {
-    int combiIndex = 0;
     int combiPiece = 0;
 
     switch (piece)
@@ -153,9 +152,8 @@ void printSquare(int indexParity, int piece, int color)
         break;
     case PAWN: (color == WHITE) ? combiPiece = PAWN_WHITE : combiPiece = PAWN_BLACK;
         break;
-    case EMPTY: combiPiece = EMPTY_NULL;
-        break;
-    default:
+    case EMPTY:
+    default: combiPiece = EMPTY_NULL;
         break;
     }
 
@@ -202,9 +200,7 @@ void printSquare(int indexParity, int piece, int color)
             std::cout << dye::black_on_white("p");
             break;
         case EMPTY_NULL:
-            std::cout << dye::black_on_white(" ");;
-            break;
-        default:
+        default:  std::cout << dye::black_on_white(" ");;
             break;
         }
         break;
@@ -250,8 +246,7 @@ void printSquare(int indexParity, int piece, int color)
         case EMPTY_NULL:
             std::cout << dye::white_on_black(" ");
             break;
-        default:
-            std::cout << " ";
+        default: std::cout << dye::white_on_black(" ");
             break;
         }
         break;
@@ -259,7 +254,6 @@ void printSquare(int indexParity, int piece, int color)
         break;
     }
 }
-
 
 /// <summary>
 /// Method to show the board with the current informations.
@@ -410,11 +404,23 @@ void CBoard::showBoard(bool player)
     }
 }
 
+/// <summary>
+/// Method to get a given square given its indexes.
+/// </summary>
+/// <param name="x">Primary Index</param>
+/// <param name="y">Secondary Index</param>
+/// <returns></returns>
 CSquare* CBoard::getSquare(int x, int y)
 {
     return &square[x][y];
 }
 
+/// <summary>
+///  Set values for a square given its indexes.
+/// </summary>
+/// <param name="sq">Square</param>
+/// <param name="x">Primary Index</param>
+/// <param name="y">Secondary Index</param>
 void CBoard::setSquare(CSquare* sq, int x, int y)
 {
     square[x][y] = *sq;
