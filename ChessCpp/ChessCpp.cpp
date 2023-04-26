@@ -56,7 +56,7 @@ void basicLogic()
     while (!mate)
     {
         // Show board.
-        board.showBoard(1);     // Board view for white player.
+        board.showBoard(0);     // Board view for white player.
         
         bool moved = Move();
 

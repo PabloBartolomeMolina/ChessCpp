@@ -254,6 +254,7 @@ void printSquare(int indexParity, int piece, int color)
             std::cout << " ";
             break;
         }
+        break;
     default:
         break;
     }
@@ -343,7 +344,7 @@ void CBoard::showBoard(bool player)
         // Set the columns letter.
         std::cout << std::endl << dye::black_on_aqua(colsBlack);
         std::cout << dye::black_on_aqua("    ") << std::endl;
-        std::cout << dye::black_on_aqua("    ") << dye::black_on_white(horizontal);
+        std::cout << dye::black_on_aqua("    ") << dye::black_on_aqua(horizontal);
         std::cout << dye::black_on_aqua("    ") << std::endl;
 
         // Print out the board.
