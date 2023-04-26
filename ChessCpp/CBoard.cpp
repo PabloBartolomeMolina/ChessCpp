@@ -280,7 +280,16 @@ void CBoard::showBoard(bool player)
         // Print out the board.
         for (int i = 0; i < 8; i++)
         {
-            std::cout << dye::black_on_aqua(8-i) << dye::black_on_aqua("   ") << "| ";
+            std::cout << dye::black_on_aqua(8-i) << dye::black_on_aqua("   ");
+
+            if (i % 2 == 0)
+            {
+                std::cout << dye::black_on_white("| ");
+            }
+            else
+            {
+                std::cout << dye::white_on_black("| ");
+            }
 
             for (int j = 0; j < 8; j++)
             {
@@ -290,19 +299,34 @@ void CBoard::showBoard(bool player)
                 if (i % 2 == 0 && j % 2 == 0)
                 {
                     indexParity = 0;    // both even
+                    std::cout << dye::black_on_white(" ");
                 }
                 else if (i % 2 == 1 && j % 2 == 1)
                 {
                     indexParity = 1;    // both odd
+                    std::cout << dye::black_on_white(" ");
                 }
                 else
                 {
                     indexParity = 2;    // one even and one odd
+                    std::cout << dye::white_on_black(" ");
                 }
                 printSquare(indexParity, p, c);
 
                 // After last square of the line, less space with black background.
-                (j == 7) ? std::cout << "   |" : std::cout << "   |  ";
+                switch (indexParity)
+                {
+                case 0:
+                case 1:
+                    (j == 7) ? std::cout << dye::black_on_white("  |") : std::cout << dye::black_on_white("  |") << dye::white_on_black("  ");
+                    break;
+                case 2:
+                    (j == 7) ? std::cout << dye::white_on_black("  |") : std::cout << dye::white_on_black("  |") << dye::black_on_white("  ");
+                    break;
+                default:
+                    break;
+                }
+                
             }
             std::cout << dye::black_on_aqua("   ") << dye::black_on_aqua(8-i);
             std::cout << std::endl;
@@ -325,7 +349,16 @@ void CBoard::showBoard(bool player)
         // Print out the board.
         for (int i = 0; i < 8; i++)
         {
-            std::cout << dye::black_on_aqua(i + 1) << dye::black_on_aqua("   ") << "| ";
+            std::cout << dye::black_on_aqua(i + 1) << dye::black_on_aqua("   ");
+            if (i % 2 == 0)
+            {
+                std::cout << dye::black_on_white("| ");
+            }
+            else
+            {
+                std::cout << dye::white_on_black("| ");
+            }
+
             for (int j = 0; j < 8; j++)
             {
                 int p = square[j][i].getPiece();
@@ -346,7 +379,18 @@ void CBoard::showBoard(bool player)
                 printSquare(indexParity, p, c);
                 
                 // After last square of the line, less space with black background.
-                (j == 7) ? std::cout << "   |" : std::cout << "   |  ";
+                switch (indexParity)
+                {
+                case 0:
+                case 1:
+                    (j == 7) ? std::cout << dye::black_on_white("  |") : std::cout << dye::black_on_white("  |") << dye::white_on_black("  ");
+                    break;
+                case 2:
+                    (j == 7) ? std::cout << dye::white_on_black("  |") : std::cout << dye::white_on_black("  |") << dye::black_on_white("  ");
+                    break;
+                default:
+                    break;
+                }
             }
             std::cout << dye::black_on_aqua("   ") << dye::black_on_aqua(i + 1);
             std::cout << std::endl;
