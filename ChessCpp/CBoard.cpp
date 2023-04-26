@@ -274,7 +274,7 @@ void CBoard::showBoard(bool player)
         // Set the columns letter.
         std::cout << std::endl << dye::black_on_aqua(colsWhite);
         std::cout << dye::black_on_aqua("    ") << std::endl;
-        std::cout << dye::black_on_aqua("    ") << dye::black_on_white(horizontal);
+        std::cout << dye::black_on_aqua("    ") << dye::black_on_aqua(horizontal);
         std::cout << dye::black_on_aqua("    ") << std::endl;
 
         // Print out the board.
@@ -330,7 +330,7 @@ void CBoard::showBoard(bool player)
             }
             std::cout << dye::black_on_aqua("   ") << dye::black_on_aqua(8-i);
             std::cout << std::endl;
-            std::cout << dye::black_on_aqua("    ") << dye::black_on_white(horizontal);
+            std::cout << dye::black_on_aqua("    ") << dye::black_on_aqua(horizontal);
             std::cout << dye::black_on_aqua("    ");
             (i == 7) ? std::cout << "" : std::cout << std::endl;
         }
