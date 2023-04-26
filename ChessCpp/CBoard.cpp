@@ -141,19 +141,19 @@ void printSquare(int indexParity, int piece, int color)
 
     switch (piece)
     {
-    case KING: (color == WHITE) ? combiPiece = 0 : combiPiece = 1;
+    case KING: (color == WHITE) ? combiPiece = KING_WHITE : combiPiece = KING_BLACK;
         break;
-    case QUEEN: (color == WHITE) ? combiPiece = 2 : combiPiece = 3;
+    case QUEEN: (color == WHITE) ? combiPiece = QUEEN_WHITE : combiPiece = QUEEN_BLACK;
         break;
-    case ROOK: (color == WHITE) ? combiPiece = 4 : combiPiece = 5;
+    case ROOK: (color == WHITE) ? combiPiece = ROOK_WHITE : combiPiece = ROOK_BLACK;
         break;
-    case KNIGHT: (color == WHITE) ? combiPiece = 6 : combiPiece = 7;
+    case KNIGHT: (color == WHITE) ? combiPiece = KNIGHT_WHITE : combiPiece = KNIGHT_BLACK;
         break;
-    case BISHOP: (color == WHITE) ? combiPiece = 8 : combiPiece = 9;
+    case BISHOP: (color == WHITE) ? combiPiece = BISHOP_WHITE : combiPiece = BISHOP_BLACK;
         break;
-    case PAWN: (color == WHITE) ? combiPiece = 10 : combiPiece = 11;
+    case PAWN: (color == WHITE) ? combiPiece = PAWN_WHITE : combiPiece = PAWN_BLACK;
         break;
-    case EMPTY: combiPiece = 12;
+    case EMPTY: combiPiece = EMPTY_NULL;
         break;
     default:
         break;
@@ -161,8 +161,8 @@ void printSquare(int indexParity, int piece, int color)
 
     switch (indexParity)
     {
-    case 0:
-    case 1:
+    case EVEN:
+    case ODD:
         switch (combiPiece)
         {
         case KING_WHITE:
@@ -208,7 +208,7 @@ void printSquare(int indexParity, int piece, int color)
             break;
         }
         break;
-    case 2: (color == WHITE) ? combiIndex = 4 : combiIndex = 5;
+    case DIFF: 
         switch (combiPiece)
         {
         case KING_WHITE:
@@ -254,6 +254,8 @@ void printSquare(int indexParity, int piece, int color)
             std::cout << " ";
             break;
         }
+    default:
+        break;
     }
 }
 
@@ -296,17 +298,17 @@ void CBoard::showBoard(bool player)
 
                 if (i % 2 == 0 && j % 2 == 0)
                 {
-                    indexParity = 0;    // both even
+                    indexParity = EVEN;    // both even
                     std::cout << dye::black_on_white(" ");
                 }
                 else if (i % 2 == 1 && j % 2 == 1)
                 {
-                    indexParity = 1;    // both odd
+                    indexParity = ODD;    // both odd
                     std::cout << dye::black_on_white(" ");
                 }
                 else
                 {
-                    indexParity = 2;    // one even and one odd
+                    indexParity = DIFF;    // one even and one odd
                     std::cout << dye::white_on_black(" ");
                 }
                 printSquare(indexParity, p, c);
@@ -366,15 +368,15 @@ void CBoard::showBoard(bool player)
 
                 if (i % 2 == 0 && j % 2 == 0)
                 {
-                    indexParity = 0;    // both even
+                    indexParity = EVEN;    // both even
                 }
                 else if (i % 2 == 1 && j % 2 == 1)
                 {
-                    indexParity = 1;    // both odd
+                    indexParity = ODD;    // both odd
                 }
                 else
                 {
-                    indexParity = 2;    // one even and one odd
+                    indexParity = DIFF;    // one even and one odd
                 }
                 printSquare(indexParity, p, c);
                 

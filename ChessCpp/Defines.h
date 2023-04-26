@@ -15,6 +15,11 @@ const char rows[8] = { '1', '2', '3', '4', '5', '6', '7', '8' };
 const char piecesC[6] = { 'p', 'R', 'N', 'B', 'Q', 'K'};
 const  std::string piecesDefault = "pRNBQK";
 
+// Defines for parity of indexes
+const int EVEN = 0;
+const int ODD = 1;
+const int DIFF = 2;
+
 // Defines for pieces
 const int EMPTY = 0;
 const int PAWN = 1;
