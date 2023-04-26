@@ -273,7 +273,7 @@ void CBoard::showBoard(bool player)
         // Print out the board.
         for (int i = 0; i < 8; i++)
         {
-            std::cout << dye::black_on_aqua(8-i) << dye::black_on_aqua("   ");
+            std::cout << dye::black_on_aqua(" ") << dye::black_on_aqua(8-i) << dye::black_on_aqua("  ");
 
             if (i % 2 == 0)
             {
@@ -313,17 +313,17 @@ void CBoard::showBoard(bool player)
                 {
                 case 0:
                 case 1:
-                    (j == 7) ? std::cout << dye::black_on_white("  ") << dye::black_on_aqua("|") : std::cout << dye::black_on_white("  ") << dye::black_on_aqua("|") << dye::white_on_black("  ");
+                    (j == 7) ? std::cout << dye::black_on_white("  ") << dye::black_on_aqua("|") : std::cout << dye::black_on_white("  ") << dye::black_on_aqua("|") << dye::white_on_black(" ");
                     break;
                 case 2:
-                    (j == 7) ? std::cout << dye::white_on_black("  ") << dye::black_on_aqua("|") : std::cout << dye::white_on_black("  ") << dye::black_on_aqua("|") << dye::black_on_white("  ");
+                    (j == 7) ? std::cout << dye::white_on_black("  ") << dye::black_on_aqua("|") : std::cout << dye::white_on_black("  ") << dye::black_on_aqua("|") << dye::black_on_white(" ");
                     break;
                 default:
                     break;
                 }
                 
             }
-            std::cout << dye::black_on_aqua("   ") << dye::black_on_aqua(8-i);
+            std::cout << dye::black_on_aqua("  ") << dye::black_on_aqua(8 - i) << dye::black_on_aqua(" ");
             std::cout << std::endl;
             std::cout << dye::black_on_aqua("    ") << dye::black_on_aqua(horizontal);
             std::cout << dye::black_on_aqua("    ");
@@ -344,7 +344,7 @@ void CBoard::showBoard(bool player)
         // Print out the board.
         for (int i = 0; i < 8; i++)
         {
-            std::cout << dye::black_on_aqua(i + 1) << dye::black_on_aqua("   ");
+            std::cout << dye::black_on_aqua(" ") << dye::black_on_aqua(i + 1) << dye::black_on_aqua("  ");
             if (i % 2 == 0)
             {
                 std::cout << dye::black_on_aqua("|");
@@ -383,16 +383,16 @@ void CBoard::showBoard(bool player)
                 {
                 case 0:
                 case 1:
-                    (j == 7) ? std::cout << dye::black_on_white("  ") << dye::black_on_aqua("|") : std::cout << dye::black_on_white("  ") << dye::black_on_aqua("|") << dye::white_on_black("  ");
+                    (j == 7) ? std::cout << dye::black_on_white("  ") << dye::black_on_aqua("|") : std::cout << dye::black_on_white("  ") << dye::black_on_aqua("|") << dye::white_on_black(" ");
                     break;
                 case 2:
-                    (j == 7) ? std::cout << dye::white_on_black("  ") << dye::black_on_aqua("|") : std::cout << dye::white_on_black("  ") << dye::black_on_aqua("|") << dye::black_on_white("  ");
+                    (j == 7) ? std::cout << dye::white_on_black("  ") << dye::black_on_aqua("|") : std::cout << dye::white_on_black("  ") << dye::black_on_aqua("|") << dye::black_on_white(" ");
                     break;
                 default:
                     break;
                 }
             }
-            std::cout << dye::black_on_aqua("   ") << dye::black_on_aqua(i + 1);
+            std::cout << dye::black_on_aqua("  ") << dye::black_on_aqua(i + 1) << dye::black_on_aqua(" ");
             std::cout << std::endl;
             std::cout << dye::black_on_aqua("    ") << dye::black_on_aqua(horizontal);
             std::cout << dye::black_on_aqua("    ");

@@ -21,12 +21,12 @@ private:
                                   "a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7" };
    
     /* Columns names from the POV of each player with the adequate formating to be printed on console. */
-    std::string colsWhite = "      a      b      c      d      e      f      g      h    ";
-    std::string colsBlack = "      h      g      f      e      d      c      b      a    ";
+    std::string colsWhite = "       a     b     c     d     e     f     g     h   ";
+    std::string colsBlack = "       h     g     f     e     d     c     b     a   ";
 
     /* Horizontal separator for board and empty rows. */
-    std::string horizontal = "______ ______ ______ ______ ______ ______ ______ ______ ";
-    std::string rowEmpty = "|      |      |      |      |      |      |      |      |";
+    std::string horizontal = " _____ _____ _____ _____ _____ _____ _____ _____ ";
+    std::string rowEmpty = "|     |     |     |     |     |     |     |     |";
     std::string dSpace = "  |";
 
     CSquare square[8][8];
