@@ -1,6 +1,10 @@
 #include "CBoard.h"
 #include "color.h"
 
+#define A_BIT (1 << 0)
+#define B_BIT (1 << 1)
+#define C_BIT (1 << 2)
+
 /* Basic methods, like constructor and destructor. */
 
 /// <summary>
@@ -133,11 +137,138 @@ std::string CBoard::placePieces(std::string origin, std::string destination)
     return "TOTO";
 }
 
+// Helper.
+void printSquare(int indexParity, int piece, int color)
+{
+    int combiIndex = 0;
+    int combiPiece = 0;
+
+    switch (piece)
+    {
+    case KING: (color == WHITE) ? combiPiece = 0 : combiPiece = 1;
+        break;
+    case QUEEN: (color == WHITE) ? combiPiece = 2 : combiPiece = 3;
+        break;
+    case ROOK: (color == WHITE) ? combiPiece = 4 : combiPiece = 5;
+        break;
+    case KNIGHT: (color == WHITE) ? combiPiece = 6 : combiPiece = 7;
+        break;
+    case BISHOP: (color == WHITE) ? combiPiece = 8 : combiPiece = 9;
+        break;
+    case PAWN: (color == WHITE) ? combiPiece = 10 : combiPiece = 11;
+        break;
+    case EMPTY: combiPiece = 12;
+        break;
+    default:
+        break;
+    }
+
+    switch (indexParity)
+    {
+    case 0:
+    case 1:
+        switch (combiPiece)
+        {
+        case 0:
+            std::cout << dye::black_on_white("K");
+            break;
+        case 1:
+            std::cout << dye::black_on_white("k");
+            break;
+        case 2:
+            std::cout << dye::black_on_white("Q");
+            break;
+        case 3:
+            std::cout << dye::black_on_white("q");
+            break;
+        case 4:
+            std::cout << dye::black_on_white("R");
+            break;
+        case 5:
+            std::cout << dye::black_on_white("r");
+            break;
+        case 6:
+            std::cout << dye::black_on_white("N");
+            break;
+        case 7:
+            std::cout << dye::black_on_white("n");
+            break;
+        case 8:
+            std::cout << dye::black_on_white("B");
+            break;
+        case 9:
+            std::cout << dye::black_on_white("b");
+            break;
+        case 10:
+            std::cout << dye::black_on_white("P");
+            break;
+        case 11:
+            std::cout << dye::black_on_white("p");
+            break;
+        case 12:
+            std::cout << dye::black_on_white(" ");;
+            break;
+        default:
+            break;
+        }
+        break;
+    case 2: (color == WHITE) ? combiIndex = 4 : combiIndex = 5;
+        switch (combiPiece)
+        {
+        case 0:
+            std::cout << dye::white_on_black("K");
+            break;
+        case 1:
+            std::cout << dye::white_on_black("k");
+            break;
+        case 2:
+            std::cout << dye::white_on_black("Q");
+            break;
+        case 3:
+            std::cout << dye::white_on_black("q");
+            break;
+        case 4:
+            std::cout << dye::white_on_black("R");
+            break;
+        case 5:
+            std::cout << dye::white_on_black("r");
+            break;
+        case 6:
+            std::cout << dye::white_on_black("N");
+            break;
+        case 7:
+            std::cout << dye::white_on_black("n");
+            break;
+        case 8:
+            std::cout << dye::white_on_black("B");
+            break;
+        case 9:
+            std::cout << dye::white_on_black("b");
+            break;
+        case 10:
+            std::cout << dye::white_on_black("P");
+            break;
+        case 11:
+            std::cout << dye::white_on_black("p");
+            break;
+        case 12:
+            std::cout << dye::white_on_black(" ");
+            break;
+        default:
+            std::cout << " ";
+            break;
+        }
+    }
+}
+
+
 /// <summary>
 /// Method to show the board with the current informations.
 /// </summary>
 void CBoard::showBoard(bool player)
 {
+    int indexParity= 0;
+
     if (player)     // White player.
     {
         // Set the columns letter.
@@ -156,25 +287,20 @@ void CBoard::showBoard(bool player)
                 int p = square[j][i].getPiece();
                 int c = square[j][i].getColor();
 
-                switch (p)
+                if (i % 2 == 0 && j % 2 == 0)
                 {
-                case KING: (c == WHITE) ? std::cout << "K" : std::cout << "k";
-                    break;
-                case QUEEN: (c == WHITE) ? std::cout << "Q" : std::cout << "q";
-                    break;
-                case ROOK: (c == WHITE) ? std::cout << "R" : std::cout << "r";
-                    break;
-                case KNIGHT: (c == WHITE) ? std::cout << "N" : std::cout << "n";
-                    break;
-                case BISHOP: (c == WHITE) ? std::cout << "B" : std::cout << "b";
-                    break;
-                case PAWN: (c == WHITE) ? std::cout << "P" : std::cout << "p";
-                    break;
-                case EMPTY: std::cout << " ";
-                    break;
-                default:
-                    break;
+                    indexParity = 0;    // both even
                 }
+                else if (i % 2 == 1 && j % 2 == 1)
+                {
+                    indexParity = 1;    // both odd
+                }
+                else
+                {
+                    indexParity = 2;    // one even and one odd
+                }
+                printSquare(indexParity, p, c);
+
                 // After last square of the line, less space with black background.
                 (j == 7) ? std::cout << "   |" : std::cout << "   |  ";
             }
@@ -202,28 +328,23 @@ void CBoard::showBoard(bool player)
             std::cout << dye::black_on_aqua(i + 1) << dye::black_on_aqua("   ") << "| ";
             for (int j = 0; j < 8; j++)
             {
-                int p = square[j][7-i].getPiece();
-                int c = square[j][7-i].getColor();
+                int p = square[j][i].getPiece();
+                int c = square[j][i].getColor();
 
-                switch (p)
+                if (i % 2 == 0 && j % 2 == 0)
                 {
-                case KING: (c == WHITE) ? std::cout << "K" : std::cout << "k";
-                    break;
-                case QUEEN: (c == WHITE) ? std::cout << "Q" : std::cout << "q";
-                    break;
-                case ROOK: (c == WHITE) ? std::cout << "R" : std::cout << "r";
-                    break;
-                case KNIGHT: (c == WHITE) ? std::cout << "N" : std::cout << "n";
-                    break;
-                case BISHOP: (c == WHITE) ? std::cout << "B" : std::cout << "b";
-                    break;
-                case PAWN: (c == WHITE) ? std::cout << "P" : std::cout << "p";
-                    break;
-                case EMPTY: std::cout << " ";
-                    break;
-                default:
-                    break;
+                    indexParity = 0;    // both even
                 }
+                else if (i % 2 == 1 && j % 2 == 1)
+                {
+                    indexParity = 1;    // both odd
+                }
+                else
+                {
+                    indexParity = 2;    // one even and one odd
+                }
+                printSquare(indexParity, p, c);
+                
                 // After last square of the line, less space with black background.
                 (j == 7) ? std::cout << "   |" : std::cout << "   |  ";
             }
