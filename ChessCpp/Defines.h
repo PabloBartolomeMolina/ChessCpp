@@ -15,6 +15,7 @@ const char rows[8] = { '1', '2', '3', '4', '5', '6', '7', '8' };
 const char piecesC[6] = { 'p', 'R', 'N', 'B', 'Q', 'K'};
 const  std::string piecesDefault = "pRNBQK";
 
+// Defines for pieces
 const int EMPTY = 0;
 const int PAWN = 1;
 const int ROOK = 2;
@@ -23,6 +24,22 @@ const int BISHOP = 4;
 const int QUEEN = 5;
 const int KING = 6;
 
+// Defines for colors
 const int WHITE = 1;
 const int BLACK = 2;
 const int NONE = 2;
+
+// Defines for pieces with colors
+const int KING_WHITE = 0;
+const int KING_BLACK = 1;
+const int QUEEN_WHITE = 2;
+const int QUEEN_BLACK = 3;
+const int ROOK_WHITE = 4;
+const int ROOK_BLACK = 5;
+const int KNIGHT_WHITE = 6;
+const int KNIGHT_BLACK = 7;
+const int BISHOP_WHITE = 8;
+const int BISHOP_BLACK = 9;
+const int PAWN_WHITE = 10;
+const int PAWN_BLACK = 11;
+const int EMPTY_NULL = 12;
