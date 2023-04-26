@@ -1,10 +1,6 @@
 #include "CBoard.h"
 #include "color.h"
 
-#define A_BIT (1 << 0)
-#define B_BIT (1 << 1)
-#define C_BIT (1 << 2)
-
 /* Basic methods, like constructor and destructor. */
 
 /// <summary>
