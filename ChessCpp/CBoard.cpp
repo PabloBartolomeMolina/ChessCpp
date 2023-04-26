@@ -370,14 +370,17 @@ void CBoard::showBoard(bool player)
                 if (i % 2 == 0 && j % 2 == 0)
                 {
                     indexParity = EVEN;    // both even
+                    std::cout << dye::black_on_white(" ");
                 }
                 else if (i % 2 == 1 && j % 2 == 1)
                 {
                     indexParity = ODD;    // both odd
+                    std::cout << dye::black_on_white(" ");
                 }
                 else
                 {
                     indexParity = DIFF;    // one even and one odd
+                    std::cout << dye::white_on_black(" ");
                 }
                 printSquare(indexParity, p, c);
                 
@@ -397,7 +400,7 @@ void CBoard::showBoard(bool player)
             }
             std::cout << dye::black_on_aqua("   ") << dye::black_on_aqua(i + 1);
             std::cout << std::endl;
-            std::cout << dye::black_on_aqua("    ") << dye::black_on_white(horizontal);
+            std::cout << dye::black_on_aqua("    ") << dye::black_on_aqua(horizontal);
             std::cout << dye::black_on_aqua("    ");
             (i == 7) ? std::cout << "" : std::cout << std::endl;
         }
