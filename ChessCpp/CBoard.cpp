@@ -165,43 +165,43 @@ void printSquare(int indexParity, int piece, int color)
     case 1:
         switch (combiPiece)
         {
-        case 0:
+        case KING_WHITE:
             std::cout << dye::black_on_white("K");
             break;
-        case 1:
+        case KING_BLACK:
             std::cout << dye::black_on_white("k");
             break;
-        case 2:
+        case QUEEN_WHITE:
             std::cout << dye::black_on_white("Q");
             break;
-        case 3:
+        case QUEEN_BLACK:
             std::cout << dye::black_on_white("q");
             break;
-        case 4:
+        case ROOK_WHITE:
             std::cout << dye::black_on_white("R");
             break;
-        case 5:
+        case ROOK_BLACK:
             std::cout << dye::black_on_white("r");
             break;
-        case 6:
+        case KNIGHT_WHITE:
             std::cout << dye::black_on_white("N");
             break;
-        case 7:
+        case KNIGHT_BLACK:
             std::cout << dye::black_on_white("n");
             break;
-        case 8:
+        case BISHOP_WHITE:
             std::cout << dye::black_on_white("B");
             break;
-        case 9:
+        case BISHOP_BLACK:
             std::cout << dye::black_on_white("b");
             break;
-        case 10:
+        case PAWN_WHITE:
             std::cout << dye::black_on_white("P");
             break;
-        case 11:
+        case PAWN_BLACK:
             std::cout << dye::black_on_white("p");
             break;
-        case 12:
+        case EMPTY_NULL:
             std::cout << dye::black_on_white(" ");;
             break;
         default:
@@ -211,43 +211,43 @@ void printSquare(int indexParity, int piece, int color)
     case 2: (color == WHITE) ? combiIndex = 4 : combiIndex = 5;
         switch (combiPiece)
         {
-        case 0:
+        case KING_WHITE:
             std::cout << dye::white_on_black("K");
             break;
-        case 1:
+        case KING_BLACK:
             std::cout << dye::white_on_black("k");
             break;
-        case 2:
+        case QUEEN_WHITE:
             std::cout << dye::white_on_black("Q");
             break;
-        case 3:
+        case QUEEN_BLACK:
             std::cout << dye::white_on_black("q");
             break;
-        case 4:
+        case ROOK_WHITE:
             std::cout << dye::white_on_black("R");
             break;
-        case 5:
+        case ROOK_BLACK:
             std::cout << dye::white_on_black("r");
             break;
-        case 6:
+        case KNIGHT_WHITE:
             std::cout << dye::white_on_black("N");
             break;
-        case 7:
+        case KNIGHT_BLACK:
             std::cout << dye::white_on_black("n");
             break;
-        case 8:
+        case BISHOP_WHITE:
             std::cout << dye::white_on_black("B");
             break;
-        case 9:
+        case BISHOP_BLACK:
             std::cout << dye::white_on_black("b");
             break;
-        case 10:
+        case PAWN_WHITE:
             std::cout << dye::white_on_black("P");
             break;
-        case 11:
+        case PAWN_BLACK:
             std::cout << dye::white_on_black("p");
             break;
-        case 12:
+        case EMPTY_NULL:
             std::cout << dye::white_on_black(" ");
             break;
         default:
