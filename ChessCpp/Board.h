@@ -2,9 +2,8 @@
 #include <iostream>
 //#include <map>
 #include "Defines.h"
-#include "CSquare.h"
 
-class CBoard
+class Board
 {
 private:
     /* Two pieces of each type, following the next code:
@@ -28,20 +27,15 @@ private:
     std::string horizontal = " _____ _____ _____ _____ _____ _____ _____ _____ ";
     std::string rowEmpty = "|     |     |     |     |     |     |     |     |";
     std::string dSpace = "  |";
-
-    CSquare square[8][8];
     
     void initPlace();
 
 public:
-    CBoard();
-    ~CBoard();
+    Board();
+    ~Board();
     bool CheckPosition(std::string position);
     std::string placePieces(std::string origin, std::string destination);
     void showBoard(bool player = 1);
-
-    CSquare* getSquare(int x, int y);
-    void setSquare(CSquare* sq, int x, int y);
 
     int pieces[64];
     int color[64];

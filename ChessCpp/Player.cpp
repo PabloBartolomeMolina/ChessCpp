@@ -1,11 +1,11 @@
-#include "CPlayer.h"
+#include "Player.h"
 
 /* Basic methods, like constructor and destructor. */
 
 /// <summary>
 /// Public constructor to set up basic elements of the Board objects.
 /// </summary>
-CPlayer::CPlayer(bool input)
+Player::Player(bool input)
 {
     color = input;  // Set attribute for the current instance.
     // Set color of instance.
@@ -25,7 +25,7 @@ CPlayer::CPlayer(bool input)
 /// <summary>
 /// Public destructor.
 /// </summary>
-CPlayer::~CPlayer()
+Player::~Player()
 {
     
     if (color)
@@ -37,68 +37,9 @@ CPlayer::~CPlayer()
 /// <summary>
 /// Helper for move method.
 /// </summary>
-bool CPlayer::CheckMove(std::string movement)
+bool Player::CheckMove(std::string movement)
 {
     bool result = false;
-    std::string move = movement;     // Use local variable.
-
-    // First, check if the destination is already occupied by a piece of the same player.
-    bool occupied = CheckOccupied(move);
-
-    if (!occupied)      // Not occupied by a piece of the same player.
-    {
-        // Check if movement can be done according to the type of piece to be moved. If possible, the movement will be done.
-        switch (movement[0])
-        {
-        case 'p':
-            for (int i = 0; i < 8; i++)
-            {
-                result = pawns[i].move(pawns[i].position, move);
-                if (result)
-                    break;
-            }
-            break;
-        case 'R':
-            for (int i = 0; i < 2; i++)
-            {
-                result = rooks[i].move(rooks[i].position, move);
-                if (result)
-                    break;
-            }
-            break;
-        case 'N':
-            for (int i = 0; i < 2; i++)
-            {
-                result = knights[i].move(knights[i].position, move);
-                if (result)
-                    break;
-            }
-            break;
-        case 'B':
-            for (int i = 0; i < 2; i++)
-            {
-                result = bishops[i].move(bishops[i].position, move);
-                if (result)
-                    break;
-            }
-            break;
-        case 'Q':
-            queens[0].move(queens[0].position, move);
-            break;
-        case 'K':
-            kings[0].move(kings[0].position, move);
-            break;
-        default:
-            // Piece is not valid.
-            result = false;
-            break;
-        }
-    }
-    else
-    {
-        // Destination is already occupied by a piece of the same player.
-        result = false;
-    }
 
     return result;
 }
@@ -108,43 +49,10 @@ bool CPlayer::CheckMove(std::string movement)
 /// </summary>
 /// <param name="movement">Destination case.</param>
 /// <returns></returns>
-bool CPlayer::CheckOccupied(std::string movement)
+bool Player::CheckOccupied(std::string movement)
 {
     bool occupied = false;
     
-    // Check if queen or king are in that position.
-    if (kings[0].position == movement || queens[0].position == movement)
-    {
-        occupied = true;
-    }
-
-    // Check if a rook, a knight or a bishop are in that position.
-    for (int i = 0; i < 2; i++)
-    {
-        // If already one piece is in the objective case, it is not needed to keep checking.
-        if (occupied)
-            break;
-
-        if (rooks[i].position == movement || knights[i].position == movement || bishops[i].position == movement)
-        {
-            occupied = true;
-            break;
-        }
-    }
-
-    // Check if a pawn is in that position.
-    for (int i = 0; i < 8; i++)
-    {
-        // If already one piece is in the objective case, it is not needed to keep checking.
-        if (occupied)
-            break;
-        if (pawns[i].position == movement)
-        {
-            occupied = true;
-            break;
-        }
-    }
-
     return occupied;
 }
 
@@ -153,42 +61,9 @@ bool CPlayer::CheckOccupied(std::string movement)
 /// </summary>
 /// <param name="movement">Short or long roque</param>
 /// <returns></returns>
-bool CPlayer::checkRoque(std::string movement)
+bool Player::checkRoque(std::string movement)
 {
     bool result = false;
-    std::string move = "";
-    // Normalice notation.
-    for (char& c : movement) {
-        if (c == 'o' || c == 'O')       // Left only version with 0 (zeros).
-            move += '0';
-        else if (c == '-')
-            move += '-';   // Erase empty spaces.
-    }
-
-    /* Once format it standarized, need to check if king has already moved before or not. */
-    result = kings[0].firstMovement();
-
-    /* Only if king has not yet moved, we check if the corresponding tower has already moved before or not. */
-    if (result)
-    {
-        result = rooks[0].firstMovement(move, this->color);
-        if (!result)    // If the first rook is not good, check the second one.
-            result = rooks[1].firstMovement(move, this->color);
-    }
-    else
-    {
-        result = false;
-    }
-
-    /* Only if both pieces are still on place, we will check the free way to proceed with the movement. */
-    if (result)
-    {
-        /* Proceed. */
-
-    }
-    else {
-        /* NOPE */
-    }
 
     return result;
 }
@@ -199,7 +74,7 @@ std::vector<std::string> movement{ "origin", "destination" };
 /// <summary>
 /// Method to perform a move.
 /// </summary>
-std::vector<std::string> CPlayer::Move()
+std::vector<std::string> Player::Move()
 {
     std::string move = "none";   // String to allocate input movement of player.
     bool ok = false;    // Control flag for validity of movement. It helps to control logic of the function.
@@ -357,7 +232,7 @@ std::vector<std::string> CPlayer::Move()
 /// </summary>
 /// <param name="movement">Movement that is given by the player</param>
 /// <returns></returns>
-bool CPlayer::checkDestination(std::string move)
+bool Player::checkDestination(std::string move)
 {
     bool ok = false;
     /* Check notation for the case of destination. */
@@ -382,7 +257,7 @@ bool CPlayer::checkDestination(std::string move)
 /// </summary>
 /// <param name="movement">Movement that is given by the player</param>
 /// <returns></returns>
-bool CPlayer::checkPiece(std::string move)
+bool Player::checkPiece(std::string move)
 {
     bool ok = false;    // Control flag for validity of movement. It helps to control logic of the function.
 
@@ -430,59 +305,6 @@ bool CPlayer::checkPiece(std::string move)
 /// Method to create the proper pieces when player instance is created.
 /// </summary>
 /// <param name="color"></param>
-void CPlayer::createPieces(bool color)
+void Player::createPieces(bool color)
 {
-    this->color = color;
-    if (color)      // White player pieces.
-    {
-        this->turn = 1;     // White player starts playing.
-        // Create eight pawns.
-        for (int i = 0; i < 8; i++)
-        {
-            CPawn pawn(color, whiteInitialPawns[i], i);
-            pawns.push_back(pawn);
-        }
-        CRook rook1(color, whiteInitialPieces[0], 1);
-        rooks.push_back(rook1);
-        CKnight knight1(color, whiteInitialPieces[1], 1);
-        knights.push_back(knight1);
-        CBishop bishop1(color, whiteInitialPieces[2], 1);
-        bishops.push_back(bishop1);
-        CQueen queen(color, whiteInitialPieces[3], 1);
-        queens.push_back(queen);
-        CKing king(color, whiteInitialPieces[4], 1);
-        kings.push_back(king);
-        CRook rook2(color, whiteInitialPieces[5], 2);
-        rooks.push_back(rook1);
-        CKnight knight2(color, whiteInitialPieces[6], 2);
-        knights.push_back(knight1);
-        CBishop bishop2(color, whiteInitialPieces[7], 2);
-        bishops.push_back(bishop1);
-    }
-    else            // Black player pieces.
-    {
-        this->turn = 0;     // White player starts playing.
-        // Create eight pawns.
-        for (int i = 0; i < 8; i++)
-        {
-            CPawn pawn(color, blackInitialPawns[i], i);
-            pawns.push_back(pawn);
-        }
-        CRook rook1(color, blackInitialPieces[0], 1);
-        rooks.push_back(rook1);
-        CKnight knight1(color, blackInitialPieces[1], 1);
-        knights.push_back(knight1);
-        CBishop bishop1(color, blackInitialPieces[2], 1);
-        bishops.push_back(bishop1);
-        CQueen queen(color, blackInitialPieces[3], 1);
-        queens.push_back(queen);
-        CKing king(color, blackInitialPieces[4], 1);
-        kings.push_back(king);
-        CRook rook2(color, blackInitialPieces[5], 2);
-        rooks.push_back(rook1);
-        CKnight knight2(color, blackInitialPieces[6], 2);
-        knights.push_back(knight1);
-        CBishop bishop2(color, blackInitialPieces[7], 2);
-        bishops.push_back(bishop1);
-    }
 }

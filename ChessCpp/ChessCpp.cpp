@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#include "CBoard.h"
-#include "CPlayer.h"
+#include "Board.h"
+#include "Player.h"
 #include "Movement.h"
 
 /// <summary>
@@ -46,11 +46,11 @@ void basicLogic()
     bool mate = false;  // Variable to indicate the end of the game.
 
     // Creation of board and both players.
-    CBoard board = CBoard();
+    Board board = Board();
     //_getch();     // Debugging purposes
-    CPlayer whitePlayer = CPlayer(true);
+    Player whitePlayer = Player(true);
     //_getch();     // Debugging purposes
-    CPlayer blackPlayer = CPlayer(false);
+    Player blackPlayer = Player(false);
     //_getch();     // Debugging purposes
 
     while (!mate)

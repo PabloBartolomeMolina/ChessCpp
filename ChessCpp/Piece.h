@@ -5,9 +5,7 @@
 #include <sstream>
 #include "Defines.h"
 
-;
-
-class CPiece
+class Piece
 {
 public:
 	 std::string id = "Nan";
@@ -16,8 +14,8 @@ public:
 	 std::string type = "Nan";
 	bool color = 0;
 
-	CPiece();
-	~CPiece();
+	Piece();
+	~Piece();
 	void move();
 };
 
