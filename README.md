@@ -4,6 +4,8 @@ Console program to play chess, written in C++
 ## Objective
 Creation of a C++ console application to play chess by using OOP
 
+The old project will be maintained in the branch "old/initial_version". A rearchitecture is ongoing within the use of branches.
+
 
 ## Properties of the compilation
 I am using Visual Studio 2019 as IDE, v142 and SDK version 10.0.
