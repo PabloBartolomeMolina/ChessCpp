@@ -4,7 +4,7 @@
         {
             "label": "Clean And Run",
             "type": "shell",
-            "command": "clear && java Main.java",
+            "command": "clear",
             "group": {
                 "kind": "build",
                 "isDefault": true
